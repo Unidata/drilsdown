@@ -8,11 +8,17 @@ github
   |
   +------ drilsdown
 ramadda-code
+  |
+  +------ src
+  +------ lib
 
 Get the RAMADDA source with:
 svn checkout svn://svn.code.sf.net/p/ramadda/code/ ramadda-code
 
 
 To build run:
-cd src/edu/miami/drilsdown
 ant
+
+This runs the ant script in src/edu/miami/drilsdown
+
+The plugin will be placed in the dist directory
