@@ -1,0 +1,4 @@
+
+<api handler="edu.miami.drilsdown.DrilsdownApiHandler" id="drilsdown">
+      <api request="/drilsdown/test"    method="processTest" admin="false"/>
+</api>
