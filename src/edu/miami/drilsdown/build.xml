@@ -6,7 +6,7 @@
         <property file="${basedir}/build.properties"/>
         <mkdir dir="${dist_dir}"/>
         <property name="jarfile" value="drilsdownplugin.jar"/>
-        <property name="classpath" value="${ramadda_src}/src:${lib_dir}/ramaddalib.jar:${lib_dir}/idv.jar:${lib_dir}/ncIdv.jar:${lib_dir}/jfreechart.jar:${lib_dir}/jmapproj.jar:${lib_dir}/jcommon.jar:${lib_dir}/servlet-api.jar"/>
+        <property name="classpath" value="${ramadda_base}/src:${lib_dir}/ramaddalib.jar:${lib_dir}/idv.jar:${lib_dir}/ncIdv.jar:${lib_dir}/servlet-api.jar"/>
         <echo message="${classpath}"/>
     </target>
 
@@ -46,7 +46,9 @@
             compress="true"
             jarfile="${dist_dir}/${jarfile}">
             <include name="edu/miami/**/*.txt"/>
+            <include name="edu/miami/**/*.xml"/>
             <include name="edu/miami/**/*.class"/>
+            <include name="edu/miami/**/*.png"/>
 	    </jar>
 
         <copy overwrite="true"  todir="${user.home}/.ramadda/plugins">

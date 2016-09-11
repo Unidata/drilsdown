@@ -4,25 +4,17 @@
 
 package edu.miami.drilsdown;
 
-import org.ramadda.data.services.RecordConstants;
-
 
 import org.ramadda.repository.*;
 import org.ramadda.repository.output.*;
 import org.ramadda.repository.type.*;
-import org.ramadda.repository.util.DateArgument;
-import org.ramadda.service.Service;
-import org.ramadda.service.ServiceArg;
 import org.ramadda.util.HtmlUtils;
 import org.ramadda.util.Json;
 import org.ramadda.util.Utils;
 
 import org.w3c.dom.Element;
 
-
 import ucar.unidata.util.StringUtil;
-
-
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -49,6 +41,37 @@ public class DrilsdownApiHandler extends RepositoryManager implements RequestHan
             throws Exception {
         super(repository);
     }
+
+    public Result processTest(Request request) throws Exception {
+        return new Result("Hello", new StringBuilder("drilsdown api test"));
+    }
+
+    public Result processGetBundle(Request request) throws Exception {
+        Entry              entry = getEntryManager().getEntryFromArg(request, ARG_ENTRYID);
+        if(entry == null) {
+            throw new RepositoryUtil.MissingEntryException("Could not find entry from entryid");
+        }
+        
+        Entry bundleEntry = null;
+
+
+        if(!entry.getTypeHandler().isType("type_idv_bundle")) {
+            for (Entry child : getEntryManager().getChildren(request, entry)) {
+                if(child.getTypeHandler().isType("type_idv_bundle")) {
+                    bundleEntry = child;
+                    break;
+                }
+            }
+        } else {
+            bundleEntry = entry;
+        }
+        if(bundleEntry == null) {
+            throw new RepositoryUtil.MissingEntryException("Could not find entry");
+        }
+
+        return getEntryManager().processEntryGet(request, bundleEntry);
+    }
+
 
 
 }
