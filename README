@@ -1,16 +1,14 @@
 
 This is the package for the drilsdown RAMADDA plugin
 
-This plugin relies on the RAMADDA SVN tree to be installed as a sibling of the parent directory of this directory. 
+This plugin relies on the RAMADDA SVN tree to be installed as a sibling of this  directory. 
 e.g. - 
 
-github
+source
   |
   +------ drilsdown
-ramadda-code
   |
-  +------ src
-  +------ lib
+  +------ ramadda-code
 
 Get the RAMADDA source with:
 svn checkout svn://svn.code.sf.net/p/ramadda/code/ ramadda-code
