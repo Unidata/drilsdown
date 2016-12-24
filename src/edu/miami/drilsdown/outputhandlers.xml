@@ -1,0 +1,3 @@
+<outputhandlers>
+  <outputhandler class="edu.miami.drilsdown.DrilsdownOutputHandler"  xrequired="false" name="IDC ISL"/>
+</outputhandlers>
