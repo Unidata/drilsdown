@@ -1,11 +1,10 @@
 /*
- * Copyright (c) 2008-2015 Geode Systems LLC
+ * Copyright (c) 2008-2016 Geode Systems LLC
  * This Software is licensed under the Geode Systems RAMADDA License available in the source distribution in the file 
  * ramadda_license.txt. The above copyright notice shall be included in all copies or substantial portions of the Software.
  */
 
-package edu.miami.drisldown;
-
+package edu.miami.drilsdown;
 
 
 import org.ramadda.repository.Entry;
@@ -14,11 +13,16 @@ import org.ramadda.repository.Repository;
 import org.ramadda.repository.RepositoryUtil;
 import org.ramadda.repository.Request;
 import org.ramadda.repository.Result;
+import org.ramadda.repository.map.*;
 import org.ramadda.repository.metadata.ContentMetadataHandler;
 import org.ramadda.repository.metadata.Metadata;
 import org.ramadda.repository.output.OutputHandler;
 import org.ramadda.repository.output.OutputType;
+
+
+import org.ramadda.repository.type.TypeHandler;
 import org.ramadda.util.HtmlUtils;
+import org.ramadda.util.SelectionRectangle;
 
 import org.w3c.dom.Element;
 
@@ -35,15 +39,17 @@ import java.util.List;
  */
 public class DrilsdownOutputHandler extends OutputHandler {
 
-    /** the JNLP template */
-    private static String jnlpTemplate;
+
+    /** The OutputType definition */
+    public static final OutputType OUTPUT_ISL =
+        new OutputType("Geolocated IDV ISL", "idv.isl",
+                       OutputType.TYPE_OTHER, "", "/idv/idv.gif");
 
 
     /** The OutputType definition */
-    public static final OutputType OUTPUT_WEBSTART =
-        new OutputType("Open in IDV", "idv.webstart", OutputType.TYPE_OTHER,
-                       "", "/idv/idv.gif");
-
+    public static final OutputType OUTPUT_ISLFORM =
+        new OutputType("Geolocated IDV ISL Form", "idv.islform",
+                       OutputType.TYPE_OTHER, "", "/idv/idv.gif");
 
 
     /**
@@ -56,7 +62,8 @@ public class DrilsdownOutputHandler extends OutputHandler {
     public DrilsdownOutputHandler(Repository repository, Element element)
             throws Exception {
         super(repository, element);
-        addType(OUTPUT_WEBSTART);
+        addType(OUTPUT_ISL);
+        addType(OUTPUT_ISLFORM);
     }
 
 
@@ -80,9 +87,11 @@ public class DrilsdownOutputHandler extends OutputHandler {
         if (entry.getResource().getPath().endsWith(".xidv")
                 || entry.getResource().getPath().endsWith(".zidv")) {
             String fileTail = getStorageManager().getFileTail(entry);
-            String suffix   = "/" + IOUtil.stripExtension(fileTail) + ".jnlp";
+            String suffix   = "/" + IOUtil.stripExtension(fileTail) + ".isl";
             //                suffix = java.net.URLEncoder.encode(suffix);
-            links.add(makeLink(request, state.getEntry(), OUTPUT_WEBSTART,
+            links.add(makeLink(request, state.getEntry(), OUTPUT_ISLFORM,
+                               suffix));
+            links.add(makeLink(request, state.getEntry(), OUTPUT_ISL,
                                suffix));
         }
     }
@@ -108,49 +117,49 @@ public class DrilsdownOutputHandler extends OutputHandler {
         return outputEntry(request, outputType, group);
     }
 
-
     /**
-     * Get the JNLP template from the Repository
+     * _more_
      *
-     * @param repository  the Repository
+     * @param request _more_
+     * @param outputType _more_
+     * @param entry _more_
      *
-     * @return  the template
+     * @return _more_
      *
-     * @throws Exception problems retreiving JNLP
+     * @throws Exception _more_
      */
-    public static String getJnlpTemplate(Repository repository)
+    public Result outputEntryForm(Request request, OutputType outputType,
+                                  Entry entry)
             throws Exception {
-        if (jnlpTemplate == null) {
-            String jnlpProperty =
-                repository.getProperty("ramadda.idv.jnlp.template",
-                                       (String) null);
-            String localPath =
-                repository.getStorageManager().localizePath(jnlpProperty);
-
-            if (localPath != null) {
-                try {
-                    jnlpTemplate = IOUtil.readContents(
-                        repository.getStorageManager().getInputStream(
-                            localPath));
-                    repository.getLogManager().logInfo(
-                        "IdvWebstartOutputHandler: using jnlp template: "
-                        + localPath);
-                } catch (Exception ignoreThis) {}
-            }
-            if (jnlpTemplate == null) {
-                jnlpTemplate = repository.getResource(
-                    "/org/ramadda/geodata/idv/template.jnlp");
-            }
-            //Replace the macros
-            for (String macro : new String[] { "codebase", "href", "title",
-                    "description", "maxheapsize" }) {
-                jnlpTemplate = jnlpTemplate.replace("${" + macro + "}",
-                        repository.getProperty("ramadda.idv.jnlp." + macro,
-                            ""));
-            }
+        if (request.exists(ARG_SUBMIT)) {
+            return outputEntryIsl(request, outputType, entry);
         }
+        StringBuilder sb = new StringBuilder();
+        getPageHandler().entrySectionOpen(request, entry, sb, "IDV ISL Form");
+        String formUrl = request.entryUrl(getRepository().URL_ENTRY_SHOW,
+                                          entry);
+        String formId = HtmlUtils.getUniqueId("form_");
+        sb.append(HtmlUtils.form(formUrl, HtmlUtils.id(formId)));
+        sb.append(HtmlUtils.hidden(ARG_ENTRYID, entry.getId()));
+        sb.append(HtmlUtils.hidden(ARG_OUTPUT, OUTPUT_ISLFORM.toString()));
+        sb.append(HtmlUtils.formTable());
+        SelectionRectangle bbox = TypeHandler.getSelectionBounds(request);
+        MapInfo map = getRepository().getMapManager().createMap(request,
+                          true, null);
 
-        return jnlpTemplate;
+        String mapSelector = map.makeSelector("bounds", true,
+                                 bbox.getStringArray(), "", "");
+        sb.append(formEntry(request, msgLabel("Area"), mapSelector));
+        sb.append(HtmlUtils.submit(msg("Make ISL"), ARG_SUBMIT));
+        sb.append(HtmlUtils.formTableClose());
+
+        sb.append(HtmlUtils.formClose());
+        //        OutputHandler.addUrlShowingForm(sb, formId, null);
+        getPageHandler().entrySectionClose(request, entry, sb);
+
+        Result result = new Result("", sb);
+
+        return result;
     }
 
 
@@ -168,30 +177,64 @@ public class DrilsdownOutputHandler extends OutputHandler {
     public Result outputEntry(Request request, OutputType outputType,
                               Entry entry)
             throws Exception {
-
-        String       jnlp = getJnlpTemplate(getRepository());
-
-        StringBuffer args = new StringBuffer();
-        if (entry.getResource().getPath().endsWith(".xidv")
-                || entry.getResource().getPath().endsWith(".zidv")) {
-
-            String fileTail = getStorageManager().getFileTail(entry);
-            String url =
-                HtmlUtils.url(request.makeUrl(getRepository().URL_ENTRY_GET)
-                              + "/" + fileTail, ARG_ENTRYID, entry.getId());
-            url = request.getAbsoluteUrl(url);
-            args.append("<argument>-bundle</argument>");
-            args.append("<argument>" + url + "</argument>");
-        } else {
-            List<Metadata> metadataList =
-                getMetadataManager().findMetadata(request, entry,
-                    ContentMetadataHandler.TYPE_ATTACHMENT, true);
+        if (outputType.equals(OUTPUT_ISLFORM)) {
+            return outputEntryForm(request, outputType, entry);
         }
-        jnlp = jnlp.replace("${args}", args.toString());
 
-        return new Result("", new StringBuffer(jnlp),
-                          "application/x-java-jnlp-file");
-        //        return new Result("",new StringBuffer(jnlp),"text/xml");
+        return outputEntryIsl(request, outputType, entry);
+    }
+
+    /**
+     * _more_
+     *
+     * @param request _more_
+     * @param outputType _more_
+     * @param entry _more_
+     *
+     * @return _more_
+     *
+     * @throws Exception _more_
+     */
+    public Result outputEntryIsl(Request request, OutputType outputType,
+                                 Entry entry)
+            throws Exception {
+
+
+        StringBuilder isl      = new StringBuilder();
+
+
+        String        fileTail = getStorageManager().getFileTail(entry);
+        String url =
+            HtmlUtils.url(request.makeUrl(getRepository().URL_ENTRY_GET)
+                          + "/" + fileTail, ARG_ENTRYID, entry.getId());
+        url = request.getAbsoluteUrl(url);
+        isl.append("<isl>\n<bundle file=\"");
+        isl.append(url);
+        isl.append("\" ");
+        System.err.println("bounds:" + request);
+        String north = request.getString("north",
+                                         request.getString("bounds_north",
+                                             "90"));
+        String west = request.getString("west",
+                                        request.getString("bounds_west",
+                                            "-180"));
+        String south = request.getString("south",
+                                         request.getString("bounds_south",
+                                             "-90"));
+        String east = request.getString("east",
+                                        request.getString("bounds_east",
+                                            "180"));
+        isl.append("bbox=\"" + north + "," + west + "," + south + "," + east
+                   + "\"");
+        isl.append("/>\n");
+        isl.append("<pause/>\n");
+        isl.append("<center north=\"" + north + "\" west=\"" + west
+                   + "\" south=\"" + south + "\" east=\"" + east + "\" />\n");
+        isl.append("</isl>\n");
+        Result result = new Result("", isl, "application/x-idv-isl");
+        result.setReturnFilename(fileTail + ".isl");
+
+        return result;
     }
 
 
