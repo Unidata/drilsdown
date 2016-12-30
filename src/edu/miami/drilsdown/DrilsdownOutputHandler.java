@@ -23,6 +23,7 @@ import org.ramadda.repository.output.OutputType;
 import org.ramadda.repository.type.TypeHandler;
 import org.ramadda.util.HtmlUtils;
 import org.ramadda.util.SelectionRectangle;
+import org.ramadda.util.Utils;
 
 import org.w3c.dom.Element;
 
@@ -136,9 +137,8 @@ public class DrilsdownOutputHandler extends OutputHandler {
         }
         StringBuilder sb = new StringBuilder();
         getPageHandler().entrySectionOpen(request, entry, sb, "IDV ISL Form");
-        String formUrl = request.entryUrl(getRepository().URL_ENTRY_SHOW,
-                                          entry);
-        String formId = HtmlUtils.getUniqueId("form_");
+        String formUrl = request.makeUrl(getRepository().URL_ENTRY_SHOW);
+        String formId  = HtmlUtils.getUniqueId("form_");
         sb.append(HtmlUtils.form(formUrl, HtmlUtils.id(formId)));
         sb.append(HtmlUtils.hidden(ARG_ENTRYID, entry.getId()));
         sb.append(HtmlUtils.hidden(ARG_OUTPUT, OUTPUT_ISLFORM.toString()));
@@ -150,11 +150,29 @@ public class DrilsdownOutputHandler extends OutputHandler {
         String mapSelector = map.makeSelector("bounds", true,
                                  bbox.getStringArray(), "", "");
         sb.append(formEntry(request, msgLabel("Area"), mapSelector));
+
+        String fromDate = getPageHandler().makeDateInput(request,
+                              ARG_FROMDATE, formId, null, null, false);
+        String endDate = getPageHandler().makeDateInput(request, ARG_TODATE,
+                             formId, null, null, false);
+
+        sb.append(formEntry(request, msgLabel("Date Range"),
+                            "From: " + fromDate + "  To: " + endDate
+                            + " Note: Not implemented yet in the IDV"));
         sb.append(HtmlUtils.submit(msg("Make ISL"), ARG_SUBMIT));
         sb.append(HtmlUtils.formTableClose());
 
         sb.append(HtmlUtils.formClose());
-        //        OutputHandler.addUrlShowingForm(sb, formId, null);
+
+        sb.append("<p>");
+        sb.append("To make a URL directly do:<br>");
+        String example = request.getAbsoluteUrl(formUrl) + "?" + ARG_ENTRYID
+                         + "=" + entry.getId() + "&" + ARG_OUTPUT + "="
+                         + OUTPUT_ISL.toString()
+                         + "&north=90&west=-180&south=-90&east=180" + "&"
+                         + ARG_FROMDATE + "=2015-01-01" + "&" + ARG_TODATE
+                         + "=2016-01-01";
+        sb.append(HtmlUtils.href(example, example));
         getPageHandler().entrySectionClose(request, entry, sb);
 
         Result result = new Result("", sb);
@@ -211,7 +229,8 @@ public class DrilsdownOutputHandler extends OutputHandler {
         isl.append("<isl>\n<bundle file=\"");
         isl.append(url);
         isl.append("\" ");
-        System.err.println("bounds:" + request);
+
+
         String north = request.getString("north",
                                          request.getString("bounds_north",
                                              "90"));
@@ -224,12 +243,32 @@ public class DrilsdownOutputHandler extends OutputHandler {
         String east = request.getString("east",
                                         request.getString("bounds_east",
                                             "180"));
-        isl.append("bbox=\"" + north + "," + west + "," + south + "," + east
-                   + "\"");
+        boolean haveBbox =
+            Utils.stringDefined(north)
+            && (Utils.stringDefined(west) & Utils.stringDefined(south))
+            && Utils.stringDefined(east);
+        if (haveBbox) {
+            isl.append(" bbox=\"" + north + "," + west + "," + south + ","
+                       + east + "\"");
+        }
+
+        String fromDate = request.getString(ARG_FROMDATE, (String) null);
+        String toDate   = request.getString(ARG_TODATE, (String) null);
+        if (Utils.stringDefined(fromDate)) {
+            isl.append(" fromDate=\"" + fromDate + "\"");
+        }
+        if (Utils.stringDefined(toDate)) {
+            isl.append(" toDate=\"" + toDate + "\"");
+        }
+
+
         isl.append("/>\n");
         isl.append("<pause/>\n");
-        isl.append("<center north=\"" + north + "\" west=\"" + west
-                   + "\" south=\"" + south + "\" east=\"" + east + "\" />\n");
+        if (haveBbox) {
+            isl.append("<center north=\"" + north + "\" west=\"" + west
+                       + "\" south=\"" + south + "\" east=\"" + east
+                       + "\" />\n");
+        }
         isl.append("</isl>\n");
         Result result = new Result("", isl, "application/x-idv-isl");
         result.setReturnFilename(fileTail + ".isl");
