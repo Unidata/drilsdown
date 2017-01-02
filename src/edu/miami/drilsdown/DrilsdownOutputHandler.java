@@ -37,24 +37,25 @@ import java.util.List;
 
 
 /**
+This class supports generating IDV ISL files for IDV bundle entries
  */
 public class DrilsdownOutputHandler extends OutputHandler {
 
 
-    /** The OutputType definition */
+    /** The OutputType definition for the generated ISL */
     public static final OutputType OUTPUT_ISL =
         new OutputType("Geolocated IDV ISL", "idv.isl",
                        OutputType.TYPE_OTHER, "", "/idv/idv.gif");
 
 
-    /** The OutputType definition */
+    /** The OutputType definition for the end-user ISL form */
     public static final OutputType OUTPUT_ISLFORM =
         new OutputType("Geolocated IDV ISL Form", "idv.islform",
                        OutputType.TYPE_OTHER, "", "/idv/idv.gif");
 
 
     /**
-     * Create an IdvWebstartOutputHandler
+     * CTOR
      *
      * @param repository  the repository
      * @param element     the Entry to serve
@@ -70,7 +71,7 @@ public class DrilsdownOutputHandler extends OutputHandler {
 
 
     /**
-     * Get the entry links
+     * Get the entry links if the entry is an IDV bundle file
      *
      * @param request  the Request
      * @param state    the Entry
@@ -119,15 +120,15 @@ public class DrilsdownOutputHandler extends OutputHandler {
     }
 
     /**
-     * _more_
+     * Make the ISL form
      *
-     * @param request _more_
-     * @param outputType _more_
-     * @param entry _more_
+     * @param request The request
+     * @param outputType The output
+     * @param entry The entry
      *
-     * @return _more_
+     * @return The ISL form result
      *
-     * @throws Exception _more_
+     * @throws Exception On  badness
      */
     public Result outputEntryForm(Request request, OutputType outputType,
                                   Entry entry)
@@ -182,7 +183,7 @@ public class DrilsdownOutputHandler extends OutputHandler {
 
 
     /**
-     * Output an Entry
+     * Output an Entry. This either handles the ISL generation or the ISL form request
      *
      * @param request     the Request
      * @param outputType  type of Output
@@ -203,15 +204,15 @@ public class DrilsdownOutputHandler extends OutputHandler {
     }
 
     /**
-     * _more_
+     * Generate the IDV ISL file
      *
-     * @param request _more_
-     * @param outputType _more_
-     * @param entry _more_
+     * @param request The request
+     * @param outputType The output type
+     * @param entry The entry
      *
-     * @return _more_
+     * @return the result ISL
      *
-     * @throws Exception _more_
+     * @throws Exception on badness
      */
     public Result outputEntryIsl(Request request, OutputType outputType,
                                  Entry entry)
@@ -231,6 +232,8 @@ public class DrilsdownOutputHandler extends OutputHandler {
         isl.append("\" ");
 
 
+        //Get the bounds from the arguments
+        //Support both north= and bounds_north=
         String north = request.getString("north",
                                          request.getString("bounds_north",
                                              "90"));
@@ -252,13 +255,14 @@ public class DrilsdownOutputHandler extends OutputHandler {
                        + east + "\"");
         }
 
+        //Get the date ranges
         String fromDate = request.getString(ARG_FROMDATE, (String) null);
         String toDate   = request.getString(ARG_TODATE, (String) null);
         if (Utils.stringDefined(fromDate)) {
-            isl.append(" fromDate=\"" + fromDate + "\"");
+            isl.append(" timedriverstart=\"" + fromDate + "\"");
         }
         if (Utils.stringDefined(toDate)) {
-            isl.append(" toDate=\"" + toDate + "\"");
+            isl.append(" timedriverend=\"" + toDate + "\"");
         }
 
 
