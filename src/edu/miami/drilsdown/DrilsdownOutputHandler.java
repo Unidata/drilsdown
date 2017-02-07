@@ -139,10 +139,10 @@ public class DrilsdownOutputHandler extends OutputHandler {
                                   Entry entry)
             throws Exception {
         if (request.exists(ARG_SUBMIT)) {
-            if(request.get(ARG_MAKENOTEBOOK, false)) {
-                return outputEntryNotebook(request, outputType, entry);
-            }
             return outputEntryIsl(request, outputType, entry);
+        }
+        if(request.exists(ARG_MAKENOTEBOOK)) {
+            return outputEntryNotebook(request, outputType, entry);
         }
 
         StringBuilder sb = new StringBuilder();
@@ -169,15 +169,9 @@ public class DrilsdownOutputHandler extends OutputHandler {
         sb.append(formEntry(request, msgLabel("Date Range"),
                             "From: " + fromDate + "  To: " + endDate
                             ));
-        sb.append(formEntry(request, "",
-                            HtmlUtils.checkbox(ARG_MAKENOTEBOOK,"true", 
-                                               request.get(ARG_MAKENOTEBOOK, false)) +
-
-                            HtmlUtils.space(2) +
-                            "Make IPython Notebook"
-                                               ));
-
         sb.append(HtmlUtils.submit(msg("Make ISL"), ARG_SUBMIT));
+        sb.append(HtmlUtils.space(2));
+        sb.append(HtmlUtils.submit(msg("Make IPython Notebook"), ARG_MAKENOTEBOOK));
         sb.append(HtmlUtils.formTableClose());
 
         sb.append(HtmlUtils.formClose());

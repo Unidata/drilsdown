@@ -49,6 +49,7 @@
             <include name="edu/miami/**/*.xml"/>
             <include name="edu/miami/**/*.class"/>
             <include name="edu/miami/**/*.png"/>
+            <include name="edu/miami/**/*.json"/>
 	    </jar>
 
         <copy overwrite="true"  todir="${user.home}/.ramadda/plugins">
