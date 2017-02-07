@@ -22,6 +22,7 @@ import org.ramadda.repository.output.OutputType;
 
 import org.ramadda.repository.type.TypeHandler;
 import org.ramadda.util.HtmlUtils;
+import org.ramadda.util.Json;
 import org.ramadda.util.SelectionRectangle;
 import org.ramadda.util.Utils;
 
@@ -33,6 +34,7 @@ import ucar.unidata.util.IOUtil;
 
 import java.io.File;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,6 +42,9 @@ import java.util.List;
 This class supports generating IDV ISL files for IDV bundle entries
  */
 public class DrilsdownOutputHandler extends OutputHandler {
+
+    public static final String ARG_MAKENOTEBOOK = "makenotebook";
+
 
 
     /** The OutputType definition for the generated ISL */
@@ -134,8 +139,12 @@ public class DrilsdownOutputHandler extends OutputHandler {
                                   Entry entry)
             throws Exception {
         if (request.exists(ARG_SUBMIT)) {
+            if(request.get(ARG_MAKENOTEBOOK, false)) {
+                return outputEntryNotebook(request, outputType, entry);
+            }
             return outputEntryIsl(request, outputType, entry);
         }
+
         StringBuilder sb = new StringBuilder();
         getPageHandler().entrySectionOpen(request, entry, sb, "IDV ISL Form");
         String formUrl = request.makeUrl(getRepository().URL_ENTRY_SHOW);
@@ -159,7 +168,15 @@ public class DrilsdownOutputHandler extends OutputHandler {
 
         sb.append(formEntry(request, msgLabel("Date Range"),
                             "From: " + fromDate + "  To: " + endDate
-                            + " Note: Not implemented yet in the IDV"));
+                            ));
+        sb.append(formEntry(request, "",
+                            HtmlUtils.checkbox(ARG_MAKENOTEBOOK,"true", 
+                                               request.get(ARG_MAKENOTEBOOK, false)) +
+
+                            HtmlUtils.space(2) +
+                            "Make IPython Notebook"
+                                               ));
+
         sb.append(HtmlUtils.submit(msg("Make ISL"), ARG_SUBMIT));
         sb.append(HtmlUtils.formTableClose());
 
@@ -269,7 +286,7 @@ public class DrilsdownOutputHandler extends OutputHandler {
         isl.append("/>\n");
         isl.append("<pause/>\n");
         if (haveBbox) {
-            isl.append("<center north=\"" + north + "\" west=\"" + west
+            isl.append("<center useprojection=\"true\" north=\"" + north + "\" west=\"" + west
                        + "\" south=\"" + south + "\" east=\"" + east
                        + "\" />\n");
         }
@@ -279,6 +296,108 @@ public class DrilsdownOutputHandler extends OutputHandler {
 
         return result;
     }
+
+    public Result outputEntryNotebook(Request request, OutputType outputType,
+                                 Entry entry)
+            throws Exception {
+
+        List<String> mainMap = new ArrayList<String>();
+        String        fileTail = getStorageManager().getFileTail(entry);
+        String url =
+            HtmlUtils.url(request.makeUrl(getRepository().URL_ENTRY_GET)
+                          + "/" + fileTail, ARG_ENTRYID, entry.getId());
+        url = request.getAbsoluteUrl(url);
+
+        List<String> codeCell = new ArrayList<String>();
+        codeCell.add("cell_type");
+        codeCell.add(Json.quote("code"));
+        codeCell.add("execution_count");
+        codeCell.add("1");
+        codeCell.add("metadata");
+        codeCell.add(Json.map("collapsed","false"));
+        codeCell.add("outputs");
+        codeCell.add(Json.list());
+        codeCell.add("source");
+        List<String> codeLines = new ArrayList<String>();
+        codeLines.add("#Code generated from RAMADDA\n");
+        //        codeLines.add("global generatedNotebook;\n");
+        //        codeLines.add("generatedNotebook = 1;\n");
+        codeLines.add("%reload_ext drilsdown\n");
+        codeLines.add("bundleUrl = \"" +  url +"\"" +"\n");
+        Entry parentEntry  = entry.getParentEntry();
+        codeLines.add("%setRamadda " + request.getAbsoluteUrl("/entry/show") + "?" + ARG_ENTRYID
+                      + "=" + parentEntry.getId()+"  -nolist\n");
+
+
+
+
+
+        //Get the bounds from the arguments
+        //Support both north= and bounds_north=
+        String north = request.getString("north",
+                                         request.getString("bounds_north",
+                                             "90"));
+        String west = request.getString("west",
+                                        request.getString("bounds_west",
+                                            "-180"));
+        String south = request.getString("south",
+                                         request.getString("bounds_south",
+                                             "-90"));
+        String east = request.getString("east",
+                                        request.getString("bounds_east",
+                                            "180"));
+        boolean haveBbox =
+            Utils.stringDefined(north)
+            && (Utils.stringDefined(west) & Utils.stringDefined(south))
+            && Utils.stringDefined(east);
+        if (haveBbox) {
+            //            isl.append(" bbox=\"" + north + "," + west + "," + south + ","
+            //                       + east + "\"");
+        }
+
+
+        //Get the date ranges
+        String fromDate = request.getString(ARG_FROMDATE, (String) null);
+        String toDate   = request.getString(ARG_TODATE, (String) null);
+        if (Utils.stringDefined(fromDate)) {
+            //            isl.append(" timedriverstart=\"" + fromDate + "\"");
+        }
+        if (Utils.stringDefined(toDate)) {
+            //            isl.append(" timedriverend=\"" + toDate + "\"");
+        }
+
+        if (haveBbox) {
+            codeLines.add("%setBBOX  " +  north + " " +  west + " " + south + " "  + east +"\n");
+        }
+
+        codeLines.add("%loadBundle $bundleUrl\n");
+        codeLines.add("%makeImage\n");
+
+
+        codeCell.add(Json.list(codeLines,true));
+        mainMap.add("cells");
+        mainMap.add(Json.list(Json.map(codeCell)));
+
+
+        mainMap.add("metadata");
+        String bulkMetadata = getRepository().getResource("/edu/miami/drilsdown/metadata.json");
+        mainMap.add(bulkMetadata);
+        mainMap.add("nbformat");
+        mainMap.add("4");
+        mainMap.add("nbformat_minor");
+        mainMap.add("0");
+
+
+
+        StringBuilder notebook = new StringBuilder(Json.map(mainMap));
+        Result result = new Result("", notebook, "application/x-ipynb+json");
+        result.setReturnFilename(fileTail + ".ipynb");
+
+        return result;
+    }
+
+
+
 
 
 
