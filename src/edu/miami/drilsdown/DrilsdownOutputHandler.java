@@ -290,6 +290,20 @@ public class DrilsdownOutputHandler extends OutputHandler {
 
         return result;
     }
+    private String makeCodeCell(List<String> codeLines) {
+        List<String> codeCell = new ArrayList<String>();
+        codeCell.add("cell_type");
+        codeCell.add(Json.quote("code"));
+        codeCell.add("execution_count");
+        codeCell.add("1");
+        codeCell.add("metadata");
+        codeCell.add(Json.map("collapsed","false"));
+        codeCell.add("outputs");
+        codeCell.add(Json.list());
+        codeCell.add("source");
+        codeCell.add(Json.list(codeLines,true));
+        return Json.map(codeCell);
+    }
 
     public Result outputEntryNotebook(Request request, OutputType outputType,
                                  Entry entry)
@@ -301,30 +315,23 @@ public class DrilsdownOutputHandler extends OutputHandler {
             HtmlUtils.url(request.makeUrl(getRepository().URL_ENTRY_GET)
                           + "/" + fileTail, ARG_ENTRYID, entry.getId());
         url = request.getAbsoluteUrl(url);
+        Entry parentEntry  = entry.getParentEntry();
 
-        List<String> codeCell = new ArrayList<String>();
-        codeCell.add("cell_type");
-        codeCell.add(Json.quote("code"));
-        codeCell.add("execution_count");
-        codeCell.add("1");
-        codeCell.add("metadata");
-        codeCell.add(Json.map("collapsed","false"));
-        codeCell.add("outputs");
-        codeCell.add(Json.list());
-        codeCell.add("source");
+        List<String> codeCells  = new ArrayList<String>();
         List<String> codeLines = new ArrayList<String>();
         codeLines.add("#Code generated from RAMADDA\n");
-        //        codeLines.add("global generatedNotebook;\n");
-        //        codeLines.add("generatedNotebook = 1;\n");
+        codeLines.add("global generatedNotebook;\n");
+        codeLines.add("generatedNotebook = True;\n");
         codeLines.add("%reload_ext drilsdown\n");
+        codeLines.add("from drilsdown import Ramadda;\n");
+        codeLines.add("from drilsdown import Idv;\n");
+
+        codeLines.add("Ramadda.setRamadda(\"" + request.getAbsoluteUrl("/entry/show") + "?" + ARG_ENTRYID
+                      + "=" + parentEntry.getId()+"\",False);\n");
+        codeCells.add(makeCodeCell(codeLines));
+        codeLines = new ArrayList<String>();
         codeLines.add("bundleUrl = \"" +  url +"\"" +"\n");
-        Entry parentEntry  = entry.getParentEntry();
-        codeLines.add("%setRamadda " + request.getAbsoluteUrl("/entry/show") + "?" + ARG_ENTRYID
-                      + "=" + parentEntry.getId()+"  -nolist\n");
-
-
-
-
+        codeLines.add("bundleName = \"" +  entry.getName() +"\"" +"\n");
 
         //Get the bounds from the arguments
         //Support both north= and bounds_north=
@@ -365,12 +372,11 @@ public class DrilsdownOutputHandler extends OutputHandler {
         }
 
         codeLines.add("%loadBundle $bundleUrl\n");
-        codeLines.add("%makeImage\n");
+        codeLines.add("%makeImage -caption " +  entry.getName().replaceAll(" ","-"));
 
-
-        codeCell.add(Json.list(codeLines,true));
+        codeCells.add(makeCodeCell(codeLines));
         mainMap.add("cells");
-        mainMap.add(Json.list(Json.map(codeCell)));
+        mainMap.add(Json.list(codeCells));
 
 
         mainMap.add("metadata");
