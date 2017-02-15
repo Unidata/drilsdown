@@ -371,8 +371,8 @@ public class DrilsdownOutputHandler extends OutputHandler {
             codeLines.add("%setBBOX  " +  north + " " +  west + " " + south + " "  + east +"\n");
         }
 
-        codeLines.add("%loadBundle $bundleUrl\n");
-        codeLines.add("%makeImage -caption " +  entry.getName().replaceAll(" ","-"));
+        codeLines.add("Idv.loadBundle(bundleUrl);\n");
+        codeLines.add("Idv.makeImage(False,\"" +  entry.getName().replaceAll(" ","-") +"\");\n");
 
         codeCells.add(makeCodeCell(codeLines));
         mainMap.add("cells");
