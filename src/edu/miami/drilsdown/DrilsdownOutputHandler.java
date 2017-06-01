@@ -59,6 +59,14 @@ public class DrilsdownOutputHandler extends OutputHandler {
                        OutputType.TYPE_OTHER, "", "/idv/idv.gif");
 
 
+    /** The OutputType definition for the generated notebooks for folders */
+    public static final OutputType OUTPUT_NOTEBOOK =
+        new OutputType("iPython Notebook", "drilsdown.notebook",
+                       OutputType.TYPE_OTHER, "", "/icons/python.png");
+
+
+
+
     /**
      * CTOR
      *
@@ -71,6 +79,7 @@ public class DrilsdownOutputHandler extends OutputHandler {
         super(repository, element);
         addType(OUTPUT_ISL);
         addType(OUTPUT_ISLFORM);
+        addType(OUTPUT_NOTEBOOK);
     }
 
 
@@ -91,6 +100,11 @@ public class DrilsdownOutputHandler extends OutputHandler {
         if (entry == null) {
             return;
         }
+        if(entry.isGroup()) {
+            String suffix   = "/" + IOUtil.stripExtension(entry.getName()) + ".ipynb";
+            links.add(makeLink(request, state.getEntry(), OUTPUT_NOTEBOOK,suffix));
+        }
+
         if (entry.getResource().getPath().endsWith(".xidv")
                 || entry.getResource().getPath().endsWith(".zidv")) {
             String fileTail = getStorageManager().getFileTail(entry);
@@ -121,8 +135,69 @@ public class DrilsdownOutputHandler extends OutputHandler {
                               Entry group, List<Entry> subGroups,
                               List<Entry> entries)
             throws Exception {
+        if(outputType.equals(OUTPUT_NOTEBOOK)) {
+            return outputGroupNotebook(request, group, subGroups, entries);
+        }
         return outputEntry(request, outputType, group);
     }
+
+
+    public Result outputGroupNotebook(Request request, 
+                              Entry group, List<Entry> subGroups,
+                              List<Entry> entries)
+            throws Exception {
+        List<String> mainMap = new ArrayList<String>();
+        List<String> codeCells  = new ArrayList<String>();
+        List<String> codeLines = new ArrayList<String>();
+        codeLines.add("#Code generated from RAMADDA\n");
+        codeLines.add("global generatedNotebook;\n");
+        codeLines.add("generatedNotebook = True;\n");
+        codeLines.add("%reload_ext drilsdown\n");
+        codeLines.add("from drilsdown import Ramadda;\n");
+        codeLines.add("from drilsdown import RamaddaEntry;\n");
+        codeLines.add("from drilsdown import Idv;\n");
+        codeLines.add("from drilsdown import DrilsdownUI;\n");
+        codeLines.add("entries=[];\n");
+        subGroups.addAll(entries);
+        codeLines.add("theRamadda = Ramadda('" + request.getAbsoluteUrl(getRepository().URL_ENTRY_SHOW)+"?entryid=" + group.getId() +  "');\n");
+
+        for(Entry entry: subGroups) {
+            
+            String icon = getPageHandler().getIconUrl(request, entry);
+            String url = "";
+            String fileSize = "0";
+            codeLines.add("entries.add(RamaddaEntry(theRamadda, '" + entry.getName()+"', '" + entry.getId() +"' , '" + entry.getType() +"' , '" + icon+"' , '" + url +"', " + fileSize+"));\n");
+        }
+        codeLines.add("theRamadda.displayEntries('Entries', entries);\n");
+
+        codeCells.add(makeCodeCell(codeLines));
+        codeLines = new ArrayList<String>();
+
+
+        //        codeLines.add("Idv.loadBundle(bundleUrl);\n");
+        //        codeLines.add("Idv.makeImage(False,\"" +  entry.getName().replaceAll(" ","-") +"\");\n");
+
+        codeCells.add(makeCodeCell(codeLines));
+        mainMap.add("cells");
+        mainMap.add(Json.list(codeCells));
+
+
+        mainMap.add("metadata");
+        String bulkMetadata = getRepository().getResource("/edu/miami/drilsdown/metadata.json");
+        mainMap.add(bulkMetadata);
+        mainMap.add("nbformat");
+        mainMap.add("4");
+        mainMap.add("nbformat_minor");
+        mainMap.add("0");
+
+
+        StringBuilder notebook = new StringBuilder(Json.map(mainMap));
+        Result result = new Result("", notebook, "application/x-ipynb+json");
+        result.setReturnFilename(group.getName() + ".ipynb");
+        return result;
+    }
+
+
 
     /**
      * Make the ISL form
@@ -323,11 +398,12 @@ public class DrilsdownOutputHandler extends OutputHandler {
         codeLines.add("global generatedNotebook;\n");
         codeLines.add("generatedNotebook = True;\n");
         codeLines.add("%reload_ext drilsdown\n");
+        codeLines.add("from drilsdown import Repository;\n");
         codeLines.add("from drilsdown import Ramadda;\n");
         codeLines.add("from drilsdown import Idv;\n");
 
-        codeLines.add("Ramadda.setRamadda(\"" + request.getAbsoluteUrl("/entry/show") + "?" + ARG_ENTRYID
-                      + "=" + parentEntry.getId()+"\",False);\n");
+        codeLines.add("Repository.setRepository(Ramadda(\"" + request.getAbsoluteUrl("/entry/show") + "?" + ARG_ENTRYID
+                      + "=" + parentEntry.getId()+"\"),False);\n");
         codeCells.add(makeCodeCell(codeLines));
         codeLines = new ArrayList<String>();
         codeLines.add("bundleUrl = \"" +  url +"\"" +"\n");
