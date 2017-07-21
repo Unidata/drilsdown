@@ -8,27 +8,39 @@
      <property name="form.altitude.top.show" value="false"/>
      <wiki><![CDATA[
 {{noheading}}
-+inset
-<table width="100%">
-<tr valign=top>
-<td width="50%">
-<div style="max-height: 400px; overflow-y: auto;">
+<wiki>
 :title {{name}}
-
++inset
+<table>
+<tr valign="top"><td width="75%">
 {{description wikify="true"}}
-</div>
-
-<p>
-{{tree message="" details="false" prefix="==Case Study Contents=="}}
-
 </td>
-<td width="50%">
+<td width="25%">
 {{image src="::*" message="" width="300"}}
-<p>
-
-</td></tr>
+</td>
 </table>
 -inset
+
+
++section title="Notebooks"
+{{tabs  entries.filter="type:python_notebook" message="No notebooks"}}
+-section
+
++section title="Images"
+{{gallery  width="200"  columns="3"  popup="true"  thumbnail="true"  caption="Figure ${count}: ${name}"  popupcaption="over"  message="No Images"}}
+-section
+
+
++section title="All Content"
+{{tree}}
+
+-section
+
+
+
+
+
+
 ]]>
 </wiki>
 
