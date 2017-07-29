@@ -22,18 +22,22 @@
 -inset
 
 
-+section title="Notebooks"
-{{tabs  entries.filter="type:python_notebook" message="No notebooks"}}
++section
+{{tabs  entries.filter="type:python_notebook" message="" heading="Notebooks"}}
 -section
 
-+section title="Images"
-{{gallery  width="200"  columns="3"  popup="true"  thumbnail="true"  caption="Figure ${count}: ${name}"  popupcaption="over"  message="No Images"}}
++section
+{{gallery  width="200"  columns="3"  popup="true"  thumbnail="true"  caption="Figure ${count}: ${name}"  popupcaption="over"  message="" heading="Images"}}
 -section
 
++section
+<center>
+{{map width="800" height="400"  listentries="true" entries.filter="type:type_idv_bundle" message="" heading="Geolocated IDV Bundles"}}
+</center>
+-section
 
-+section title="All Content"
-{{tree}}
-
++section
+{{tree message="" heading="All Content"}}
 -section
 
 
