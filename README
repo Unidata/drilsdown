@@ -1,9 +1,9 @@
 
 This is the package for the drilsdown RAMADDA plugin
 
-The <a href="https://github.com/Unidata/drilsdown/blob/master/ramaddaplugin.jar">ramaddaplugin.jar</a> is the publisher plugin for the IDV
+The [ramaddaplugin.jar](https://github.com/Unidata/drilsdown/blob/master/ramaddaplugin.jar) is the publisher plugin for the IDV
 
-The <a href="https://github.com/Unidata/drilsdown/blob/master/drilsdownplugin.jar">drilsdownplugin.jar</a> is the plugin for RAMADDA that provides some drilsdown specific functionality
+The [drilsdownplugin.jar](https://github.com/Unidata/drilsdown/blob/master/drilsdownplugin.jar) is the plugin for RAMADDA that provides some drilsdown specific functionality
 
 
 To build from source:
