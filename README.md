@@ -10,11 +10,13 @@ To build from source:
 This plugin relies on the RAMADDA SVN tree to be installed as a sibling of this  directory. 
 e.g. - 
 
+<pre>
 source
   |
   +------ drilsdown
   |
   +------ ramadda-code
+</pre>
 
 Get the RAMADDA source with:
 svn checkout svn://svn.code.sf.net/p/ramadda/code/ ramadda-code
