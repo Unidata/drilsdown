@@ -345,10 +345,10 @@ public class DrilsdownOutputHandler extends OutputHandler {
         String fromDate = request.getString(ARG_FROMDATE, (String) null);
         String toDate   = request.getString(ARG_TODATE, (String) null);
         if (Utils.stringDefined(fromDate)) {
-            isl.append(" timedriverstart=\"" + fromDate + "\"");
+            isl.append(" timedriverstart=\"" + fromDate + " 00:00:00\"");
         }
         if (Utils.stringDefined(toDate)) {
-            isl.append(" timedriverend=\"" + toDate + "\"");
+            isl.append(" timedriverend=\"" + toDate + " 24:00:00\"");
         }
 
 
@@ -395,14 +395,13 @@ public class DrilsdownOutputHandler extends OutputHandler {
         List<String> codeCells  = new ArrayList<String>();
         List<String> codeLines = new ArrayList<String>();
         codeLines.add("#Code generated from RAMADDA\n");
-        codeLines.add("global generatedNotebook;\n");
-        codeLines.add("generatedNotebook = True;\n");
-        codeLines.add("%reload_ext drilsdown\n");
+        codeLines.add("#uncomment if you have drilsdown installed as an extension\n");
+        codeLines.add("#%reload_ext drilsdown\n");
         codeLines.add("from drilsdown import Repository;\n");
         codeLines.add("from drilsdown import Ramadda;\n");
         codeLines.add("from drilsdown import Idv;\n");
 
-        codeLines.add("Repository.setRepository(Ramadda(\"" + request.getAbsoluteUrl("/entry/show") + "?" + ARG_ENTRYID
+        codeLines.add("Repository.set_repository(Ramadda(\"" + request.getAbsoluteUrl(getRepository().getUrlBase()+"/entry/show") + "?" + ARG_ENTRYID
                       + "=" + parentEntry.getId()+"\"),False);\n");
         codeCells.add(makeCodeCell(codeLines));
         codeLines = new ArrayList<String>();
@@ -447,8 +446,8 @@ public class DrilsdownOutputHandler extends OutputHandler {
             codeLines.add("%setBBOX  " +  north + " " +  west + " " + south + " "  + east +"\n");
         }
 
-        codeLines.add("Idv.loadBundle(bundleUrl);\n");
-        codeLines.add("Idv.makeImage(False,\"" +  entry.getName().replaceAll(" ","-") +"\");\n");
+        codeLines.add("Idv.load_bundle(bundleUrl);\n");
+        codeLines.add("Idv.make_image(publish=False, caption=\"" +  entry.getName().replaceAll(" ","-") +"\");\n");
 
         codeCells.add(makeCodeCell(codeLines));
         mainMap.add("cells");
