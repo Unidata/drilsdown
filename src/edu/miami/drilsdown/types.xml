@@ -23,12 +23,19 @@
 
 
 +section
-{{tabs  entries.filter="type:python_notebook" message="" heading="Notebooks"}}
+{{tree message="" heading="All Content" box.maxheight="400"}}
 -section
+
 
 +section
 {{gallery  width="200"  columns="3"  popup="true"  thumbnail="true"  caption="Figure ${count}: ${name}"  popupcaption="over"  message="" heading="Images"}}
 -section
+
+
++section
+{{tabs  entries.filter="type:python_notebook" message="" heading="Notebooks"}}
+-section
+
 
 +section
 <center>
@@ -36,9 +43,6 @@
 </center>
 -section
 
-+section
-{{tree message="" heading="All Content"}}
--section
 
 
 
