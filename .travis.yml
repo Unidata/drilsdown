@@ -1,0 +1,18 @@
+language: python
+python:
+-   '2.7'
+-   '3.4'
+-   '3.5'
+-   '3.6'
+before_install:
+- travis_retry pip install --upgrade pip
+- travis_retry pip install ipython
+- travis_retry pip install ipywidgets
+- travis_retry pip install requests
+install:
+- travis_retry pip install --upgrade pip
+- travis_retry pip install tox
+- travis_retry pip install sphinx
+- travis_retry pip install sphinx_rtd_theme
+script:
+-   tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d .)
