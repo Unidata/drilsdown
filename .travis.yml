@@ -15,5 +15,5 @@ install:
 - travis_retry pip install sphinx
 - travis_retry pip install sphinx_rtd_theme
 script:
--   cd ipython-IDV
+-   cd projects/ipython-IDV
 -   tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d .)
