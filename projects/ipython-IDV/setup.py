@@ -3,7 +3,7 @@ from os import path
 
 import setuptools
 
-from .drilsdown import __version__
+#from .drilsdown import __version__
 
 here = path.abspath(path.dirname(__file__))
 
