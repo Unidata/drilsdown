@@ -3,7 +3,7 @@ from os import path
 
 import setuptools
 
-#from .drilsdown import __version__
+from drilsdown import __version__
 
 here = path.abspath(path.dirname(__file__))
 
@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="drilsdown",
-    version=2.2,
+    version=__version__,
     url="https://github.com/Unidata/ipython-IDV.git",
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
