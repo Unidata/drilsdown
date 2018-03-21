@@ -1,13 +1,14 @@
 from ipykernel.kernelbase import Kernel
 from IPython.utils.path import locate_profile
 from pexpect import replwrap, EOF, spawn
+from projects import __version__
 import signal
 import re
 import os
 from distutils.spawn import find_executable
 import sys
 
-__version__ = '1.0.1'
+
 
 
 class JythonKernel(Kernel):
