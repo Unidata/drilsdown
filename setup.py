@@ -47,7 +47,7 @@ class InstallCmd(install):
 
 setup(
     name=PACKAGE_NAME,
-    version="2.4",
+    version="2.4.1",
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
     description="A collection of tools for jupyter notebooks",

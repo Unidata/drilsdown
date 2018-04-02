@@ -58,13 +58,12 @@ if svem_flag in sys.argv:
 #         if line.startswith('__version__'):
 #             version = line.strip().split()[-1][1:-1]
 #             break
-setup(name='drilsdown_namespace.jython_kernel',
+setup(name='jython_kernel',
       description='A Jython kernel for Jupyter/IPython',
       version='2.00',
       url="https://github.com/suvarchal/IJython",
       author='Suvarchal Kumar Cheedela',
       author_email='suvarchal.kumar@gmail.com',
-      namespace_packages=['drilsdown_namespace'],
       packages=setuptools.find_packages(),
       py_modules=['jython_kernel'],
       license="MIT",
@@ -73,10 +72,10 @@ setup(name='drilsdown_namespace.jython_kernel',
       classifiers=[
           'Framework :: IPython',
           'License :: OSI Approved :: BSD License',
-          'Programming Language :: Jython :: 2',
+          #'Programming Language :: Jython :: 2',
           'Programming Language :: Python :: 2',
           'Topic :: System :: Shells',
       ],
-      package_dir={"IJython": 'drilsdown_namespace'},
+      #package_dir={"IJython": 'drilsdown_namespace'},
 
 )
