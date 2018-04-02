@@ -1,8 +1,10 @@
 from distutils.command.install import install
 from distutils import log
+#from projects import __version__
 import sys
 import os
 import json
+import setuptools
 
 
 try:
@@ -13,8 +15,8 @@ except ImportError:
 
 kernel_json = {
     "argv": [sys.executable,
-	     "-m", "jython_kernel",
-	     "-f", "{connection_file}"],
+             "-m", "jython_kernel",
+             "-f", "{connection_file}"],
     "display_name": "Jython",
     "language": "python",
     "name": "jython_kernel",
@@ -51,17 +53,19 @@ if svem_flag in sys.argv:
     sys.argv.remove(svem_flag)
 
 
-with open('jython_kernel.py') as fid:
-    for line in fid:
-        if line.startswith('__version__'):
-            version = line.strip().split()[-1][1:-1]
-            break
-setup(name='jython_kernel',
+# with open('jython_kernel.py') as fid:
+#     for line in fid:
+#         if line.startswith('__version__'):
+#             version = line.strip().split()[-1][1:-1]
+#             break
+setup(name='drilsdown_namespace.jython_kernel',
       description='A Jython kernel for Jupyter/IPython',
-      version=version,
+      version='2.00',
       url="https://github.com/suvarchal/IJython",
       author='Suvarchal Kumar Cheedela',
       author_email='suvarchal.kumar@gmail.com',
+      namespace_packages=['drilsdown_namespace'],
+      packages=setuptools.find_packages(),
       py_modules=['jython_kernel'],
       license="MIT",
       cmdclass={'install': install_with_kernelspec},
@@ -72,5 +76,7 @@ setup(name='jython_kernel',
           'Programming Language :: Jython :: 2',
           'Programming Language :: Python :: 2',
           'Topic :: System :: Shells',
-      ]
+      ],
+      package_dir={"IJython": 'drilsdown_namespace'},
+
 )
