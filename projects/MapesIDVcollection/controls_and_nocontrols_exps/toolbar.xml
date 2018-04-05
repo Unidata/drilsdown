@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<panel hspace="2" i_space="2" i_width="5" id="nodeid0" layout="flow" margin="4" vspace="0">
+  <button action="action:show.dashboard"/>
+  <filler width="5"/>
+  <filler width="5"/>
+  <filler width="5"/>
+  <button action="action:bundle.open"/>
+  <button action="action:bundle.save"/>
+  <button action="action:bundle.favorite.save"/>
+  <button action="action:bundle.favorite.manage"/>
+  <filler width="5"/>
+  <filler width="5"/>
+  <button action="action:help.introduction"/>
+  <button action="action:help.showsupportform"/>
+  <filler width="5"/>
+  <filler width="5"/>
+  <button action="action:edit.removedisplays"/>
+  <button action="action:edit.removedisplaysanddata"/>
+  <filler width="5"/>
+  <filler width="5"/>
+  <button action="action:display.curvedrawer"/>
+  <button action="action:display.backgroundimage"/>
+  <filler width="5"/>
+  <filler width="5"/>
+  <button action="action:idv.stopload"/>
+  <button action="action:exit"/>
+</panel>

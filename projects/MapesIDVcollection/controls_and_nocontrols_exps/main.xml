@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<object class="java.util.Hashtable">
+    <method name="put">
+        <string><![CDATA[idv.data.catalog.list]]></string>
+        <object class="java.util.ArrayList">
+            <method name="add">
+                <string><![CDATA[http://weather.rsmas.miami.edu/repository/entry/show/RSMAS%252FUM%27s+Repository+for+atm%252Focean+data+%3Cem%3Eand+its+science%3C%252Fem%3E/Mapes+IDV+collection?entryid=45e3b50b-dbe2-408b-a6c2-2c009749cd53&output=thredds.catalog]]></string>
+            </method>
+            <method name="add">
+                <string><![CDATA[http://www.unidata.ucar.edu/georesources/idvcatalog.xml]]></string>
+            </method>
+            <method name="add">
+                <string><![CDATA[http://weather.rsmas.miami.edu/repository?output=thredds.catalog]]></string>
+            </method>
+            <method name="add">
+                <string><![CDATA[http://www.esrl.noaa.gov/psd/thredds/catalog.xml]]></string>
+            </method>
+            <method name="add">
+                <string><![CDATA[http://www.esrl.noaa.gov/psd/repository/thredds/PSD%20Climate%20Data%20Repository/Public/PSD%20Datasets.xml]]></string>
+            </method>
+        </object>
+    </method>
+    <method name="put">
+        <string><![CDATA[FileManager.DirectoryHistory]]></string>
+        <object class="java.util.ArrayList">
+        </object>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.open.merge]]></string>
+        <java.lang.Boolean>true</java.lang.Boolean>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.open.ask]]></string>
+        <java.lang.Boolean>true</java.lang.Boolean>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.data.catalog.list.chosen]]></string>
+        <string><![CDATA[http://weather.rsmas.miami.edu/repository/entry/show/RSMAS%252FUM%27s+Repository+for+atm%252Focean+data+%3Cem%3Eand+its+science%3C%252Fem%3E/Mapes+IDV+collection?entryid=45e3b50b-dbe2-408b-a6c2-2c009749cd53&output=thredds.catalog]]></string>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.zidv.savetotmp]]></string>
+        <java.lang.Boolean>true</java.lang.Boolean>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.ui.showquitconfirm]]></string>
+        <java.lang.Boolean>true</java.lang.Boolean>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.open.remove]]></string>
+        <java.lang.Boolean>true</java.lang.Boolean>
+    </method>
+    <method name="put">
+        <string><![CDATA[idv.zidv.ask]]></string>
+        <java.lang.Boolean>true</java.lang.Boolean>
+    </method>
+</object>

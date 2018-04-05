@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<object class="java.util.ArrayList">
+    <method name="add">
+        <object class="ucar.unidata.geoloc.projection.LatLonProjection">
+            <property name="CenterLon">
+                <double>-96.0249312</double>
+            </property>
+            <property name="Name">
+                <string><![CDATA[US>CONUS]]></string>
+            </property>
+            <property name="DefaultMapArea">
+                <object class="ucar.unidata.geoloc.ProjectionRect">
+                    <constructor>
+                        <double>-125.79393239999999</double>
+                        <double>7.4668500000000115</double>
+                        <double>-66.25593</double>
+                        <double>57.58428239999999</double>
+                    </constructor>
+                </object>
+            </property>
+        </object>
+    </method>
+</object>
