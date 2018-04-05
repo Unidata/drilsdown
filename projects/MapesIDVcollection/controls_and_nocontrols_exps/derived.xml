@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<derived_parameters>
+
+  <derived description="Horizontal Advective tendency -V.grad(s)" formula="adv(S, V)" id="advection of scalar S by vector V" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Scalar average of 2 scalars" formula="avg(S1, S2)" id="avg of two scalars (S1, S2)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Vector cross product magnitude" formula="cros(V1, V2)" id="cross product magnitude" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="x-derivative of a scalar" formula="ddx(S)" id="d/dx derivative of scalar" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+
+  </derived>
+  <derived description="y-derivative of a scalar" formula="ddy(S)" id="d/dy derivative of scalar" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="x-derivative of a vector" formula="dvdx(V)" id="d/dx derivative of vector" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="y-derivative of a vector" formula="dvdy(V)" id="d/dy derivative of vector" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Total deformation" formula="defr(V)" id="deformation magnitude" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Vector direction (North relative)" formula="dirn(V)" id="direction of vector" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Horizontal Divergence of vector" formula="div(V)" id="Hor. divergence of V" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Vector dot product" formula="dot(V1, V2)" id="dot product (V1,V2)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Frontogenesis function from theta and the wind" formula="frnt(S, V)" id="frontogenesis function (T,V)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Gradient of a scalar" formula="grad(S)" id="gradient of a scalar" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Laplacian operator" formula="lap(S)" id="Laplacian of scalar" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Magnitude of a vector" formula="mag()" id="magnitude of vector" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Mixing Ratio from Temperature, RH (requires pressure domain)" formula="mixr(temp, rh)" id="mixing ratio mixr(temp, rh) - p coords required" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Thermo"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Multiply scalars" formula="mul(S1, S2, interpolate_or_not[isuser=true,default=1])" id="Product of scalars" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Divide scalars" formula="quo(S1, S2, interpolate_or_not[isuser=true,default=1])" id="Ratio of scalars" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="QG Q-vector, w/ stability factor" formula="qvcl(THTA, geo(Z))" id="Hoskins Q-vector from 3D Theta and geo(Z) winds at a level" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Q-vector approx. from 2D T,V" formula="qvec(T, V)" id="Hoskins Q-vector from 3D Theta and geo(Z) winds at a level" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Create Relative Humidity from Temperature, mixing ratio (requires pressure domain)" formula="relh(temp, mixr)" id="relative humidity relh(temp, mixr)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Thermo"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Horizontal divergence of scalar flux qV" formula="sdiv(S, V)" id="Scalar qs hor. flux divergence div(qV)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Horizontal divergence of scalar flux qV" formula="sdiv(S, V)" id="Scalar qs hor. flux divergence div(qV)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Shear Deformation" formula="shr(V)" id="shear deformation (NW-SE skrunch)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Stretching Deformation" formula="strd(V)" id="stretching deformation (E-W skrunch)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Thermal wind" formula="thrm(S, level1, level2, unit)" id="Thermal wind (Z, level1, level2, unit)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Add vectors" formula="vadd(V1, V2)" id="vector sum (V1, V2)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Layer Average within a multilevel grid - scalar" formula="lav(S, level1[isuser=true,default=100], level2[isuser=true,default=200], unit[isuser=true])" id="Layer average of scalar (S, level1, level2, unit)" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Layer Average within a multilevel grid - vector" formula="vlav(V, level1, level2, unit)" id="layer average of vector" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Layer Difference of scalar" formula="ldf(S, level1, level2, unit)" id="scalar difference in vertical" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Layer difference of vector" formula="vldf(V, level1, level2, unit)" id="vector difference in vertical" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Subtract vector" formula="vsub(V1, V2)" id="Vector difference V1-V2" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Basicmath"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Average along a grid row - scalar" formula="xav(S)" id="Average scalar along x-dimension" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Deviations from average along a grid row - scalar" formula="S-xav(S)" id="Deviations from average scalar along x-dimension" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Deviations"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Deviations from time average" formula="S-averageOverTime(S)" id="Temporal anomaly" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Deviations"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Sum along a grid row" formula="xsum(S)" id="Sum scalar along x-dimension" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Average along a grid column (y)" formula="yav(S)" id="Average scalar along y-dimension" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Average over all vertical levels of a grid at all points" formula="zav(S)" id="Average scalar over z-dimension" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Sum over the levels of a grid at all points" formula="zsum(S)" id="Sum scalar over z-dimension" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Averages"/>
+    </categories>
+    <operands/>
+  </derived>
+
+  <derived description="Layer Wind Shear" formula="windShear(u, v, z, top[isuser=true,default=500], bottom[isuser=true,default=850])" id="wind shear" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-Synoptics"/>
+    </categories>
+    <operands/>
+  </derived>
+
+
+  <derived description="Process one field using cdo" formula="cdo(variable,user_cdo_options)" id="cdo_processor" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+  <derived description="Process 2 fields using cdo" formula="cdo2(variable1,variable2,user_cdo_options)" id="cdo2_processor" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+  <derived description="Correlation among two variables in time" formula="cdo_timecor(variable1,variable2)" id="cdo_timecorrelation" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+      <category value="display:planviewcontour"/>
+      <category value="display:dataxs"/>
+      <category value="display:planviewcolor"/>
+      <category value="display:colorxs"/>
+      <category value="display:contourxs"/>
+      <category value="display:contourxsfilled"/>
+      <category value="display:planviewcontourfilled"/>
+      <category value="display:valuedisplay"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+  <derived description="Covariance among two fields in time" formula="cdo_timcovar(variable1,variable2)" id="cdo_timcovar" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+      <category value="display:planviewcolor"/>
+      <category value="display:colorxs"/>
+      <category value="display:planviewcontourfilled"/>
+      <category value="display:contourxsfilled"/>
+      <category value="display:dataxs"/>
+      <category value="display:planviewcontour"/>
+      <category value="display:contourxs"/>
+      <category value="display:valuedisplay"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+  <derived description="Lowpass fft filter using cdo" formula="cdo_lowpass(variable,user_days_to_filter)" id="cdo_lowpass" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+      <category value="display:contourxs"/>
+      <category value="display:valuedisplay"/>
+      <category value="display:colorxs"/>
+      <category value="display:imagedisplayoverz"/>
+      <category value="display:dataxs"/>
+      <category value="display:planviewcolor"/>
+      <category value="display:contourxsfilled"/>
+      <category value="display:planviewcontourfilled"/>
+      <category value="display:imagecontroloverz"/>
+      <category value="display:imagedisplay"/>
+      <category value="display:imagesequence"/>
+      <category value="display:planviewcontour"/>
+      <category value="display:imagecontrol"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+  <derived description="Highpass fft filter using cdo" formula="cdo_highpass(variable,user_highpass_days)" id="cdo_highpass" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+      <category value="display:planviewcolor"/>
+      <category value="display:imagesequence"/>
+      <category value="display:dataxs"/>
+      <category value="display:imagecontroloverz"/>
+      <category value="display:contourxs"/>
+      <category value="display:imagecontrol"/>
+      <category value="display:valuedisplay"/>
+      <category value="display:colorxs"/>
+      <category value="display:contourxsfilled"/>
+      <category value="display:planviewcontour"/>
+      <category value="display:imagedisplay"/>
+      <category value="display:imagedisplayoverz"/>
+      <category value="display:planviewcontourfilled"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+  <derived description="Bandpass fft filter using cdo" formula="cdo_bandpass(variable,user_minday,user_maxday)" id="cdo_bandpass" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-CDO_if_installed"/>
+      <category value="display:imagecontrol"/>
+      <category value="display:valuedisplay"/>
+      <category value="display:imagedisplayoverz"/>
+      <category value="display:imagesequence"/>
+      <category value="display:contourxsfilled"/>
+      <category value="display:planviewcontour"/>
+      <category value="display:planviewcolor"/>
+      <category value="display:planviewcontourfilled"/>
+      <category value="display:contourxs"/>
+      <category value="display:colorxs"/>
+      <category value="display:dataxs"/>
+      <category value="display:imagedisplay"/>
+      <category value="display:imagecontroloverz"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+
+  <derived description="Make Composite in Time based on 1d average" formula="makeTimeComposite(field,field_to_average,user_minvalue,user_maxvalue)" id="makeTimeComposite" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-TimeCorrelations"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+
+  <derived description="Correlation among two variables" formula="correlation(field,field)" id="Correlation" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-TimeCorrelations"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+
+  <derived description="Correlation with 1d series" formula="correlationwith1d(field,field_to_average)" id="Correlationwith1d" isdefault="false" isenduser="true">
+    <categories>
+      <category display="true" value="Grids-MapesCollection-TimeCorrelations"/>
+    </categories>
+    <operands categories=""/>
+  </derived>
+
+</derived_parameters>

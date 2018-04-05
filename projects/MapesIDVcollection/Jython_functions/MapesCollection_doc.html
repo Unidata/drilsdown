@@ -1,0 +1,126 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module MapesCollection_doc</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>MapesCollection_doc</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/suvarchal/Dropbox/MapesIDVCollection/mapescollection/MapesCollection_doc.py">/home/suvarchal/Dropbox/MapesIDVCollection/mapescollection/MapesCollection_doc.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-MAE"><strong>MAE</strong></a>(gridA, gridB)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;calculate&nbsp;mean&nbsp;absolute&nbsp;error&nbsp;or&nbsp;difference&nbsp;between&nbsp;two&nbsp;grids</tt></dd></dl>
+ <dl><dt><a name="-MSE"><strong>MSE</strong></a>(gridA, gridB)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;calculate&nbsp;mean&nbsp;square&nbsp;error&nbsp;or&nbsp;difference&nbsp;between&nbsp;two&nbsp;&nbsp;grids</tt></dd></dl>
+ <dl><dt><a name="-Moisture_Flux_Divergence"><strong>Moisture_Flux_Divergence</strong></a>(Q, V)</dt><dd><tt>Computes&nbsp;vertical&nbsp;integrated&nbsp;Moisture&nbsp;flux&nbsp;divergence&nbsp;and&nbsp;makes&nbsp;1&nbsp;display&nbsp;internally&nbsp;<br>
+and&nbsp;returns&nbsp;a&nbsp;moisture&nbsp;flux&nbsp;divergence&nbsp;vector&nbsp;as&nbsp;output.<br>
+this&nbsp;function&nbsp;takes&nbsp;a&nbsp;derived&nbsp;field&nbsp;vector&nbsp;as&nbsp;input.</tt></dd></dl>
+ <dl><dt><a name="-anomalyFromTimeMeans"><strong>anomalyFromTimeMeans</strong></a>(grid)</dt><dd><tt>Computes&nbsp;deviation&nbsp;from&nbsp;time&nbsp;mean&nbsp;at&nbsp;each&nbsp;grid&nbsp;point.</tt></dd></dl>
+ <dl><dt><a name="-areaWeights"><strong>areaWeights</strong></a>(grid)</dt><dd><tt>Computes&nbsp;area&nbsp;weights&nbsp;of&nbsp;a&nbsp;grid&nbsp;and&nbsp;returns&nbsp;the&nbsp;grid&nbsp;with&nbsp;<br>
+weights&nbsp;at&nbsp;each&nbsp;grid.</tt></dd></dl>
+ <dl><dt><a name="-cdo"><strong>cdo</strong></a>(variable, user_cdo_options)</dt><dd><tt>Does&nbsp;a&nbsp;cdo&nbsp;operation&nbsp;on&nbsp;grid&nbsp;supplied&nbsp;and&nbsp;returns&nbsp;a&nbsp;grid.<br>
+The&nbsp;function&nbsp;outsources&nbsp;the&nbsp;grid&nbsp;to&nbsp;CDOs&nbsp;(code.zmaw.de/cdo)&nbsp;user&nbsp;option&nbsp;decides&nbsp;what<br>
+operation&nbsp;can&nbsp;be&nbsp;done.<br>
+evalues&nbsp;in&nbsp;cdo&nbsp;as&nbsp;cdo&nbsp;user_cdo_options&nbsp;variable_written_to_temp_file.nc&nbsp;output_temp_file.nc</tt></dd></dl>
+ <dl><dt><a name="-cdo2"><strong>cdo2</strong></a>(variable1, variable2, user_cdo_options)</dt><dd><tt>Does&nbsp;a&nbsp;cdo&nbsp;operation&nbsp;on&nbsp;2&nbsp;grids&nbsp;supplied&nbsp;and&nbsp;returns&nbsp;a&nbsp;grid.<br>
+The&nbsp;function&nbsp;outsources&nbsp;the&nbsp;two&nbsp;grids&nbsp;to&nbsp;CDOs&nbsp;(code.zmaw.de/cdo)&nbsp;user&nbsp;option&nbsp;decides&nbsp;what<br>
+operation&nbsp;can&nbsp;be&nbsp;done.<br>
+evalues&nbsp;in&nbsp;cdo&nbsp;as&nbsp;cdo&nbsp;user_cdo_options&nbsp;variable1_written_to_temp_file.nc&nbsp;variable2_written.nc&nbsp;output_temp_file.nc</tt></dd></dl>
+ <dl><dt><a name="-cdoSubGrid"><strong>cdoSubGrid</strong></a>(variable, user_nlon, user_nlat)</dt><dd><tt>Computes&nbsp;a&nbsp;subgrid&nbsp;difference&nbsp;between&nbsp;a&nbsp;fine&nbsp;resolution&nbsp;and&nbsp;<br>
+coarsened&nbsp;resolution&nbsp;grid&nbsp;(from&nbsp;regriding&nbsp;the&nbsp;<br>
+original&nbsp;grid&nbsp;to&nbsp;user_nlon&nbsp;and&nbsp;user_nlat)&nbsp;using&nbsp;CDOs.Works<br>
+best&nbsp;for&nbsp;regular&nbsp;grids.<br>
+Note:&nbsp;Also&nbsp;needs&nbsp;ncatted&nbsp;from&nbsp;NCO's&nbsp;also&nbsp;to&nbsp;be&nbsp;on&nbsp;your&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-cdo_bandpass"><strong>cdo_bandpass</strong></a>(variable, minday, maxday)</dt><dd><tt>Do&nbsp;a&nbsp;band&nbsp;pass&nbsp;filter&nbsp;in&nbsp;time&nbsp;using&nbsp;CDOs&nbsp;and&nbsp;FFT.&nbsp;Before&nbsp;the&nbsp;filter<br>
+is&nbsp;applied&nbsp;data&nbsp;is&nbsp;detrended&nbsp;and&nbsp;feb&nbsp;29,&nbsp;if&nbsp;exists&nbsp;will&nbsp;be&nbsp;deleted.<br>
+minday&nbsp;and&nbsp;maxday&nbsp;argument&nbsp;needs&nbsp;to&nbsp;be&nbsp;in&nbsp;units&nbsp;of&nbsp;days.<br>
+Note:&nbsp;Also&nbsp;needs&nbsp;ncatted&nbsp;from&nbsp;NCO's&nbsp;also&nbsp;to&nbsp;be&nbsp;on&nbsp;your&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-cdo_highpass"><strong>cdo_highpass</strong></a>(variable, minday)</dt><dd><tt>Do&nbsp;a&nbsp;high&nbsp;pass&nbsp;filter&nbsp;in&nbsp;time&nbsp;using&nbsp;CDOs.Before&nbsp;the&nbsp;filter&nbsp;<br>
+is&nbsp;applied&nbsp;data&nbsp;is&nbsp;detrended&nbsp;and&nbsp;feb&nbsp;29,&nbsp;if&nbsp;exists&nbsp;will&nbsp;be&nbsp;deleted.<br>
+maxday&nbsp;argument&nbsp;needs&nbsp;to&nbsp;be&nbsp;in&nbsp;units&nbsp;of&nbsp;days.<br>
+Note:&nbsp;Also&nbsp;needs&nbsp;ncatted&nbsp;from&nbsp;NCO's&nbsp;also&nbsp;to&nbsp;be&nbsp;on&nbsp;your&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-cdo_lowpass"><strong>cdo_lowpass</strong></a>(variable, maxday)</dt><dd><tt>Do&nbsp;a&nbsp;low&nbsp;pass&nbsp;filter&nbsp;in&nbsp;time&nbsp;using&nbsp;CDOs.Before&nbsp;the&nbsp;filter&nbsp;<br>
+is&nbsp;applied&nbsp;data&nbsp;is&nbsp;detrended&nbsp;and&nbsp;feb&nbsp;29,&nbsp;if&nbsp;exists&nbsp;will&nbsp;be&nbsp;deleted.<br>
+maxday&nbsp;argument&nbsp;needs&nbsp;to&nbsp;be&nbsp;in&nbsp;units&nbsp;of&nbsp;days.<br>
+Note:&nbsp;Also&nbsp;needs&nbsp;ncatted&nbsp;from&nbsp;NCO's&nbsp;also&nbsp;to&nbsp;be&nbsp;on&nbsp;your&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-cdo_timecor"><strong>cdo_timecor</strong></a>(variable1, variable2)</dt><dd><tt>Computes&nbsp;a&nbsp;correlation&nbsp;in&nbsp;time&nbsp;at&nbsp;each&nbsp;grid&nbsp;point&nbsp;using&nbsp;CDOs.<br>
+Note:&nbsp;Also&nbsp;needs&nbsp;ncatted&nbsp;from&nbsp;NCO's&nbsp;also&nbsp;to&nbsp;be&nbsp;on&nbsp;your&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-cdo_timecovar"><strong>cdo_timecovar</strong></a>(variable1, variable2)</dt><dd><tt>Computes&nbsp;a&nbsp;covariance&nbsp;in&nbsp;time&nbsp;at&nbsp;each&nbsp;grid&nbsp;point&nbsp;using&nbsp;CDOs.<br>
+Note:&nbsp;Also&nbsp;needs&nbsp;ncatted&nbsp;from&nbsp;NCO's&nbsp;also&nbsp;to&nbsp;be&nbsp;on&nbsp;your&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-computeGridAreaAverage"><strong>computeGridAreaAverage</strong></a>(variable)</dt></dl>
+ <dl><dt><a name="-correlation"><strong>correlation</strong></a>(xvar, yvar)</dt><dd><tt>Computes&nbsp;time&nbsp;correlation&nbsp;at&nbsp;each&nbsp;grid&nbsp;point&nbsp;in&nbsp;xvar&nbsp;with&nbsp;corresponding&nbsp;grid&nbsp;<br>
+in&nbsp;yvar.</tt></dd></dl>
+ <dl><dt><a name="-correlationwith1d"><strong>correlationwith1d</strong></a>(variable, variable1d)</dt><dd><tt>Computes&nbsp;time&nbsp;correlation&nbsp;at&nbsp;each&nbsp;grid&nbsp;point&nbsp;with&nbsp;1d&nbsp;variable&nbsp;supplied.</tt></dd></dl>
+ <dl><dt><a name="-createNewUnit"><strong>createNewUnit</strong></a>(field, unit, multiplyfactor<font color="#909090">=1.0</font>)</dt><dd><tt>creates&nbsp;a&nbsp;new&nbsp;unit&nbsp;that&nbsp;cannot&nbsp;be&nbsp;changed&nbsp;by&nbsp;IDV,&nbsp;eg..change&nbsp;units&nbsp;of&nbsp;<br>
+precipitation&nbsp;from&nbsp;kg/m2s-1&nbsp;to&nbsp;mm/day</tt></dd></dl>
+ <dl><dt><a name="-createTimeMeans"><strong>createTimeMeans</strong></a>(grid, meanType<font color="#909090">='None'</font>)</dt><dd><tt>Create&nbsp;time&nbsp;mean&nbsp;of&nbsp;a&nbsp;grid&nbsp;at&nbsp;periods&nbsp;specified&nbsp;by&nbsp;type.<br>
+meanType&nbsp;can&nbsp;be&nbsp;yearly,&nbsp;monthly,&nbsp;daily,&nbsp;hourly,&nbsp;minutes,&nbsp;seconds</tt></dd></dl>
+ <dl><dt><a name="-ddt"><strong>ddt</strong></a>(grid, timegradunit)</dt><dd><tt>compute&nbsp;tendency&nbsp;(time&nbsp;derivative)&nbsp;using&nbsp;forward&nbsp;difference,&nbsp;<br>
+units&nbsp;of&nbsp;returned&nbsp;grid&nbsp;are&nbsp;units&nbsp;of&nbsp;grid&nbsp;per&nbsp;timegradient&nbsp;unit&nbsp;<br>
+timegradient&nbsp;unit&nbsp;can&nbsp;be&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;minute,&nbsp;seconds</tt></dd></dl>
+ <dl><dt><a name="-ddz"><strong>ddz</strong></a>(grid)</dt><dd><tt>Computes&nbsp;a&nbsp;vertical&nbsp;coordinate&nbsp;derivative&nbsp;of&nbsp;grid&nbsp;specifed.</tt></dd></dl>
+ <dl><dt><a name="-deviationXY"><strong>deviationXY</strong></a>(grid)</dt><dd><tt>Computes&nbsp;deviation&nbsp;from&nbsp;grid&nbsp;grid&nbsp;area&nbsp;average&nbsp;value&nbsp;of&nbsp;a&nbsp;grid<br>
+and&nbsp;returns&nbsp;a&nbsp;grid&nbsp;with&nbsp;deviation&nbsp;from&nbsp;the&nbsp;area&nbsp;averaged&nbsp;value.</tt></dd></dl>
+ <dl><dt><a name="-deviationXYT"><strong>deviationXYT</strong></a>(grid)</dt><dd><tt>Computes&nbsp;deviation&nbsp;from&nbsp;time&nbsp;and&nbsp;spatial&nbsp;mean&nbsp;at&nbsp;each&nbsp;grid&nbsp;point.</tt></dd></dl>
+ <dl><dt><a name="-fillGridConstant"><strong>fillGridConstant</strong></a>(templategrid, user_value)</dt><dd><tt>Returns&nbsp;a&nbsp;grid&nbsp;with&nbsp;a&nbsp;constant&nbsp;value<br>
+More&nbsp;of&nbsp;a&nbsp;helper&nbsp;function&nbsp;useful&nbsp;for&nbsp;debugging</tt></dd></dl>
+ <dl><dt><a name="-fillGridNormal"><strong>fillGridNormal</strong></a>(templategrid, user_mean, user_std, user_units<font color="#909090">='default'</font>)</dt><dd><tt>Returns&nbsp;a&nbsp;grid&nbsp;with&nbsp;values&nbsp;sampled&nbsp;from&nbsp;normal&nbsp;distrubuition(<br>
+user_mean,user_std).&nbsp;user_units&nbsp;can&nbsp;be&nbsp;change&nbsp;units&nbsp;of&nbsp;returned&nbsp;grid.&nbsp;<br>
+This&nbsp;also&nbsp;serves&nbsp;as&nbsp;a&nbsp;template&nbsp;code&nbsp;for&nbsp;creating&nbsp;grids&nbsp;sampled&nbsp;from&nbsp;<br>
+different&nbsp;distributions.</tt></dd></dl>
+ <dl><dt><a name="-fillGridUniform"><strong>fillGridUniform</strong></a>(templategrid, user_min, user_max, user_units<font color="#909090">='default'</font>)</dt><dd><tt>Returns&nbsp;a&nbsp;grid&nbsp;with&nbsp;values&nbsp;sampled&nbsp;from&nbsp;uniform&nbsp;distrubuition(<br>
+user_min,user_max).&nbsp;user_units&nbsp;can&nbsp;be&nbsp;change&nbsp;units&nbsp;of&nbsp;returned&nbsp;grid.&nbsp;<br>
+This&nbsp;also&nbsp;serves&nbsp;as&nbsp;a&nbsp;template&nbsp;code&nbsp;for&nbsp;creating&nbsp;grids&nbsp;sampled&nbsp;from&nbsp;<br>
+different&nbsp;distributions.</tt></dd></dl>
+ <dl><dt><a name="-getAbsCDiff"><strong>getAbsCDiff</strong></a>(levels)</dt></dl>
+ <dl><dt><a name="-getLevels"><strong>getLevels</strong></a>(grid)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;get&nbsp;levels&nbsp;values&nbsp;inside&nbsp;a&nbsp;grid&nbsp;as&nbsp;a&nbsp;list.</tt></dd></dl>
+ <dl><dt><a name="-getRawTimes"><strong>getRawTimes</strong></a>(grid)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;get&nbsp;all&nbsp;times&nbsp;inside&nbsp;a&nbsp;grid,&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;times</tt></dd></dl>
+ <dl><dt><a name="-getSampleTimeIndices"><strong>getSampleTimeIndices</strong></a>(grid, year<font color="#909090">=None</font>, season<font color="#909090">=None</font>, mon<font color="#909090">=None</font>, day<font color="#909090">=None</font>, hour<font color="#909090">=None</font>, min<font color="#909090">=None</font>, sec<font color="#909090">=None</font>, ms<font color="#909090">=None</font>)</dt><dd><tt>A&nbsp;Helper&nbsp;function&nbsp;to&nbsp;get&nbsp;indices&nbsp;a&nbsp;grid&nbsp;at&nbsp;specified&nbsp;time&nbsp;periods,&nbsp;multiple&nbsp;arguments&nbsp;can&nbsp;be&nbsp;used&nbsp;in&nbsp;<br>
+complex&nbsp;sampling.&nbsp;This&nbsp;function&nbsp;returns&nbsp;list&nbsp;of&nbsp;indices&nbsp;in&nbsp;grid.</tt></dd></dl>
+ <dl><dt><a name="-getSampleTimesInFormat"><strong>getSampleTimesInFormat</strong></a>(grid, timeformat, timezone<font color="#909090">='UTC'</font>, outformat<font color="#909090">='string'</font>)</dt><dd><tt>A&nbsp;Helper&nbsp;function&nbsp;to&nbsp;return&nbsp;times&nbsp;of&nbsp;a&nbsp;grid&nbsp;in&nbsp;specified&nbsp;format&nbsp;as&nbsp;a&nbsp;list.</tt></dd></dl>
+ <dl><dt><a name="-getSamplesAtTimes"><strong>getSamplesAtTimes</strong></a>(grid, year<font color="#909090">=None</font>, season<font color="#909090">=None</font>, mon<font color="#909090">=None</font>, day<font color="#909090">=None</font>, hour<font color="#909090">=None</font>, min<font color="#909090">=None</font>, sec<font color="#909090">=None</font>, ms<font color="#909090">=None</font>)</dt><dd><tt>Samples&nbsp;a&nbsp;grid&nbsp;at&nbsp;specified&nbsp;time&nbsp;periods,&nbsp;multiple&nbsp;arguments&nbsp;can&nbsp;be&nbsp;used&nbsp;in&nbsp;complex&nbsp;sampling&nbsp;<br>
+eg..,&nbsp;using&nbsp;hour&nbsp;=&nbsp;5&nbsp;would&nbsp;return&nbsp;all&nbsp;samples&nbsp;corresponding&nbsp;&nbsp;to&nbsp;5&nbsp;am,&nbsp;further&nbsp;specifing&nbsp;year&nbsp;=&nbsp;2008&nbsp;<br>
+would&nbsp;give&nbsp;samples&nbsp;at&nbsp;5am&nbsp;in&nbsp;year&nbsp;2008</tt></dd></dl>
+ <dl><dt><a name="-getSimilarInd"><strong>getSimilarInd</strong></a>(inparray, value)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;get&nbsp;all&nbsp;indices&nbsp;of&nbsp;an&nbsp;array&nbsp;where&nbsp;it&nbsp;matches&nbsp;given&nbsp;value</tt></dd></dl>
+ <dl><dt><a name="-getTimeDict"><strong>getTimeDict</strong></a>(grid)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;return&nbsp;timestamps&nbsp;of&nbsp;grid&nbsp;as&nbsp;dictionary&nbsp;of&nbsp;years,&nbsp;months&nbsp;etc.</tt></dd></dl>
+ <dl><dt><a name="-getVarName"><strong>getVarName</strong></a>(grid)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;get&nbsp;raw&nbsp;variable&nbsp;name&nbsp;in&nbsp;side&nbsp;a&nbsp;grid</tt></dd></dl>
+ <dl><dt><a name="-isEnsembleGrid"><strong>isEnsembleGrid</strong></a>(grid)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;check&nbsp;if&nbsp;grid&nbsp;is&nbsp;ensemble&nbsp;type&nbsp;or&nbsp;not<br>
+Checks&nbsp;both&nbsp;(time,ensemble)&nbsp;and(ensemble...)&nbsp;grids</tt></dd></dl>
+ <dl><dt><a name="-makeTimeComposite"><strong>makeTimeComposite</strong></a>(variable, avgvariable, minvalue, maxvalue)</dt><dd><tt>Make&nbsp;a&nbsp;time&nbsp;composite&nbsp;of&nbsp;grid&nbsp;supplied(variable)&nbsp;between&nbsp;min&nbsp;max&nbsp;ranges&nbsp;<br>
+of&nbsp;a&nbsp;1d&nbsp;avg&nbsp;variable&nbsp;supplied.</tt></dd></dl>
+ <dl><dt><a name="-makeTimeCompositeWindow"><strong>makeTimeCompositeWindow</strong></a>(avgvariable, variable, minvalue, maxvalue, minwindow, maxwindow)</dt><dd><tt>Make&nbsp;a&nbsp;time&nbsp;composite&nbsp;of&nbsp;grid&nbsp;supplied(variable)&nbsp;between&nbsp;min&nbsp;max&nbsp;ranges&nbsp;and&nbsp;time&nbsp;windows<br>
+of&nbsp;a&nbsp;1d&nbsp;avg&nbsp;variable&nbsp;supplied.</tt></dd></dl>
+ <dl><dt><a name="-pverticalIntegral"><strong>pverticalIntegral</strong></a>(grid)</dt><dd><tt>Computes&nbsp;a&nbsp;vertical&nbsp;coordinate&nbsp;integral&nbsp;of&nbsp;a&nbsp;3D&nbsp;grid/gravity<br>
+integral(&nbsp;grid&nbsp;dp/g)</tt></dd></dl>
+ <dl><dt><a name="-rebin"><strong>rebin</strong></a>(grid, newGrid)</dt><dd><tt>Rebin&nbsp;or&nbsp;regrid&nbsp;a&nbsp;grid&nbsp;based&nbsp;on&nbsp;coordinates&nbsp;of&nbsp;newGrid&nbsp;using&nbsp;bilinear&nbsp;<br>
+interpolation</tt></dd></dl>
+ <dl><dt><a name="-remove_duplicates"><strong>remove_duplicates</strong></a>(values)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;remove&nbsp;dumplicates,&nbsp;from&nbsp;a&nbsp;list,&nbsp;not&nbsp;necessary<br>
+easier&nbsp;to&nbsp;change&nbsp;list&nbsp;to&nbsp;a&nbsp;set&nbsp;and&nbsp;backwards.</tt></dd></dl>
+ <dl><dt><a name="-returnMatches"><strong>returnMatches</strong></a>(a, b)</dt><dd><tt>A&nbsp;helper&nbsp;function&nbsp;to&nbsp;to&nbsp;return&nbsp;all&nbsp;indices&nbsp;of&nbsp;list&nbsp;a&nbsp;that&nbsp;have&nbsp;matches&nbsp;in&nbsp;list&nbsp;b.</tt></dd></dl>
+ <dl><dt><a name="-sampleAtTimesofGridB"><strong>sampleAtTimesofGridB</strong></a>(gridA, gridB, matchformat<font color="#909090">='yyyyMMddhhmm'</font>)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;programatically&nbsp;sample&nbsp;gridA&nbsp;at&nbsp;times&nbsp;of&nbsp;gridB,&nbsp;similar&nbsp;to&nbsp;idv&nbsp;gui&nbsp;but&nbsp;the&nbsp;format<br>
+decides&nbsp;what&nbsp;type&nbsp;type&nbsp;is&nbsp;picked.<br>
+one&nbsp;other&nbsp;application&nbsp;of&nbsp;this&nbsp;utility&nbsp;is&nbsp;when&nbsp;there&nbsp;are&nbsp;a&nbsp;lot&nbsp;of&nbsp;times&nbsp;where&nbsp;gui&nbsp;selection&nbsp;in<br>
+IDV&nbsp;becomes&nbsp;tedious.</tt></dd></dl>
+ <dl><dt><a name="-setValuestoGridAverage"><strong>setValuestoGridAverage</strong></a>(variable, avgvariable)</dt><dd><tt>Set&nbsp;all&nbsp;values&nbsp;at&nbsp;each&nbsp;grid&nbsp;in&nbsp;a&nbsp;grid&nbsp;by&nbsp;spatial&nbsp;average,<br>
+currently&nbsp;the&nbsp;average&nbsp;is&nbsp;not&nbsp;area&nbsp;weighted</tt></dd></dl>
+ <dl><dt><a name="-subsetGridTimes"><strong>subsetGridTimes</strong></a>(gridA, gridB)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;subset&nbsp;gridA&nbsp;by&nbsp;times&nbsp;of&nbsp;gridB.<br>
+duplicate&nbsp;of&nbsp;another&nbsp;function&nbsp;subsetAtTimesofB</tt></dd></dl>
+ <dl><dt><a name="-verticalIntegral"><strong>verticalIntegral</strong></a>(grid)</dt><dd><tt>Computes&nbsp;a&nbsp;vertical&nbsp;coordinate&nbsp;integral&nbsp;of&nbsp;a&nbsp;3D&nbsp;grid.</tt></dd></dl>
+ <dl><dt><a name="-verticalWeightedAvg"><strong>verticalWeightedAvg</strong></a>(grid)</dt><dd><tt>Computes&nbsp;a&nbsp;vertical&nbsp;coordinate&nbsp;weighted&nbsp;average&nbsp;of&nbsp;a&nbsp;3D&nbsp;grid.</tt></dd></dl>
+ <dl><dt><a name="-verticalsmooth"><strong>verticalsmooth</strong></a>(grid)</dt><dd><tt>Smooth&nbsp;a&nbsp;grid&nbsp;at&nbsp;all&nbsp;vertical&nbsp;levels&nbsp;using&nbsp;9&nbsp;point&nbsp;smoother</tt></dd></dl>
+ <dl><dt><a name="-xyAreaAverage"><strong>xyAreaAverage</strong></a>(grid)</dt><dd><tt>Computes&nbsp;Area&nbsp;Average&nbsp;of&nbsp;a&nbsp;grid&nbsp;and&nbsp;returns&nbsp;a&nbsp;grid&nbsp;with&nbsp;area&nbsp;<br>
+averaged&nbsp;value&nbsp;at&nbsp;all&nbsp;grid&nbsp;points.</tt></dd></dl>
+ <dl><dt><a name="-zonal_filter_fft"><strong>zonal_filter_fft</strong></a>(grid, minwave, maxwave)</dt><dd><tt>Filters&nbsp;grid&nbsp;by&nbsp;zonal&nbsp;wavenumbers&nbsp;specified&nbsp;by&nbsp;minwave&nbsp;and&nbsp;maxwave.<br>
+maxwave&nbsp;can&nbsp;be&nbsp;a&nbsp;large&nbsp;number&nbsp;to&nbsp;filter&nbsp;all&nbsp;smaller&nbsp;wavenumbers.<br>
+for&nbsp;eg..,&nbsp;using&nbsp;minwave&nbsp;=1,10000,&nbsp;removes&nbsp;all&nbsp;variations&nbsp;zonally&nbsp;but&nbsp;mean<br>
+using&nbsp;minwave=0&nbsp;maxwave=0&nbsp;removes&nbsp;zonal&nbsp;mean&nbsp;from&nbsp;the&nbsp;grid.</tt></dd></dl>
+</td></tr></table>
+</body></html>

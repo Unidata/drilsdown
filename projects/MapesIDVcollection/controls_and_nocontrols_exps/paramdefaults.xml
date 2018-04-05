@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<params>
+  <param ci_base="0.0" ci_interval="1.0" ci_label="false" ci_max="90.0" ci_min="0.0" ci_width="1" name="column_vapor" range_max="60.0" range_min="0.0" table="DryWet with transparent low end"/>
+  <param ci_base="0.0" ci_interval="5.0" ci_max="100.0" ci_min="-100.0" ci_width="2" name="u" range_max="50.0" range_min="-50.0" table="BlueRed" unit="m/s"/>
+  <param ci_base="0.0" ci_interval="2.0" ci_max="50.0" ci_min="-50.0" ci_width="2" name="v" range_max="20.0" range_min="-20.0" table="BlueRed" unit="m/s"/>
+</params>

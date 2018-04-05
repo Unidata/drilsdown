@@ -1,0 +1,59 @@
+<types  supercategory="Science and Education">
+
+  <type name="type_drilsdown_casestudy"  description="Drilsdown Case Study" handler="edu.miami.drilsdown.CaseStudyTypeHandler" category="Science Project">
+     <property name="icon" value="/drilsdown/briefcase.png"/>
+     <property name="form.resource.show" value="false"/>
+     <property name="form.datatype.show" value="false"/>
+     <property name="form.altitude.show" value="false"/>
+     <property name="form.altitude.top.show" value="false"/>
+     <wiki><![CDATA[
+{{noheading}}
+<wiki>
+:title {{name}}
++inset
+<table>
+<tr valign="top"><td width="75%">
+{{description wikify="true"}}
+</td>
+<td width="25%">
+{{image src="::*" message="" width="300"}}
+</td>
+</table>
+-inset
+
+
++section
+{{tree message="" heading="All Content" box.maxheight="400"}}
+-section
+
+
++section
+{{gallery  width="200"  columns="3"  popup="true"  thumbnail="true"  caption="Figure ${count}: ${name}"  popupcaption="over"  message="" heading="Images"}}
+-section
+
+
++section
+{{tabs  entries.filter="type:python_notebook" message="" heading="Notebooks"}}
+-section
+
+
++section
+<center>
+{{map width="800" height="400"  listentries="true" entries.filter="type:type_idv_bundle" message="" heading="Geolocated IDV Bundles"}}
+</center>
+-section
+
+
+
+
+
+
+
+]]>
+</wiki>
+
+   </type>
+
+
+
+</types>
