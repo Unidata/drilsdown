@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="plugins" name="Drilsdown Plugins">
+
+    <target name="plugins" >
+      <echo message="Building core plugins"/>
+      <ant antfile="${basedir}/src/edu/miami/drilsdown/build.xml" inheritAll="false"/>
+    </target>
+    
+</project>
