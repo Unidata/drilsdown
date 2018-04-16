@@ -7,7 +7,8 @@ The [drilsdownplugin.jar](https://github.com/Unidata/drilsdown/blob/master/plugi
 
 
 To build from source:
-This plugin relies on the RAMADDA SVN tree to be installed as a sibling of this  directory. 
+This plugin relies on the RAMADDA source tree available at Github https://github.com/geodesystems/ramadda
+Install the RAMADDA tree as a sibling of the drilsdown dir
 e.g. - 
 
 <pre>
@@ -15,16 +16,12 @@ source
   |
   +------ drilsdown
   |          |
-  |          +-----ramadda
-  |                  |
-  |                  +---- src ...
+  |          + projects/RAMDDAplugin/ramadda
   |          
   |
-  +------ ramadda-code
+  +------ ramadda (from Github)
 </pre>
 
-Get the RAMADDA source with:
-svn checkout svn://svn.code.sf.net/p/ramadda/code/ ramadda-code
 
 
 To build run:
