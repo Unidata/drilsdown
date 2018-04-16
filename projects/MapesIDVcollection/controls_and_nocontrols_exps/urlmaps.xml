@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<urlmaps>
+    <!--
+    this url map assume that TDS 4.2 no longer exists, and all references
+    to motherlode should be moved to their 4.3 equivalent using the thredds*.ucar.edu
+    access address
+    -->
+    <urlmap
+        type="opendap"
+        old="weather.rsmas.miami.edu:8080/repository/"
+        new="weather.rsmas.miami.edu:80/repository/"/>
+    <urlmap
+        type="opendap"
+        old="motherlode.ucar.edu/thredds/"
+        new="thredds.ucar.edu/thredds/"/>
+    <urlmap
+        type="opendap"
+        old="motherlode.ucar.edu:8080/thredds/"
+        new="thredds.ucar.edu/thredds/"/>
+    <urlmap
+        type="opendap"
+        old="motherlode.ucar.edu:-1/thredds/"
+        new="thredds.ucar.edu/thredds/"/>
+    <urlmap
+        type="opendap"
+        old="motherlode.ucar.edu:8081/thredds/"
+        new="thredds-test.ucar.edu/thredds/"/>
+    <urlmap
+        type="opendap"
+        old="motherlode.ucar.edu:9080/thredds/"
+        new="thredds-dev.ucar.edu/thredds/"/>
+</urlmaps>
