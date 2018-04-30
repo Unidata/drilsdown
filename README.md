@@ -12,9 +12,9 @@ DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online 
 
 3. Jupyter-based mechanisms (an IDV kernel) for writing new IDV Jython analysis codes: **JyIDV or iJython**. 
 
-4. Ways to "teleport" a template visualization to Places & Times of Interest: **teleport_idv**.
+4. Ways to "teleport" a template visualization to Places & Times of Interest: **teleport_idv**, a Python command line tool.
 
-5. Ways to publish template IDV bundles, template notebooks, and final results to a RAMADDA repository, where they are viewable via browser as well as accessible digitally: **ramadda_publish**.
+5. Ways to publish template IDV bundles, template notebooks, and final results to a RAMADDA repository, where they are viewable via browser as well as accessible digitally: **ramadda_publish, RAMADDA plugin**.
 
 ------------
 #### How to get the goodness
