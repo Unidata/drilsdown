@@ -10,7 +10,7 @@ DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online 
 
 2. IDV enhancements (analysis codes, color scales, templates visible in favorites folders): the **Mapes IDV Collection**. 
 
-3. Jupyter-based mechanisms (an IDV kernel) for writing new IDV Jython analysis codes: **JyIDV**. 
+3. Jupyter-based mechanisms (an IDV kernel) for writing new IDV Jython analysis codes: **JyIDV or iJython**. 
 
 4. Ways to "teleport" a template visualization to Places & Times of Interest: **teleport_idv**.
 
