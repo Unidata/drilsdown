@@ -17,6 +17,6 @@ DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online 
 5. Ways to publish template IDV bundles, template notebooks, and final results to a RAMADDA repository, where they are viewable via browser as well as accessible digitally: **ramadda_publish**.
 
 ------------
-#### How to get it
+#### How to get the goodness
 
-See documentation. These capabilities are heterogeneous as software, but powerful together as tools. 
+See the examples, and documentation for the parts. These capabilities are in different languages and forms, and can be useful individually, but are especially powerful together.
