@@ -53,8 +53,24 @@ except ImportError:
     from urllib import urlopen, urlencode
 import requests
 
+try: 
+    import xarray
+    from tempfile import NamedTemporaryFile
+    def to_IDV(data, filename = None):
+        if filename:
+            data.to_netcdf(filename)
+            load_data(filename)
+        else: 
+            with NamedTemporaryFile(suffix='.nc') as f:
+                 data.to_netcdf(f.name)
+                 load_data(f.name)
 
+    xarray.DataArray.to_IDV=to_IDV
+    xarray.Dataset.to_IDV=to_IDV
 
+except ModuleNotFoundError :
+   print('xarray package is missing, functionality related to loading data' 
+                        'from xarray into IDV will not be available')
 
 def read_url(url):
     """Utility to read a URL. Returns the text of the result"""
