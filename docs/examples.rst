@@ -9,6 +9,8 @@ A simplest example of "drilling down" is to view satellite imagery around places
 
 The next level of scientific inquiry here is to call up a vertical sounding display, from a global 3D meteorological analysis, in either the IDV or a Jupyter Python session. 
 
+~~~~~~~~~~~~~
+
 ------------
 Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?
 ------------
