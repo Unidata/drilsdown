@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# ipython-IDV documentation build configuration file, created by
+# DRILSDOWN documentation build configuration file, created by
 # sphinx-quickstart on Mon Dec 11 13:08:59 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ipython-IDV'
+project = 'DRILSDOWN'
 copyright = '2017, DRILSDOWN team'
 author = 'DRILSDOWN team'
 
