@@ -22,7 +22,9 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: docs/_build/html
+  local_dir: $PWD/docs/_build/html
   github_token: $GITHUB_TOKEN
+  on:
+    branch: master
 script:
 -   ./ci/run_tests.sh
