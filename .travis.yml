@@ -29,5 +29,6 @@ deploy:
   github_token: $GITHUB_TOKEN
   on:
     branch: master
+    node: '3.6'
 target_branch: gh-pages
 committer-from-gh: true
