@@ -16,6 +16,8 @@ install:
 - travis_retry pip install sphinx
 - travis_retry pip install sphinx_rtd_theme
 script:
+-   ./ci/run_tests.sh
+- echo "cece"
 - pwd
 - cd docs
 - make html
@@ -29,5 +31,3 @@ deploy:
     branch: master
 target_branch: gh-pages
 committer-from-gh: true
-script:
--   ./ci/run_tests.sh
