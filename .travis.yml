@@ -16,6 +16,7 @@ install:
 - travis_retry pip install sphinx
 - travis_retry pip install sphinx_rtd_theme
 script:
+- pwd
 - cd docs
 - make html
 - cd -
