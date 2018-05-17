@@ -22,9 +22,11 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: docs/_build/html
+  local_dir: public
   github_token: $GITHUB_TOKEN
   on:
     branch: master
+target_branch: gh-pages
+committer-from-gh: true
 script:
 -   ./ci/run_tests.sh
