@@ -17,8 +17,6 @@ install:
 - travis_retry pip install sphinx_rtd_theme
 script:
 -   ./ci/run_tests.sh
-- echo "cece"
-- pwd
 - cd docs
 - make html
 - cd -
