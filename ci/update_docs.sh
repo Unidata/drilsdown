@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # build the docs
-cd docs
+cd ../docs
 make clean
 make html
 # package the docs
