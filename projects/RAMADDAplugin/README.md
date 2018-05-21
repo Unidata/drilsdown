@@ -31,3 +31,10 @@ ant
 This runs the ant script in src/edu/miami/drilsdown
 
 The plugin will be placed in the ramadda/dist directory
+
+---------
+
+In order to have .ipynb files rendered on RAMADDA by jupyter's nbconvert service, you have to install jupyter and add this line to .properties file in your ramadda home directory, or to repository.properties in a Tomcat installation: 
+
+*ramadda.jupyter.path=/path/to/jupyter*
+
