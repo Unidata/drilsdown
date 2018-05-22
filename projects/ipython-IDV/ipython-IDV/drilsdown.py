@@ -67,9 +67,33 @@ try:
                 data.to_netcdf(f.name)
                 load_data(f.name)
                 
-        xarray.DataArray.to_IDV=to_IDV
-        xarray.Dataset.to_IDV=to_IDV
- 
+    xarray.DataArray.to_IDV=to_IDV
+    xarray.Dataset.to_IDV=to_IDV
+
+    def from_zidv(fileorurl=None,outdir=None):
+    """ Loading data from IDV zip file '.zidv' as xarray Dataset
+        fileorurl can be a local .zidv file or a remote url.
+        Optionally, outdir can be specified where the file is unzipped"""
+        if fileorurl.startswith('http'):
+            zfile = request.urlopen(fileorurl)
+            zfile = BytesIO(zfile.read())
+        elif os.path.exists(fileorurl):
+            zfile=fileorurl
+        else:
+            return 'Unknown File or Url'
+        das=[]
+        with ZipFile(zfile) as zip_file:
+            for contained_file in zip_file.namelist():
+                if str(contained_file).startswith('data'):
+                    try:
+                        das.append(xr.open_dataset(zip_file.extract(contained_file,outdir)))
+                    except Exception as err:
+                        print('Skipping file '+str(contained_file)+' because of error '+err)
+        return xr.merge(das)
+
+    xr.from_zidv=from_zidv 
+
+
 except ImportError:
     print('xarray package is missing, functionality related to loading data' 
                          'from xarray into IDV will not be available')
