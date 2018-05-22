@@ -46,6 +46,8 @@ from os.path import isfile, join
 import IPython 
 from IPython.lib import kernel
 import shlex
+from io import BytesIO
+from zipfile import ZipFile
 
 try:
     from urllib.request import urlopen
@@ -77,7 +79,7 @@ try:
         if fileorurl.startswith('http'):
             zfile = request.urlopen(fileorurl)
             zfile = BytesIO(zfile.read())
-        elif os.path.exists(fileorurl):
+        elif isfile(fileorurl):
             zfile=fileorurl
         else:
             return 'Unknown File or Url'
