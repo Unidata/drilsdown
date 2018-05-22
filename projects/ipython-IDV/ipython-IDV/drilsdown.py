@@ -73,11 +73,11 @@ try:
     xarray.Dataset.to_IDV=to_IDV
 
     def from_zidv(fileorurl=None,outdir=None):
-    """ Loading data from IDV zip file '.zidv' as xarray Dataset
+        """Loading data from IDV zip file '.zidv' as xarray Dataset
         fileorurl can be a local .zidv file or a remote url.
         Optionally, outdir can be specified where the file is unzipped"""
         if fileorurl.startswith('http'):
-            zfile = request.urlopen(fileorurl)
+            zfile = urlopen(fileorurl)
             zfile = BytesIO(zfile.read())
         elif isfile(fileorurl):
             zfile=fileorurl
@@ -88,12 +88,12 @@ try:
             for contained_file in zip_file.namelist():
                 if str(contained_file).startswith('data'):
                     try:
-                        das.append(xr.open_dataset(zip_file.extract(contained_file,outdir)))
+                        das.append(xarray.open_dataset(zip_file.extract(contained_file,outdir)))
                     except Exception as err:
                         print('Skipping file '+str(contained_file)+' because of error '+err)
-        return xr.merge(das)
+        return xarray.merge(das)
 
-    xr.from_zidv=from_zidv 
+    xarray.from_zidv=from_zidv 
 
 
 except ImportError:
