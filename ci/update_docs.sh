@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # build the docs
-cd docs
+cd ../docs
 make clean
 make html
 # package the docs
@@ -10,6 +10,7 @@ tar czf ~/html.tgz .
 cd ../../..
 # checkout doc branch
 git checkout gh-pages
+git pull git@github.com:Unidata/drilsdown.git gh-pages --allow-unrelated-histories -Xtheirs
 
 # make sure the checkout was successful
 current_branch=$(git branch | grep \* | cut -d ' ' -f2-)

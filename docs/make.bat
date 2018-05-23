@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=ipython-IDV
+set SPHINXPROJ=DRILSDOWN
 
 if "%1" == "" goto help
 

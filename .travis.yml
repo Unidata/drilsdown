@@ -17,3 +17,16 @@ install:
 - travis_retry pip install sphinx_rtd_theme
 script:
 -   ./ci/run_tests.sh
+- cd docs
+- make html
+- cd -
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/_build/html
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+    python: "3.6"
+target_branch: gh-pages
+committer-from-gh: true

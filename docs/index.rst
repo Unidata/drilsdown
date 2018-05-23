@@ -20,11 +20,11 @@ DRILSDOWN brings the GUI-driven 3D geospatial data visualization power of Unidat
 
 User, please decide your level of interest:
 
-1. I want to use IDV only (some plugins you can find here will facilitate its use).
+1. I want some plugin enhancements to my IDV.
 
-2. I also want IDV to interact with Jupyter
+2. I also want IDV to interact with Jupyter.
 
-3. I also want my work to interact with a RAMADDA repository.
+3. I also want my IDV+Jupyter "case studies" to reside on and interact with a RAMADDA repository.
 
-4. I also want to install a RAMADDA of my own!
+4. I also want to install a RAMADDA repository of my own.
 

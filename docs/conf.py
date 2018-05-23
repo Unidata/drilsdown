@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# ipython-IDV documentation build configuration file, created by
+# DRILSDOWN documentation build configuration file, created by
 # sphinx-quickstart on Mon Dec 11 13:08:59 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ipython-IDV'
+project = 'DRILSDOWN'
 copyright = '2017, DRILSDOWN team'
 author = 'DRILSDOWN team'
 
@@ -119,7 +119,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ipython-IDVdoc'
+htmlhelp_basename = 'DRILSDOWNdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -146,7 +146,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ipython-IDV.tex', 'ipython-IDV Documentation',
+    (master_doc, 'DRILSDOWN.tex', 'DRILSDOWN Documentation',
      'DRILSDOWN team', 'manual'),
 ]
 
@@ -156,7 +156,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ipython-idv', 'ipython-IDV Documentation',
+    (master_doc, 'DRILSDOWN', 'DRILSDOWN Documentation',
      [author], 1)
 ]
 
@@ -167,8 +167,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ipython-IDV', 'ipython-IDV Documentation',
-     author, 'ipython-IDV', 'One line description of project.',
+    (master_doc, 'DRILSDOWN', 'DRILSDOWN Documentation',
+     author, 'DRILSDOWN', 'One line description of project.',
      'Miscellaneous'),
 ]
 
