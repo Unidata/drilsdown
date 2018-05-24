@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Unidata/drilsdown.svg?branch=master)](https://travis-ci.org/Unidata/drilsdown)
 ## Consolidated repository of the DRILSDOWN project 
 ### an NSF Earthcube supported effort
 
