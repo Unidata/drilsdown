@@ -1,0 +1,28 @@
+Guide to make changes in docs locally:
+###########################################
+
+
+1) Add a rst for every example you include in ../UseCase_Examples
+note the current document structure in index.rst and examples.rst
+
+
+
+
+2) optionally setup environment for creating docs:
+pip install -r requirements.txt
+
+
+configure the theme if you need to in conf.py
+current theme is sphinx-rtd-theme
+http://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
+
+
+3) for creating docs run 
+make html 
+
+docs will be under _build/html/index.html 
+
+dont worry if widgets are not rendered main drilsdown docs are done at travis CI 
+with a proper environment.
+
+

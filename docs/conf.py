@@ -5,7 +5,7 @@
 import os
 import subprocess
 import sys
-#import recommonmark.parser
+import recommonmark.parser
 
 
 # -- path -------------------------------------------------------
@@ -25,10 +25,10 @@ def bash(filename):
 bash('make_links.sh')
 # -- source files and parsers -----------------------------------
 
-source_suffix = ['.rst', '.ipynb'] #no md for now
-#source_parsers = {
-#    '.md': recommonmark.parser.CommonMarkParser,
-#}
+source_suffix = ['.rst', '.ipynb','.md'] 
+source_parsers = {
+    '.md': recommonmark.parser.CommonMarkParser,
+}
 
 
 # -- Sphinx extensions and configuration ------------------------
@@ -63,7 +63,7 @@ copyright = '2017, DRILSDOWN team'
 author = 'DRILSDOWN team'
 
 language = None
-exclude_patterns = ['*.txt','*.md','_build', '**.ipynb_checkpoints','Thumbs.db','.DS_Store']
+exclude_patterns = ['devguide.rst','*.txt','*.md','_build', '**.ipynb_checkpoints','Thumbs.db','.DS_Store']
 pygments_style = 'sphinx'
 todo_include_todos = False
 
@@ -141,4 +141,5 @@ epub_copyright = copyright
 # -- Theme options -----------------
 
 # Options are theme-specific and customize the look and feel of the theme.
-html_theme_options = {}
+html_theme_options = {
+'collapse_navigation': False}
