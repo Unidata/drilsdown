@@ -4,15 +4,16 @@
 
 # Verify docs build
 cd ../docs
+
 # install prereq
 pip install -r requirements.txt
 #
 make clean
 make html
 # package the docs
-cd _build/html
-tar czf ~/html.tgz .
-cd ../../..
+#cd _build/html
+#tar czf ~/html.tgz .
+#cd ../../..
 
 
 #######
