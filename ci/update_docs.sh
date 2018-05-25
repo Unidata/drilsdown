@@ -18,6 +18,10 @@ make html
 #tar czf ~/html.tgz .
 #cd ../../..
 
+##no jekyll needed for github for rtd theme 
+pushd _build/html
+touch .nojekyll
+popd
 
 popd
 #######
