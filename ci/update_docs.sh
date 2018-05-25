@@ -3,7 +3,9 @@
 # build the docs
 
 # Verify docs build
-cd ../docs
+pwd
+
+pushd ../docs
 
 # install prereq
 pip install -r requirements.txt
@@ -16,6 +18,7 @@ make html
 #cd ../../..
 
 
+popd
 #######
 #Commenting for now. 1)causes failues in forks; 2) team member can wrongly commit from elsewhere to 
 #drilsdown master gh-pages
