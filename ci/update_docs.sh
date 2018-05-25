@@ -5,7 +5,7 @@
 # Verify docs build
 pwd
 
-pushd ../docs
+pushd docs
 
 # install prereq
 pip install -r requirements.txt
