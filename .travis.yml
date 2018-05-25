@@ -17,9 +17,7 @@ install:
 - travis_retry pip install sphinx_rtd_theme
 script:
 -   ./ci/run_tests.sh
-- cd docs
-- make html
-- cd -
+-   ./ci/update_docs.sh
 deploy:
   provider: pages
   skip_cleanup: true
