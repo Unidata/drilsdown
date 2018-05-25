@@ -5,11 +5,9 @@
 
 
 .. toctree::
-   :maxdepth: 2
-   :hidden:
+   :maxdepth: 1
 
    installguide
-   devguide
    examples
 
 
