@@ -7,7 +7,7 @@ pwd
 
 pushd docs
 
-which pandoc
+pandoc -v
 # install prereq
 pip install -r requirements.txt
 #
