@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
 # build the docs
+
+# Verify docs build
 cd ../docs
+# install prereq
+pip install -r requirements.txt
+#
 make clean
 make html
 # package the docs
