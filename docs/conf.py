@@ -43,8 +43,55 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',
 ]
 
-
 nbsphinx_allow_errors = True   # exception ipstruct.py ipython_genutils
+
+#tisns is processed by Jinja2 and inserted before each notebook
+nbsphinx_prolog = r"""
+{% set docname = env.doc2path(env.docname, base='doc') %}
+
+.. only:: html
+
+    .. role:: raw-html(raw)
+        :format: html
+
+    .. nbinfo::
+
+        `Right click to download this Notebook`__
+        Interactive online version:
+        :raw-html:`<a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
+
+    __ https://github.com/unidata/drilsdown/UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}
+       
+
+.. raw:: latex
+
+    \vfil\penalty-1\vfilneg
+    \vspace{\baselineskip}
+    \textcolor{gray}{The following section was generated from
+    \texttt{\strut{}{{ docname }}}\\[-0.5\baselineskip]
+    \noindent\rule{\textwidth}{0.4pt}}
+    \vspace{-2\baselineskip}
+"""
+# This is processed by Jinja2 and inserted after each notebook
+
+# Execute notebooks before conversion: 'always', 'never', 'auto' (default)
+#nbsphinx_execute = 'never'
+
+# Use this kernel instead of the one stored in the notebook metadata:
+#nbsphinx_kernel_name = 'python3'
+
+# List of arguments to be passed to the kernel that executes the notebooks:
+#nbsphinx_execute_arguments = ['--InlineBackend.figure_formats={"png", "pdf"}']
+
+# Execute notebooks before conversion: 'always', 'never', 'auto' (default)
+#nbsphinx_execute = 'never'
+
+# Use this kernel instead of the one stored in the notebook metadata:
+#nbsphinx_kernel_name = 'python3'
+
+# List of arguments to be passed to the kernel that executes the notebooks:
+#nbsphinx_execute_arguments = ['--InlineBackend.figure_formats={"png", "pdf"}']
+
 
 # -- General information -------
 
@@ -73,6 +120,7 @@ html_theme = 'sphinx_rtd_theme'
 
 # html_static_path = ['_static']
 htmlhelp_basename = 'DRILSDOWNdoc'
+
 
 
 # -- Options for LaTeX output ---------------------------------------------
