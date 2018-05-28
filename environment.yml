@@ -10,5 +10,6 @@ dependencies:
     - netCDF4
     - xarray
     - seaborn
-    - pyviz
+    - holoviews
+    - bokeh
     - drilsdown
