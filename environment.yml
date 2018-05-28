@@ -12,4 +12,6 @@ dependencies:
     - seaborn
     - holoviews
     - bokeh
+    - cartopy
+    - pyshp
     - drilsdown
