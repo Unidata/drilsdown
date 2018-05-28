@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+  - pyviz
+  - defaults
+dependencies:
+  - pip:
+    - ipykernel
+    - ipywidgets>=7.1.0rc1
+    - matplotlib
+    - seaborn
+    - pyviz
