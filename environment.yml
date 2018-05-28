@@ -3,6 +3,7 @@ channels:
   - pyviz
   - defaults
 dependencies:
+  - cartopy
   - pip:
     - ipykernel
     - ipywidgets>=7.1.0rc1
@@ -12,7 +13,7 @@ dependencies:
     - seaborn
     - holoviews
     - bokeh
-    - Cython
+    - cython
     - cartopy
     - pyshp
     - drilsdown
