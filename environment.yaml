@@ -9,3 +9,4 @@ dependencies:
     - matplotlib
     - seaborn
     - pyviz
+    - drilsdown
