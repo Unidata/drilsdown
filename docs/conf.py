@@ -60,7 +60,7 @@ nbsphinx_prolog = r"""
         Interactive online version:
         :raw-html:`<a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
 
-    __ https://github.com/unidata/drilsdown/UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}
+    __ https://github.com/Unidata/drilsdown/raw/master/UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}
        
 
 .. raw:: latex
