@@ -1,9 +1,9 @@
 import os
-import pip
 from six import iteritems
 from setuptools import setup
 from setuptools.command.develop import develop
 from setuptools.command.install import install
+import subprocess
 
 PACKAGE_NAME = 'drilsdown'
 SOURCES = {
@@ -19,11 +19,11 @@ def install_drilsdown_projects(sources, develop=False):
     wd = os.getcwd()
     for k, v in iteritems(sources):
         try:
-            os.chdir(os.path.join(wd, v.root_dir))
+            os.chdir(os.path.join(wd, v))
             if develop:
-                pip.main(['install', '-e', '.'])
+                subprocess.check_call(['pip', 'install', '-e', '.'])
             else:
-                pip.main(['install', '.'])
+                subprocess.check_call(['pip', 'install', '.'])
         except Exception as e:
             print("Oops, something went wrong installing", k)
             print(e)

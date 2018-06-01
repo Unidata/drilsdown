@@ -1,4 +1,3 @@
-
 # Copy this into
 # ~/.ipython/extensions/
 # In the ipython shell do:
@@ -10,12 +9,16 @@
 # This will execute IDV_HOME/runIdv
 #
 
+
+
 import sys
 import os
 import os.path
 import re
 import subprocess
 import json
+import time
+from shutil import copyfile
 from base64 import b64encode
 from IPython.display import HTML
 from IPython.display import Image
@@ -52,6 +55,33 @@ except ImportError:
     from urlparse import urlparse
     from urllib import urlopen, urlencode
 import requests
+
+try: 
+    import xarray
+    def to_IDV(data, filename = None):
+        if filename:
+            data.to_netcdf(filename)
+            load_data(filename)
+        else: 
+            with NamedTemporaryFile(suffix='.nc') as f:
+                data.to_netcdf(f.name)
+                load_data(f.name)
+                
+        xarray.DataArray.to_IDV=to_IDV
+        xarray.Dataset.to_IDV=to_IDV
+ 
+except ImportError:
+    print('xarray package is missing, functionality related to loading data' 
+                         'from xarray into IDV will not be available')
+
+
+
+
+##Try importing netcdf. Some users won't have this installed
+try:
+    from netCDF4 import Dataset
+except ImportError:
+    print('netCDF4 is not installed');
 
 
 
@@ -384,7 +414,11 @@ class DrilsdownUI:
 
     @staticmethod
     def status(text):
-        DrilsdownUI.statusLabel.value = text
+##If we haven't made a UI we don't have a statusLabel
+        try:
+            DrilsdownUI.statusLabel.value = text
+        except:
+            print(text);
 
     @staticmethod
     def make_button(label, callback, extra=None):
@@ -942,21 +976,26 @@ class Idv:
 
 
     @staticmethod
-    def export_data(filename=None, display_id=None, load_data = False):
+    def export_data(filename=None, display_id=None, load_data = True, suffix='nc'):
         DrilsdownUI.status("Exporting data ...")
         extra = ""
         if display_id is not None:
             extra += ' display="' + display_id + '" '
         if filename is  None:
-            f = NamedTemporaryFile(suffix='.gif', delete=False) 
+            f = NamedTemporaryFile(suffix='.' + suffix, delete=False) 
             filename = f.name;
-        isl = '<isl><export file="' + f.name + '"' \
+        isl = '<isl><export what="netcdf" file="' + filename + '"' \
             + extra + '/></isl>'
         result = Idv.run_isl(isl)
         if not result.ok():
             return;
+#        print("Data exported to: " + filename);
         if load_data:
-            placeholder = false;
+            placeholder = False;
+#            filename= '/Users/jeffmc/test.nc';
+#            filename= '/Users/jeffmc/test.netcdf';
+            dataset=   Dataset(filename, "r");
+            return dataset;
             #                return load_data(filename);
             # img = '<img src="data:image/gif;base64,{0}">'
         DrilsdownUI.status("data exported to: " + filename)
@@ -1514,7 +1553,16 @@ repositories = [Ramadda("http://weather.rsmas.miami.edu/repository/entry/show?en
 ]
 Repository.theRepository = repositories[0]
 
-make_ui("")
+
+
+
+
+show_ui = True;
+if 'drilsdown.showui'  in os.environ:
+    show_ui = os.environ['drilsdown.showui'] == "True"
+
+if show_ui:
+    make_ui("")
 
         
 

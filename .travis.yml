@@ -1,11 +1,8 @@
 language: python
 python:
--   '2.7'
--   '3.4'
--   '3.5'
 -   '3.6'
 before_install:
-- chmod +x ci/run_tests.sh
+- sudo apt-get install -y pandoc
 - travis_retry pip install --upgrade pip
 - travis_retry pip install ipython
 - travis_retry pip install ipywidgets
@@ -17,3 +14,11 @@ install:
 - travis_retry pip install sphinx_rtd_theme
 script:
 -   ./ci/run_tests.sh
+-   ./ci/update_docs.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/_build/html
+  github_token: $GITHUB_TOKEN
+target_branch: gh-pages
+committer-from-gh: true

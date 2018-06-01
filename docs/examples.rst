@@ -1,5 +1,6 @@
-=============
+==============================
 Examples of DRILSDOWN projects
+<<<<<<< HEAD
 =============
 
 ------------
@@ -19,3 +20,13 @@ Oceanic: What's going on when the Loop Current in the Gulf of Mexico splits off 
 ------------
 
 
+=======
+==============================
+
+.. toctree::
+   :maxdepth: 1
+   
+   Atmospheric (Observed) <atmospheric_observed.rst>
+   Atmospheric (complex, simulated) <atmospheric_simulated.rst>
+   Oceanic <oceanic_simulated.rst>
+>>>>>>> Unidata/master
