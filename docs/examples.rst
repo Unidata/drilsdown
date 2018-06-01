@@ -7,7 +7,8 @@ Atmospheric (observed): What do clouds look like where they are acting to increa
 ------------
 A simplest example of "drilling down" is to view satellite imagery around places where interesting quantitative meteorology is diagnosed. (This example)[https://github.com/Unidata/drilsdown/tree/master/UseCase_Examples/WaterVaporTendencies] constructs URLs  to a NASA imagery server, from the date and time information around extreme values of a *Lagrangian water vapor tendency*.
 
-The next level of scientific inquiry here is to call up a vertical sounding display, from a global 3D meteorological analysis, in either the IDV or a Jupyter Python session. 
+The next level of scientific inquiry here is to call up a vertical sounding display, from a global 3D meteorological analysis, in either the IDV or a Jupyter Python session.
+
 
 ------------
 Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?
