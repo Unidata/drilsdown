@@ -110,7 +110,7 @@ copyright = '2017, DRILSDOWN team'
 author = 'DRILSDOWN team'
 
 language = None
-exclude_patterns = ['devguide.rst','*.txt','*.md','_build', '**.ipynb_checkpoints','Thumbs.db','.DS_Store']
+exclude_patterns = ['*.txt','*.md','_build', '**.ipynb_checkpoints','Thumbs.db','.DS_Store']
 pygments_style = 'sphinx'
 todo_include_todos = False
 
