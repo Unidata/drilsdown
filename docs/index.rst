@@ -1,18 +1,3 @@
-.. ipython-IDV documentation master file, created by
-   sphinx-quickstart on Mon Dec 11 13:08:59 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   installguide
-   devguide
-   examples
-
-
 DRILSDOWN Project
 ==================
 
@@ -27,4 +12,11 @@ User, please decide your level of interest:
 3. I also want my IDV+Jupyter "case studies" to reside on and interact with a RAMADDA repository.
 
 4. I also want to install a RAMADDA repository of my own.
+
+.. toctree::
+   :maxdepth: 1
+
+   installguide
+   examples
+
 

@@ -22,8 +22,9 @@ Tier III: Storing and servicing {IDV, Jupyter} "Case Studies" on RAMADDA
 
 Tier IV: RAMADDA installation with DRILSDOWN functionality
   To install your own RAMADDA repository, follow instructions `here <https://geodesystems.com/?>`_ 
+  Then, put `drilsdownplugin.jar <https://github.com/Unidata/drilsdown/blob/master/projects/RAMADDAplugin/plugins/drilsdownplugin.jar>`_  in your repository's plugins/ directory, and restart it. 
   
-  In order to have your Case Study .ipynb files rendered by jupyter's nbconvert service, you have to install jupyter on your RAMADDA's host machine, and add this line to .properties file in your ramadda home directory, or to repository.properties in a Tomcat installation:
+  To have your Case Study .ipynb files rendered by jupyter's nbconvert service, install jupyter on your RAMADDA's host machine, and add this line to .properties file in your ramadda home directory (or to repository.properties, in a Tomcat installation):
   
     *ramadda.jupyter.path=/path/to/jupyter* 
 
