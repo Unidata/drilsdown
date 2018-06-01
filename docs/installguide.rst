@@ -33,7 +33,7 @@ Examples
 --------
 Use case examples, with template .xidv IDV bundles and .ipynb Jupyter notebooks, are at: 
 
-  **Observed atmopsheric states in areas where column integrated water vapor is increasing quickly.** 
+  **Observed atmospheric states in areas where column integrated water vapor is increasing quickly.**
   
   
 
