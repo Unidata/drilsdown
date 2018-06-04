@@ -64,6 +64,17 @@ setup(
         'six',
         'ipython_IDV',
         'jython-kernel',
+        'ramadda_publish',
+        'idv_teleport',
+        'ipykernel',
+        'jupyter-client',
+        'ipywidgets>=7.1.0rc',
+        'pyviz',
+        'xarray',
+        'holoviews',
+        'cartopy',
+        'geoviews',
+        'MetPy'    
     ],
     cmdclass={
         'install': InstallCmd,

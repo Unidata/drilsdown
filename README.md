@@ -20,4 +20,6 @@ DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online 
 ------------
 #### How to get the goodness
 
+       pip install drilsdown 
+       
 See the examples, and documentation for the parts. These capabilities are in different languages and forms, and can be useful individually, but are especially powerful together.
