@@ -64,6 +64,12 @@ setup(
         'six',
         'ipython-IDV',
         'jython-kernel',
+        'ramadda_publish',
+        'idv_teleport',
+        'ipykernel',
+        'jupyter-client',
+        'ipywidgets>=7.1.0rc',
+        'pyviz'
     ],
     cmdclass={
         'install': InstallCmd,
