@@ -69,7 +69,12 @@ setup(
         'ipykernel',
         'jupyter-client',
         'ipywidgets>=7.1.0rc',
-        'pyviz'
+        'pyviz',
+        'xarray',
+        'holoviews',
+        'cartopy',
+        'geoviews',
+        'MetPy'    
     ],
     cmdclass={
         'install': InstallCmd,
