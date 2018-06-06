@@ -60,7 +60,7 @@ if svem_flag in sys.argv:
 #             break
 setup(name='jython_kernel',
       description='A Jython kernel for Jupyter/IPython',
-      version='2.00',
+      version='2.4.3',
       url="https://github.com/suvarchal/IJython",
       author='Suvarchal Kumar Cheedela',
       author_email='suvarchal.kumar@gmail.com',

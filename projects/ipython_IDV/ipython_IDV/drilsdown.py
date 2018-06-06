@@ -410,7 +410,7 @@ class DrilsdownUI:
         repository_selector.observe(DrilsdownUI.repository_selector_changed, names='value')
         DrilsdownUI.statusLabel = Label("")
         display(VBox(
-                [HTML("<h3>iPython-IDV Control Panel</h3>"),
+                [HTML("<h3>ipython_IDV Control Panel</h3>"),
                     HBox([HTML("<b>Resources:</b>"),
                           repository_selector,
                           list_btn]),

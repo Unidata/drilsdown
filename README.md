@@ -7,7 +7,7 @@ DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online 
 --------------
 #### The basic capabilities
 
-1. Jupyter notebook interactions with an IDV session on the local machine: **iPython-IDV extension**. 
+1. Jupyter notebook interactions with an IDV session on the local machine: **ipython_IDV extension**. 
 
 2. IDV enhancements (analysis codes, color scales, templates visible in favorites folders): the **Mapes IDV Collection**. 
 
@@ -20,4 +20,6 @@ DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online 
 ------------
 #### How to get the goodness
 
+       pip install drilsdown 
+       
 See the examples, and documentation for the parts. These capabilities are in different languages and forms, and can be useful individually, but are especially powerful together.
