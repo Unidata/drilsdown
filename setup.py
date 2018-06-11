@@ -10,7 +10,7 @@ SOURCES = {
     'jython-kernal': 'projects/IJython',
     'ipython_IDV': 'projects/ipython_IDV',
 }
-
+VERSION = '2.4.7'
 
 def install_drilsdown_projects(sources, develop=False):
     """ Use pip to install all drilsdown projects.  """
@@ -47,7 +47,7 @@ class InstallCmd(install):
 
 setup(
     name=PACKAGE_NAME,
-    version="2.4.3",
+    version=VERSION,
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
     description="A collection of tools for jupyter notebooks",
@@ -62,7 +62,7 @@ setup(
     install_requires=[
         'future',
         'six',
-        'ipython_IDV',
+        'ipython_IDV>=' + VERSION + "'",
         'jython-kernel',
         'ramadda_publish',
         'idv_teleport',
