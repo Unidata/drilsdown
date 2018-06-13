@@ -8,9 +8,9 @@ import subprocess
 PACKAGE_NAME = 'drilsdown'
 SOURCES = {
     'jython-kernal': 'projects/IJython',
-    'ipython-IDV': 'projects/ipython-IDV',
+    'ipython_IDV': 'projects/ipython_IDV',
 }
-
+VERSION = '2.4.7'
 
 def install_drilsdown_projects(sources, develop=False):
     """ Use pip to install all drilsdown projects.  """
@@ -47,7 +47,7 @@ class InstallCmd(install):
 
 setup(
     name=PACKAGE_NAME,
-    version="2.4.1",
+    version=VERSION,
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
     description="A collection of tools for jupyter notebooks",
@@ -62,8 +62,19 @@ setup(
     install_requires=[
         'future',
         'six',
-        'ipython-IDV',
+        'ipython_IDV>=' + VERSION + "'",
         'jython-kernel',
+        'ramadda_publish',
+        'idv_teleport',
+        'ipykernel',
+        'jupyter-client',
+        'ipywidgets>=7.1.0rc',
+        'pyviz',
+        'xarray',
+        'holoviews',
+        'cartopy',
+        'geoviews',
+        'MetPy'    
     ],
     cmdclass={
         'install': InstallCmd,

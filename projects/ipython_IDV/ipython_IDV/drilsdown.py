@@ -46,6 +46,8 @@ from os.path import isfile, join
 import IPython 
 from IPython.lib import kernel
 import shlex
+from io import BytesIO
+from zipfile import ZipFile
 
 try:
     from urllib.request import urlopen
@@ -67,9 +69,33 @@ try:
                 data.to_netcdf(f.name)
                 load_data(f.name)
                 
-        xarray.DataArray.to_IDV=to_IDV
-        xarray.Dataset.to_IDV=to_IDV
- 
+    xarray.DataArray.to_IDV=to_IDV
+    xarray.Dataset.to_IDV=to_IDV
+
+    def from_zidv(fileorurl=None,outdir=None):
+        """Loading data from IDV zip file '.zidv' as xarray Dataset
+        fileorurl can be a local .zidv file or a remote url.
+        Optionally, outdir can be specified where the file is unzipped"""
+        if fileorurl.startswith('http'):
+            zfile = urlopen(fileorurl)
+            zfile = BytesIO(zfile.read())
+        elif isfile(fileorurl):
+            zfile=fileorurl
+        else:
+            return 'Unknown File or Url'
+        das=[]
+        with ZipFile(zfile) as zip_file:
+            for contained_file in zip_file.namelist():
+                if str(contained_file).startswith('data'):
+                    try:
+                        das.append(xarray.open_dataset(zip_file.extract(contained_file,outdir)))
+                    except Exception as err:
+                        print('Skipping file '+str(contained_file)+' because of error '+err)
+        return xarray.merge(das)
+
+    xarray.from_zidv=from_zidv 
+
+
 except ImportError:
     print('xarray package is missing, functionality related to loading data' 
                          'from xarray into IDV will not be available')
@@ -384,7 +410,7 @@ class DrilsdownUI:
         repository_selector.observe(DrilsdownUI.repository_selector_changed, names='value')
         DrilsdownUI.statusLabel = Label("")
         display(VBox(
-                [HTML("<h3>iPython-IDV Control Panel</h3>"),
+                [HTML("<h3>ipython_IDV Control Panel</h3>"),
                     HBox([HTML("<b>Resources:</b>"),
                           repository_selector,
                           list_btn]),
