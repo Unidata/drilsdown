@@ -1,9 +1,9 @@
 
-This is the package for the drilsdown RAMADDA plugin
+## Drilsdown plugins for Java applications (IDV and RAMADDA)
 
-The [ramaddaplugin.jar](https://github.com/Unidata/drilsdown/blob/master/plugins/ramaddaplugin.jar) is the publisher plugin for the IDV
+The [ramaddaplugin.jar](https://github.com/Unidata/drilsdown/blob/master/plugins/ramaddaplugin.jar) is a plugin for the IDV. It is now available directly through the [IDV's Plugins menus](https://www.unidata.ucar.edu/software/idv/docs/userguide/misc/Plugins.html).
 
-The [drilsdownplugin.jar](https://github.com/Unidata/drilsdown/blob/master/plugins/drilsdownplugin.jar) is the plugin for RAMADDA that provides some drilsdown specific functionality
+The [drilsdownplugin.jar](https://github.com/Unidata/drilsdown/blob/master/plugins/drilsdownplugin.jar) is a plugin for RAMADDA that provides some drilsdown specific functionality (such as rendering of Case Study entry types).
 
 
 To build from source:
