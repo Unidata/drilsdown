@@ -1,3 +1,4 @@
+name: DRILSDOWN
 channels:
   - conda-forge
   - pyviz
