@@ -20,7 +20,7 @@ setuptools.setup(
     description="This project allows users to use Unidata's IDV with jupyter notebooks ",
     long_description=open('README.md').read(),
     packages = setuptools.find_packages(),
-    py_modules = ['ipython_IDV.ipython_IDV'],
+    py_modules = ['ipython_IDV'],
     install_requires=['ipython'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -33,6 +33,6 @@ setuptools.setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    # package_dir={"ipython_IDV": "drilsdown"}
+    #package_dir={"ipython_IDV": "ipython_IDV"}
 
 )
