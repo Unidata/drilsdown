@@ -18,5 +18,6 @@ User, please decide your level of interest:
 
    installguide
    examples
+   devguide
 
 
