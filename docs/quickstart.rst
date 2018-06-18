@@ -11,7 +11,7 @@ Replicate 0:59 video
 
 2. Install Jupyter (as part of Anaconda `here <https://www.anaconda.com/downloads>`_).
 
-3. Download the Install_and_Demo.ipynb file using the button in `its upper right <http://nbviewer.jupyter.org/github/unidata/drilsdown/blob/master/UseCase_Examples/Basic_Examples/Install_and_demo.ipynb>`_.
+3. Download Install_and_Demo.ipynb using the button in `its upper right corner <http://nbviewer.jupyter.org/github/unidata/drilsdown/blob/master/UseCase_Examples/Basic_Examples/Install_and_demo.ipynb>`_.
 
 4. Launch Anaconda Navigator, launch its Jupyter Notebook application.
 
