@@ -10,7 +10,7 @@ SOURCES = {
     'jython-kernal': 'projects/IJython',
     'ipython_IDV': 'projects/ipython_IDV',
 }
-VERSION = '2.4.7'
+VERSION = '2.4.8'
 
 def install_drilsdown_projects(sources, develop=False):
     """ Use pip to install all drilsdown projects.  """
