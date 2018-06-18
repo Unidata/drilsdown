@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="ipython_IDV",
-    version= '2.4.7',
+    version= '2.4.8',
      #url="https://github.com/Unidata/ipython_IDV.git",
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
