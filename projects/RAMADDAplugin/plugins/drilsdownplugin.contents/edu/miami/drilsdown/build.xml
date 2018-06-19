@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="../../../../" default="drilsdownjar" name="DRILSDOWN Ramadda">
+
+    <target name="init">
+        <property file="${basedir}/build.properties"/>
+        <mkdir dir="${dist_dir}"/>
+        <property name="jarfile" value="drilsdownplugin.jar"/>
+        <property name="classpath" value="${ramadda_base}/src:${lib_dir}/ramaddalib.jar:${lib_dir}/idv.jar:${lib_dir}/ncIdv.jar:${lib_dir}/servlet-api.jar"/>
+        <echo message="${classpath}"/>
+    </target>
+
+
+    <target name="clean" depends="init" >
+        <delete>
+            <fileset dir="${src_dir}/edu" includes="**/*.class"/>
+        </delete>
+    </target>
+
+
+    <target name="drilsdownjar" depends="init,clean">
+        <echo message="  classpath=${classpath}"/>
+        <javac
+            classpath="${classpath}"
+            verbose="false"
+            debug="true"
+            deprecation="false" 
+            nowarn="true"
+            srcdir="${src_dir}"
+            failonerror="${javac.failonerror}"
+            fork="${javac.fork}"
+            memoryMaximumSize="${javac.maxmemory}"
+           target="1.6"
+           source="1.6"
+        >
+        <include name="edu/miami/drilsdown/*.java"/>
+        </javac>
+        <antcall target="package"/>
+    </target>
+
+    <target name="package" depends="init">
+        <echo message="Making jar ${dist_dir}/${jarfile}"/>
+        <jar 
+            basedir="${src_dir}"
+            update="false"
+            compress="true"
+            jarfile="${dist_dir}/${jarfile}">
+            <include name="edu/miami/**/*.txt"/>
+            <include name="edu/miami/**/*.xml"/>
+            <include name="edu/miami/**/*.class"/>
+            <include name="edu/miami/**/*.png"/>
+            <include name="edu/miami/**/*.json"/>
+	    </jar>
+
+        <copy overwrite="true"  todir="${user.home}/.ramadda/plugins">
+             <fileset file="${dist_dir}/drilsdownplugin.jar"/>
+        </copy>
+
+    </target>
+
+
+
+    <target name="install" depends="drilsdownjar">
+        <copy overwrite="true"  todir="${user.home}/.ramadda/plugins">
+             <fileset file="${dist_dir}/drilsdownplugin.jar"/>
+        </copy>
+    </target>
+
+
+
+</project>
