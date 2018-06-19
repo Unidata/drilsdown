@@ -5,7 +5,7 @@ Quickstart Guide
 ---------------------
 Replicate 0:59 video
 ---------------------
-0. Watch the 1-minute introductory `Video <https://cdn.pixabay.com/photo/2015/05/20/10/38/work-in-progress-775163_1280.jpg>`_
+0. Watch the 1-minute introductory `Video <https://youtu.be/JQ0kBy472FU>`_
 
 1. Install The IDV `here <https://www.unidata.ucar.edu/downloads/idv/nightly/index.jsp>`_.
 
