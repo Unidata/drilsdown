@@ -1,9 +1,7 @@
-# Copy this into
-# ~/.ipython/extensions/
 # In the ipython shell do:
-# %load_ext drilsdown
+# %load_ext ipython_IDV
 # or
-# %reload_ext drilsdown
+# %reload_ext ipython_IDV
 #
 # This needs to have IDV_HOME pointing to the IDV install directory
 # This will execute IDV_HOME/runIdv
@@ -723,7 +721,7 @@ class Idv:
     @staticmethod
     def print_set_path():
         print("You can set the path to the IDV script with:")
-        print("from drilsdown import Idv")
+        print("from ipython_IDV import Idv")
         print('Idv.set_path("/path to idv executable")')
         print('#e.g.:')
         print('Idv.set_path("/Applications/IDV_5.3u1/runIDV")')
