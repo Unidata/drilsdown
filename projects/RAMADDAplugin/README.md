@@ -1,5 +1,5 @@
 
-## Drilsdown plugins for Java applications (IDV and RAMADDA)
+## DRILSDOWN project plugins for Java applications (IDV and RAMADDA)
 
 The [ramaddaplugin.jar](https://github.com/Unidata/drilsdown/blob/master/plugins/ramaddaplugin.jar) is a plugin for the IDV. It is now available directly through the [IDV's Plugins menus](https://www.unidata.ucar.edu/software/idv/docs/userguide/misc/Plugins.html).
 
