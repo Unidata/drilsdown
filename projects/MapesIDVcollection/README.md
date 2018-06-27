@@ -1,6 +1,5 @@
 # MapesIDVcollection
 IDV plugin with many user-oriented resources 
+## To use (install in IDV): [Screenshot](https://raw.githubusercontent.com/Unidata/drilsdown/master/docs/_static/Install_MapesIDV_plugin_screenshots.png)
 
-## To deploy: create a .jar of the desired files put in deployable-jars/MapesIDVcollection.jar
-
-The current one is in deployable_jars along with some others
+### Active version (loaded when you launch IDV) is in deployable-jars/MapesIDVcollection.jar
