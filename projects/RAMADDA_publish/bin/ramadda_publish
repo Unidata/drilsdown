@@ -1,0 +1,260 @@
+#!/usr/bin/env python
+import argparse
+import os
+import re
+import sys
+from random import randint
+from zipfile import ZipFile
+from tempfile import NamedTemporaryFile
+import base64
+from xml.etree import ElementTree
+import requests
+from io import StringIO
+from glob import glob
+def publish(parentid,pubfile,pubattach=None):
+    """ Given a RAMADDA parent_id and list of case_names this function
+    publishes to ramadda with user credentials taken from environment variables
+    RAMADDA_USER and RAMADDA_PASSWORD
+
+    TODO: lot of redundant code in for loops checking if files exist
+    TODO: do it with xml not by strings
+    TODO: currently creating a folder is not possible, user has to supply a folder
+    but can be fixed by adding an entry to xml_string group, but needs to handle
+    user running script  multiple times.
+    """
+    assert isinstance(parentid, str), "publish_url must be a string"
+    try:
+        postadd = os.environ['RAMADDA']
+    except KeyError:
+        os.environ['RAMADDA'] = "https://weather.rsmas.miami.edu/repository"
+        postadd = os.environ['RAMADDA']
+    postadd = postadd+"/entry/xmlcreate"
+
+    xml_string = ''  # '<entries>'  # add group here later
+    filetype=pubfile.split('.')[-1]
+    if filetype=='zidv' or filetype=='xidv':
+       ramadda_filetype="type_idv_bundle"
+    elif filetype=='ipynb':
+       ramadda_filetype="python_notebook"
+    elif filetype=='nc' or filetype=='nc4' or filetype=='grib' :
+       ramadda_filetype="cdm_grid"
+    elif filetype=='csv':
+       ramadda_filetype="type_document_csv"
+    elif filetype.lower()=='png' or filetype.lower()=='jpg' or filetype.lower()=='gif':
+       ramadda_filetype="type_image"
+    else:
+       ramadda_filetype="file"
+       #not working?
+       print('Unknown filetype?? does ramadda support it?')
+    if pubattach:
+       pubtype=pubattach.split('.')[-1]
+       #print pubtype.lower()=='png'
+       if not pubtype.lower() in ('gif','jpeg','jpg','png'):
+          print('unknown attachment type')
+          sys.exit()
+    if pubfile:
+        pubfile_name = os.path.split(pubfile)[-1]
+        xml_string += '<entry name="{0}" file="{0}" ' \
+                      'type="{1}">'.format(pubfile_name,ramadda_filetype)
+        if pubattach:
+             pubattach_name = os.path.split(pubattach)[-1]
+             xml_string += '<metadata inherited="false" type="content.thumbnail">'
+             xml_string += '<attr fileid="{0}" index="1">'.format(pubattach_name)
+             encoded_case_str = base64.b64encode(pubattach.encode('utf-8')).decode('ascii')
+             xml_string += '<![CDATA[{0}]]>'.format(encoded_case_str)
+             xml_string += '</attr>'
+             xml_string += '</metadata>'
+        xml_string += '</entry>'
+    else:
+       print('ERROR: upload file doesnt exist?')
+       sys.exit(1)
+    # xml_string += '</entries>'
+    #print xml_string
+    try:
+        user = os.environ['RAMADDA_USER']
+        password = os.environ['RAMADDA_PASSWORD']
+    except KeyError as err:
+        print('Publish error {0}'.format(err))
+    with NamedTemporaryFile(suffix=".zip",delete=False) as tmpzip:
+        with ZipFile(tmpzip.name, 'w') as zipfile:
+            zipfile.writestr('entries.xml', xml_string)
+            pubfile_name = os.path.split(pubfile)[-1]
+            zipfile.write(pubfile)
+            if pubattach:
+               pubattach_name = os.path.split(pubfile)[-1]
+               zipfile.write(pubattach)
+            files = {"file": open(tmpzip.name, "rb")}
+            resp = requests.post(postadd, files=files,
+                                 data={'group': parentid,
+                                       'auth.user': user, 'auth.password': password,
+                                       'response': 'xml'})
+    publish_attrib = ElementTree.fromstring(resp.text).attrib
+    if publish_attrib['code'] == 'ok':
+        print('Published file {0} with atachment {1}'.format(pubfile,pubattach))
+        return True
+    else:
+        print('Publish file {0} failed with {1}'.format(pubfile, publish_attrib['code']))
+        return None
+
+def check_pattern(pattern):
+    check_len=len(glob(pattern))
+    if check_len >= 1:
+        return check_len
+    else:
+        return False
+
+def check_file_or_dir(f):
+    """
+    'Type' for argparse - pre-checks that file exists but does not open it yet.
+    """
+    if not check_pattern(f): #or just use os.path.exists(f)
+        raise argparse.ArgumentTypeError("{0} does not exist".format(f))
+    return f
+
+def create_directory(parentid,dir_name,dir_type='plain'):
+    """
+    creates a directory on ramadda of type dir_type
+    dir_type can be plain or casestudy
+    """ 
+    ramadda_type = 'group' if dir_type=='plain' else 'type_drilsdown_casestudy'
+    
+    try:
+        postadd = os.environ['RAMADDA']
+    except KeyError:
+        os.environ['RAMADDA'] = "https://weather.rsmas.miami.edu/repository"
+        postadd = os.environ['RAMADDA']
+        
+    postadd = postadd+"/entry/xmlcreate"
+    folder_xml = """<entries>
+    <entry isgroup="true" name="{0}" type="{1}"/>
+    </entries>""".format(dir_name,ramadda_type)
+    try:
+        user = os.environ['RAMADDA_USER']
+        password = os.environ['RAMADDA_PASSWORD']
+    except KeyError as err:
+        print('Publish error {0}'.format(err))
+    files={'file':StringIO(folder_xml)}
+    resp = requests.post(postadd, files=files,
+                                 data={'group': parentid,
+                                       'auth.user': user, 'auth.password': password,
+                                       'response': 'xml'})
+    publish_attrib = ElementTree.fromstring(resp.text)
+    if publish_attrib.attrib['code'] == 'ok': 
+        return publish_attrib.getchildren()[0].attrib['id']
+    else:
+       print('Publish case {0} failed with {1}'.format(pubfile, publish_attrib.attrib['code']))
+       print(resp.content)
+       sys.exit()
+
+if __name__ == '__main__':
+    """TODO : 1) make file and entryid also optional args
+              2) support multiple filetypes
+              3) support creating directory 
+              4) cleanup publish api"""
+    class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+          """just to format description/epilog and arguments nicely"""
+          pass
+
+    
+    examples = '''
+Some examples: 
+To publish a file at an entryid of a ramadda server
+    ramadda_publish file_to_publish publish_at_entryid
+
+To publish files with pattern say '*.zidv'  at an entryid of a ramadda server
+    ramadda_publish '*.zidc' publish_at_entryid
+    note the quotes while using a pattern
+
+To publish a file at an entryid of a ramadda server with an attachment
+    ramadda_publish file_to_publish publish_at_entryid -a attachment_file
+
+To publish a files with a pattern say '*.zidv' with corresponding attachment pattern '*.gif'  
+at an entryid of a ramadda server
+    ramadda_publish '*.zidv' publish_at_entryid -a '*.gif'
+    note the number of files for pattern should be same for attachments
+
+To publish a directory at an entryid of a ramadda server as a simple directory with all files within.
+    ramadda_publish directory_to_publish publish_at_entryid  
+
+To publish a directory at an entryid of a ramadda server as a case study directory with all files within.
+    ramadda_publish directory_to_publish publish_at_entryid -groupas casestudy''' 
+
+    parser = argparse.ArgumentParser(description='Script to publish files to a RAMADDA server',
+                                     epilog=examples,formatter_class=CustomFormatter)
+    parser.add_argument('publish_file',type=check_file_or_dir,
+                        help='Publish a file or directory or multiple files (with a unix pattern) to a RAMADDA server;'
+                             'Currently supports publishing IDV bundles, Jupyter notebooks,' 
+                             ' gridded data files(netcdf,grib...),' 
+                             ' csv files, other formats are published as plain files')
+    parser.add_argument('entryid',
+                        help='Parent entryid string on a RAMADDA server.'
+                             'It should contain just the string NOT entire url path.'
+                             'NOTE: RAMADDA_USER needs to have permissions for publishing the file'
+                             ' on the RAMADDA server')
+    parser.add_argument('-groupas',choices=("plain", "casestudy"), default="plain",
+                        help='when the published file is a directory, it can be either a plain directory '
+                             'or a casestudy type of directory.',required=False)
+    parser.add_argument('-a','--attachment',type=check_file_or_dir,
+                        help='Publish this file or file pattern as an attachment.'
+                             'NOTE: Number of files and attachments should be the same.'
+                             'Currently only image files are supported')
+    parser.add_argument('-ramadda', '--ramadda',
+                        help='The RAMADDA server.'
+                             'By default RAMADDA environment variable is used, if it is absent '
+                             'the url https://weather.rsmas.miami.edu/repository'
+                             'is used.')
+    parser.add_argument('-user', '--user',
+                        help='User for RAMADDA, by default, if exists, the environment variable ' 
+                             'RAMADDA_USER is used as a user.')
+    parser.add_argument('-password', '--password',
+                        help='Password for -user or RAMADDA_USER, by default, if exists, ' 
+                             'the environment variable RAMADDA_PASSWORD is used as a user password.')
+
+    
+    pargs = parser.parse_args()
+#    sys.exit()
+#    if len(sys.argv)==3:
+#       if not sys.argv[1].startswith('-'):
+#           publish(sys.argv[2],sys.argv[1])
+#    elif len(sys.argv)==4: 
+#       if not sys.argv[1].startswith('-'):
+#           publish(sys.argv[3],sys.argv[1],sys.argv[2])
+#    else:
+    if pargs.ramadda:
+        os.environ['RAMADDA']=pargs.ramadda
+    if pargs.user:
+        os.environ['RAMADDA_USER']=pargs.user
+    if pargs.user:
+        os.environ['RAMADDA_PASSWORD']=pargs.password
+    parentid = pargs.entryid
+   
+    attachment = pargs.attachment if pargs.attachment else None
+    
+    if os.path.isdir(pargs.publish_file):
+        parentid = create_directory(pargs.entryid,pargs.publish_file,pargs.groupas)
+        ramadda = os.environ['RAMADDA']+"/entry/show?entryid="
+        print('Created a directory at {0}{1}'.format(ramadda,parentid))
+        fils=os.listdir(pargs.publish_file)
+        for fil in fils:
+            pfile=os.path.join(pargs.publish_file,fil)
+            success=publish(parentid,pfile,attachment)  
+        if success:
+            ramadda = os.environ['RAMADDA']+"/entry/show?entryid="+parentid
+            print('Published files at '+ramadda) 
+    else:
+        if attachment:
+            #check if number of files and attachments are same
+            if not check_pattern(pargs.publish_file)==check_pattern(pargs.attachment):
+                print('''Warning: Number of files and attachments not same. 
+                        This might lead to incorrect atachments, NOT attaching any attachments''')
+                for fi in glob(pargs.publish_file):
+                    success=publish(pargs.entryid,fi,None)
+            else: #if number of attachments and files are same
+                for fi,att in zip(sorted(glob(pargs.publish_file)),sorted(glob(pargs.attachment))):
+                    success=publish(pargs.entryid,fi,att)
+        else:
+            for fi in glob(pargs.publish_file):
+                success=publish(pargs.entryid,fi,None)
+        if success:
+            ramadda = os.environ['RAMADDA']+"/entry/show?entryid="+pargs.entryid
+            print('Published files at '+ramadda) 

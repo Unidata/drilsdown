@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RAMADDA Publish 1.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html#document-index" class="icon icon-home"> RAMADDA Publish
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-started">Use cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publishing-a-file">Publishing a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publishing-a-file-with-an-attachment">Publishing a file with an attachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publishing-multiple-files">Publishing multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publishing-multiple-files-with-multiple-attachments">Publishing multiple files with multiple attachments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publising-a-directory">Publising a directory</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#document-index">RAMADDA Publish</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html#document-index">Docs</a> &raquo;</li>
+        
+      <li>RAMADDA Publish 1.3 documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ramadda-publish">
+<h1>RAMADDA Publish<a class="headerlink" href="#ramadda-publish" title="Permalink to this headline">¶</a></h1>
+<p>Allows automated ways of publishing content to a <a class="reference external" href="https://geodesystems.com">RAMADDA</a> server. This document assumes that the user has an account on a <a class="reference external" href="https://geodesystems.com">RAMADDA</a> server.</p>
+<div class="section" id="installation">
+<h2>Installation:<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ramadda_publish</span></code></p>
+<p>To update from previous installation:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">ramadda_publish</span></code></p>
+<p>Check installation in your favorite command line environment using</p>
+<p><code class="docutils literal notranslate"><span class="pre">ramadda_publish</span> <span class="pre">-h</span></code></p>
+<div class="toctree-wrapper compound">
+<span id="document-started"></span><div class="section" id="use-cases">
+<h3>Use cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h3>
+<p>A few definitions:</p>
+<dl class="docutils">
+<dt>ramadda_server</dt>
+<dd>refers to the <a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> server root directory; usually it is the whole path that ends with <code class="docutils literal notranslate"><span class="pre">/repository</span></code>. For example <code class="docutils literal notranslate"><span class="pre">https://weather.rsmas.miami.edu/repository</span></code>.</dd>
+<dt>entryid</dt>
+<dd>refers to a <a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> entryid of a directory where user would like to publish the files and has access. For instance in url <code class="docutils literal notranslate"><span class="pre">https://weather.rsmas.miami.edu/repository/entry/show?entryid=30c863d8-e68c-4722-8d4a-e2d25d79a710</span></code> entryid would be <code class="docutils literal notranslate"><span class="pre">30c863d8-e68c-4722-8d4a-e2d25d79a710</span></code>.</dd>
+<dt>username</dt>
+<dd>refers to username of the user for the <a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> server.</dd>
+<dt>password</dt>
+<dd>refers to password of user <strong>username</strong> for the <a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> server.</dd>
+</dl>
+<div class="section" id="publishing-a-file">
+<h4>Publishing a file<a class="headerlink" href="#publishing-a-file" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="./index.html">ramadda_publish</a> infers the file type automatically using the file extension.
+To publish a file named <code class="docutils literal notranslate"><span class="pre">testfile.ipynb</span></code> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramadda_publish</span> <span class="n">testfile</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">entryid</span> <span class="o">-</span><span class="n">ramadda</span> <span class="n">ramadda_server</span> <span class="o">-</span><span class="n">user</span> <span class="n">username</span> <span class="o">-</span><span class="n">password</span> <span class="n">password</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="publishing-a-file-with-an-attachment">
+<h4>Publishing a file with an attachment<a class="headerlink" href="#publishing-a-file-with-an-attachment" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> files can have accompanying attachments. Image type attachments will be displayed as thumbnails for the file.
+To publish a file named <code class="docutils literal notranslate"><span class="pre">testfile.xidv</span></code> with an atachment <code class="docutils literal notranslate"><span class="pre">attachmentfile.gif</span></code> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramadda_publish</span> <span class="n">testfile</span><span class="o">.</span><span class="n">xidv</span> <span class="n">entryid</span> <span class="o">-</span><span class="n">a</span> <span class="n">attachmentfile</span><span class="o">.</span><span class="n">gif</span> <span class="o">-</span><span class="n">ramadda</span> <span class="n">ramadda_server</span> <span class="o">-</span><span class="n">user</span> <span class="n">username</span> <span class="o">-</span><span class="n">password</span> <span class="n">password</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="publishing-multiple-files">
+<h4>Publishing multiple files<a class="headerlink" href="#publishing-multiple-files" title="Permalink to this headline">¶</a></h4>
+<p>To publish files with pattern <cite>*.zidv</cite> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramadda_publish</span> <span class="s1">&#39;*.zidv&#39;</span> <span class="n">entryid</span> <span class="o">-</span><span class="n">ramadda</span> <span class="n">ramadda_server</span> <span class="o">-</span><span class="n">user</span> <span class="n">username</span> <span class="o">-</span><span class="n">password</span> <span class="n">password</span>
+</pre></div>
+</div>
+<p>note the quotes around <code class="docutils literal notranslate"><span class="pre">'*.zidv'</span></code> in the command above. quotes are needed when file patterns are used.</p>
+</div>
+<div class="section" id="publishing-multiple-files-with-multiple-attachments">
+<h4>Publishing multiple files with multiple attachments<a class="headerlink" href="#publishing-multiple-files-with-multiple-attachments" title="Permalink to this headline">¶</a></h4>
+<p>To publish files with pattern <cite>abc*.zidv</cite> and a corresponding attachment <cite>abc*.gif</cite> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramadda_publish</span> <span class="s1">&#39;abc*.zidv&#39;</span> <span class="n">entryid</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;abc*.gif&#39;</span> <span class="o">-</span><span class="n">ramadda</span> <span class="n">ramadda_server</span> <span class="o">-</span><span class="n">user</span> <span class="n">username</span> <span class="o">-</span><span class="n">password</span> <span class="n">password</span>
+</pre></div>
+</div>
+<p>Make sure the number of files and attachments are same, otherwise <a class="reference external" href="./index.html">ramadda_publish</a> publishes just the files to avoid any mismatch.</p>
+</div>
+<div class="section" id="publising-a-directory">
+<h4>Publising a directory<a class="headerlink" href="#publising-a-directory" title="Permalink to this headline">¶</a></h4>
+<p>To publish a directory named <code class="docutils literal notranslate"><span class="pre">test_dir</span></code> containing multiple files inside to <a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramadda_publish</span> <span class="n">test_dir</span> <span class="n">entryid</span> <span class="o">-</span><span class="n">ramadda</span> <span class="n">ramadda_server</span> <span class="o">-</span><span class="n">user</span> <span class="n">username</span> <span class="o">-</span><span class="n">password</span> <span class="n">password</span>
+</pre></div>
+</div>
+<p>Directories can be grouped as a <a class="reference external" href="https://www.geodeystems.com">RAMADDA</a> casestudy with an additional keyword suffix <code class="docutils literal notranslate"><span class="pre">-groupas</span> <span class="pre">casestudy</span></code>; this type of directory gets a special look when it contains jupyter notebooks within. For example this url <code class="docutils literal notranslate"><span class="pre">https://weather.rsmas.miami.edu/repository/entry/show?entryid=f34a263b-afe6-46fa-9490-42e9689b38a6</span></code> is a casestudy type.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
