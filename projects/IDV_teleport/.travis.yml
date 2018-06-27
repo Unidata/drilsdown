@@ -1,0 +1,30 @@
+sudo: true
+language: python
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+      - openjdk-7-jdk
+python:
+- '3.6'
+before_install:
+ - travis_retry pip install sphinx
+ - travis_retry pip install sphinx_rtd_theme
+ - sudo apt-get install -y xvfb
+ - chmod +x runmetest.sh
+script:
+ - python setup.py install
+ - ./runmetest.sh
+ - cd sphinx
+ - make html
+ - cd ../
+deploy:
+ provider: pages
+ skip_cleanup: true
+ local_dir: ./sphinx/_build/html
+ github_token: $GITHUB_TOKEN
+committer-from-gh: true
+target_branch: gh-pages
+

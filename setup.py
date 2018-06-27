@@ -7,10 +7,11 @@ import subprocess
 
 PACKAGE_NAME = 'drilsdown'
 SOURCES = {
-    'jython-kernal': 'projects/IJython',
     'ipython_IDV': 'projects/ipython_IDV',
+    'idv_teleport': 'projects/IDV_teleport/bin',
+    'ramadda_publish': 'projects/RAMADDA_publish/bin',
 }
-VERSION = '2.4.7'
+VERSION = '2.4.8'
 
 def install_drilsdown_projects(sources, develop=False):
     """ Use pip to install all drilsdown projects.  """
@@ -63,9 +64,8 @@ setup(
         'future',
         'six',
         'ipython_IDV>=' + VERSION + "'",
-        'jython-kernel',
-        'ramadda_publish',
-        'idv_teleport',
+        'ramadda_publish>=1.3',
+        'idv_teleport>=1.6',
         'ipykernel',
         'jupyter-client',
         'ipywidgets>=7.1.0rc',

@@ -13,8 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="ipython_IDV",
-    version= '2.4.7',
-     #url="https://github.com/Unidata/ipython_IDV.git",
+    version= '2.4.8',
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
     description="This project allows users to use Unidata's IDV with jupyter notebooks ",
@@ -33,6 +32,6 @@ setuptools.setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    #package_dir={"ipython_IDV": "ipython_IDV"}
+
 
 )
