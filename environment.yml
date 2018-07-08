@@ -5,6 +5,7 @@ channels:
   - defaults
 dependencies:
   - cartopy
+  - jupyter
   - pip:
     - ipykernel
     - ipywidgets>=7.1.0rc1

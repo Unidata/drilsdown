@@ -43,9 +43,8 @@ Tier II: IDV interactions with jupyter + iPython
 Tier III: Storing and servicing {IDV + Jupyter} "Case Studies" on RAMADDA
   In addition to the IDV and Jupyter, you need
     1. Access (username and password, or knowledge of an anonymous-accessible area) granted by the Admin of a RAMADDA repository.
-    2. In order to publish your {IDV + Jupyter} "Case Studies" you should install the `RAMADDA plugin to IDV <https://github.com/Unidata/drilsdown/tree/master/projects/RAMADDAplugin>`_.
-        **team: is this in the IDV Plugin Manager?**
-
+    2. In order to publish your {IDV + Jupyter} "Case Studies" you should install the `RAMADDA plugin to IDV <https://github.com/Unidata/drilsdown/tree/master/projects/RAMADDAplugin>`_. This is available in the IDV's Tools-->Plugin manager. 
+        
 Tier IV: Install your own RAMADDA with DRILSDOWN functionality
   To install a RAMADDA repository, follow instructions `here <https://geodesystems.com/?>`_
   Then, put `drilsdownplugin.jar <https://github.com/Unidata/drilsdown/blob/master/projects/RAMADDAplugin/plugins/drilsdownplugin.jar>`_  in your repository's plugins/ directory, and restart it.

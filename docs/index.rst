@@ -7,7 +7,7 @@ User, please decide your level of interest:
 
 1. I want some plugin enhancements to my IDV.
 
-2. I also want IDV to interact with Jupyter.
+2. I also want my IDV to interact with Jupyter.
 
 3. I also want my IDV+Jupyter "case studies" to reside on and interact with a RAMADDA repository.
 
@@ -16,8 +16,8 @@ User, please decide your level of interest:
 .. toctree::
    :maxdepth: 1
 
+   quickstart
    installguide
    examples
    devguide
-
-
+   
