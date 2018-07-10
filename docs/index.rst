@@ -19,5 +19,7 @@ User, please decide your level of interest:
    quickstart
    installguide
    examples
+   commandline
    devguide
+
    
