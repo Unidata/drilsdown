@@ -7,11 +7,11 @@ Requirements
 ------------
 The IDV (unidata.ucar.edu/idv) is an all-platform, click-to install visualization package.
 
-
+Jupyter is all-platform software, most easily by `installing Anaconda <http://jupyter.org/install>`_
 
 The IDV is oriented toward GUI operation on single-user workstations with screens,
-but sysadmins can install it on multiuser servers, and it can run headless
-(without the GUI or screen) for scripted services using the IDV Scripting Language (ISL, suffix .isl).
+but sysadmins can install it on multiuser servers. It can run headless
+(without the GUI or screen) for scripted services, using the IDV Scripting Language (ISL, suffix .isl).
 In fact, .isl scripting underlies many DRILSDOWN capabilities.
 
 ------------
@@ -43,8 +43,8 @@ Tier II: IDV interactions with jupyter + iPython
 Tier III: Storing and servicing {IDV + Jupyter} "Case Studies" on RAMADDA
   In addition to the IDV and Jupyter, you need
     1. Access (username and password, or knowledge of an anonymous-accessible area) granted by the Admin of a RAMADDA repository.
-    2. In order to publish your {IDV + Jupyter} "Case Studies" you should install the `RAMADDA plugin to IDV <https://github.com/Unidata/drilsdown/tree/master/projects/RAMADDAplugin>`_. This is available in the IDV's Tools-->Plugin manager. 
-        
+    2. In order to publish your {IDV + Jupyter} "Case Studies" you should install the `RAMADDA plugin to IDV <https://github.com/Unidata/drilsdown/tree/master/projects/RAMADDAplugin>`_. This is available in the IDV's Tools-->Plugin manager.
+
 Tier IV: Install your own RAMADDA with DRILSDOWN functionality
   To install a RAMADDA repository, follow instructions `here <https://geodesystems.com/?>`_
   Then, put `drilsdownplugin.jar <https://github.com/Unidata/drilsdown/blob/master/projects/RAMADDAplugin/plugins/drilsdownplugin.jar>`_  in your repository's plugins/ directory, and restart it.
@@ -52,10 +52,3 @@ Tier IV: Install your own RAMADDA with DRILSDOWN functionality
   To have your Case Study .ipynb files rendered by jupyter's nbconvert service, install jupyter on your RAMADDA's host machine, and add this line to .properties file in your ramadda home directory (or to repository.properties, in a Tomcat installation):
 
     *ramadda.jupyter.path=*``/path/to/jupyter``
-
---------
-Examples
---------
-Use case examples, with template .xidv IDV bundles and .ipynb Jupyter notebooks, are at:
-
-  **Observed atmospheric states in areas where column integrated water vapor is increasing quickly.**
