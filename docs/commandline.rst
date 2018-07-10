@@ -11,4 +11,5 @@ The DRILSDOWN project consists of three command line tools.
 .. toctree::
    :maxdepth: 3
 
+   IDV_teleport
    RAMADDA_publish
