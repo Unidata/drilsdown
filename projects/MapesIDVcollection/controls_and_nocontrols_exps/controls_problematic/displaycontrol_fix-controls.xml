@@ -299,7 +299,6 @@ example:
      displaycategory="Volume Rendering"
     />
 
-
   <control
      id="stormtrackcontrol"
      categories="stormtrack"
