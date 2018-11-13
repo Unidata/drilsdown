@@ -29,7 +29,7 @@ These last surprisingly long, even as rain acts to remove the vapor. We wanted t
 A `list
 <https://github.com/unidata/drilsdown/blob/master/UseCase_Examples/INDIANOCEAN_WATERVAPOR_ISLANDS/Igel_WEIO_case_list.txt>`_ of begin and end dates was supplied by by Dr. Matt Igel of UC-Davis, based on his blob-tracking results applied to column water vapor (CWV).
 
-A script is generated to teleport a `simple IDV bundle <https://weather.rsmas.miami.edu/repository/entry/get?entryid=84d7e564-fcf2-48c9-82fb-bae358622333
+A script is generated to teleport the simple IDV `bundle <https://weather.rsmas.miami.edu/repository/entry/get?entryid=84d7e564-fcf2-48c9-82fb-bae358622333
 >`_ to a zidv bundle comprising of 3D data from two reanalysis for the lat-lon bounding box 17 - 36 , -15 - 90 (North - West ,South - East).
 
 .. toctree::
