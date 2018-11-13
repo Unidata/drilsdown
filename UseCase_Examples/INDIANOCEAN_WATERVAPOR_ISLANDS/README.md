@@ -8,3 +8,7 @@ We wanted 3D profiles as well as maps of the column mean, from 2 reanalysis data
 
 A geographical bounding box had to be specified, in this case the same for all cases. 
 
+The .sh file is the teleport script, whose generation from a date list is given in the .ipynb notebook. 
+
+## Publishing the results
+The results were uploaded into [this repository](https://weather.rsmas.miami.edu/repository/entry/show?entryid=a4154517-ac1c-4eb4-b842-572cb55ce1f2) with a procedure ... SUVY? 
