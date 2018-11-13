@@ -28,7 +28,15 @@ CSH environment:
 
 for MacOS users the path is typically in `/Applications/IDV_5.4u1`
 
-IDV_teleport_ can run in headless mode. To enable headless mode a virtual X server utility Xvfb_ is needed.
+.. note::
+  IDV_teleport_ can run in headless mode (without a screen). To enable headless mode a virtual X server utility called Xvfb_ is needed
+  and a default display environment variable needs to be set. Xvfb_ is eihter installed by default or can be installed through software package manager
+  in popular Linux distributions.
+
+  To set a default display variable in bash shell use::
+
+     export DISPLAY=:0
+
 
 .. _Xvfb: https://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml
 .. _IDV: https://www.unidata.ucar.edu/software/idv
@@ -36,4 +44,3 @@ IDV_teleport_ can run in headless mode. To enable headless mode a virtual X serv
 
 
 .. _IDV_teleport: https://suvarchal.github.io/IDV_teleport
-
