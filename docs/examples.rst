@@ -29,8 +29,7 @@ These last surprisingly long, even as rain acts to remove the vapor. We wanted t
 A `list
 <https://github.com/unidata/drilsdown/blob/master/UseCase_Examples/INDIANOCEAN_WATERVAPOR_ISLANDS/Igel_WEIO_case_list.txt>`_ of begin and end dates was supplied by by Dr. Matt Igel of UC-Davis, based on his blob-tracking results applied to column water vapor (CWV).
 
-A script is generated to teleport the simple IDV `bundle <https://weather.rsmas.miami.edu/repository/entry/get?entryid=84d7e564-fcf2-48c9-82fb-bae358622333
->`_ to a zidv bundle comprising of 3D data from two reanalysis for the lat-lon bounding box 17 - 36 , -15 - 90 (North - West ,South - East).
+A script is generated to teleport the simple IDV `bundle <https://weather.rsmas.miami.edu/repository/entry/get?entryid=84d7e564-fcf2-48c9-82fb-bae358622333>`_ to a zidv bundle comprising of 3D data from two reanalysis for the lat-lon bounding box 17 - 36 , -15 - 90 (North - West ,South - East).
 
 .. toctree::
    :maxdepth: 2
@@ -39,7 +38,8 @@ A script is generated to teleport the simple IDV `bundle <https://weather.rsmas.
    examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.ipynb
 
 Generated teleport bash `script <https://github.com/unidata/drilsdown/blob/master/UseCase_Examples/INDIANOCEAN_WATERVAPOR_ISLANDS/teleport_Igel_WEIO_cases.sh>`_ was run in a headless linux environment to generate zidv files.
-These zidv case `files <https://weather.rsmas.miami.edu/repository/entry/show?entryid=a4154517-ac1c-4eb4-b842-572cb55ce1f2>`_ are then published to RAMADDA server using following command:
+These zidv case `files <https://weather.rsmas.miami.edu/repository/entry/show?entryid=a4154517-ac1c-4eb4-b842-572cb55ce1f2>`_ are then published to RAMADDA server using following command::
+
   ramadda_publish 'Igel_WEIO*.zidv' a4154517-ac1c-4eb4-b842-572cb55ce1f2 -a 'Igel_WEIO*.gif' -username user -password pass
 
 
