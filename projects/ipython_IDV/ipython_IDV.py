@@ -59,6 +59,7 @@ import requests
 try: 
     import xarray
     def to_IDV(data, filename = None):
+        """Load a xarray variable or dataset to load into IDV"""
         if filename:
             data.to_netcdf(filename)
             load_data(filename)
@@ -69,7 +70,7 @@ try:
                 
     xarray.DataArray.to_IDV=to_IDV
     xarray.Dataset.to_IDV=to_IDV
-
+    
     def from_zidv(fileorurl=None,outdir=None):
         """Loading data from IDV zip file '.zidv' as xarray Dataset
         fileorurl can be a local .zidv file or a remote url.
@@ -81,17 +82,17 @@ try:
             zfile=fileorurl
         else:
             return 'Unknown File or Url'
-        das=[]
+        das=dict()
         with ZipFile(zfile) as zip_file:
             for contained_file in zip_file.namelist():
                 if str(contained_file).startswith('data'):
                     try:
-                        das.append(xarray.open_dataset(zip_file.extract(contained_file,outdir)))
+                        das.update({contained_file:xarray.open_dataset(zip_file.extract(contained_file,outdir))})
                     except Exception as err:
                         print('Skipping file '+str(contained_file)+' because of error '+err)
-        return xarray.merge(das)
-
-    xarray.from_zidv=from_zidv 
+        return das
+    xarray.from_zidv=from_zidv
+    xarray.open_zidv=from_zidv
 
 
 except ImportError:
