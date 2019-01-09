@@ -6,6 +6,7 @@ channels:
 dependencies:
   - cartopy
   - jupyter
+  - jupyterlab
   - pip:
     - ipykernel
     - ipywidgets>=7.1.0rc1
@@ -19,4 +20,5 @@ dependencies:
     - cartopy
     - pyshp
     - drilsdown
+    - mseplots-pkg
     
