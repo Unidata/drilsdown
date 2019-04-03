@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Unidata/drilsdown.svg?branch=master)](https://travis-ci.org/Unidata/drilsdown)
-## Consolidated repository of the DRILSDOWN project 
+## Consolidated repo of the [DRILSDOWN](https://unidata.github.io/drilsdown/) project 
 ### an NSF Earthcube supported effort
 
 DRILSDOWN (Drawing Rich Integrated Lat-lon-time Subsets from Dataservers Online into Working Notebooks) is a project to facilitate access ro detailed visualizations (in the Integrated Data Viewer, [IDV](http://unidata.ucar.edu/idv)) of Cases of Interest (user-defined) within a Python-based geo-space x time statistical data analyses -- if the data for such visulaizations are available online in nice aggregated repositories. 
