@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DRILSDOWN Project (code repo here) &mdash; DRILSDOWN 0.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.5.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quickstart Guide" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> DRILSDOWN
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#replicate-the-install-and-demo-notebook-from-the-video">Replicate the Install_and_Demo notebook from the video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installguide.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installguide.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installguide.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples of DRILSDOWN projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-observed-what-do-clouds-look-like-where-they-are-acting-to-increase-the-water-vapor">Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html">Steps in the analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Open-the-daily-(v4)-MIMIC-AT-dataset">Open the daily (v4) MIMIC-AT dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#make-custom-function-for-drawing-coastlines">make custom function for drawing coastlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-hover-tool-for-values">Create some tools to attach to the plots: hover tool for values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-tap-tool-calls-the-NASA-URL!">Create some tools to attach to the plots: tap tool calls the NASA URL!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Something-about-stacking-so-that-big-values-can-be-prioritized">Something about stacking so that big values can be prioritized</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-observed-how-do-watervapor-islands-last-long-over-the-dry-western-equatorial-indian-ocean">Atmospheric (observed): How do watervapor “islands” last long over the dry western-equatorial Indian Ocean?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html">Generate IDV_teleport script.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Teleport-script-needs-a-centered-date-and-time-delta-to-teleport,-so-calculate-center-of-the-state-and-timedelta">Teleport script needs a centered date and time delta to teleport, so calculate center of the state and timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Generate-teleport-script-by-applying-a-function-to-every-row-of-the-dataframe-and-save-it">Generate teleport script by applying a function to every row of the dataframe and save it</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-complex-simulated-what-is-going-on-in-areas-where-small-scales-are-adding-energy-to-the-large-scale-flow">Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html">Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Simple-2-year-mean-map">Simple 2-year mean map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Results!">Results!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html">Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-is-an-Earth-specific-Holoviews.-It-displays-1-2-dimensions-of-a-multi-dimensional-object,-and-the-other-dims-become-interactive-sliders.">Geoviews is an Earth-specific Holoviews. It displays 1-2 dimensions of a multi-dimensional object, and the other dims become interactive sliders.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#xarray-is-the-netCDF-friendly-front-end-for-reading-in-the-data.-Cartopy-has-the-background-maps.">xarray is the netCDF-friendly front end for reading in the data. Cartopy has the background maps.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bokeh-is-a-plotting-package-with-pan-zoom-interactivity">Bokeh is a plotting package with pan-zoom interactivity</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Subset-data-in-time-and-space-if-desired-before-lazy-read">Subset data in time and space if desired before lazy read</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Use-.sel(-)-to-select-by-coordinate-values,-or-.isel(-)-to-select-by-index.-Use-slice(value1,value2)-to-select-ranges.">Use .sel( ) to select by coordinate values, or .isel( ) to select by index. Use slice(value1,value2) to select ranges.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-total-fields-(U,V,W)-with-total-flux-(UW,-VW,-UV)-as-a-Geoview-(Holoview)-Image-object.">Merge total fields (U,V,W) with total flux (UW, VW, UV) as a Geoview (Holoview) Image object.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-multiple-displays-creation.-So-simple!">Geoviews multiple-displays creation. So simple!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#G5NR_utils.py-has-computations-with-7km-gridded-u,v,w-inputs">G5NR_utils.py has computations with 7km gridded u,v,w inputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#(90,45)-is-the-4-degree-filter-scale-(divides-the-world-into-90x45-arrays)">(90,45) is the 4 degree filter scale (divides the world into 90x45 arrays)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-the-prime-terms,-and-their-products,-back-into-the-Subgrid-xarray-dataset">Merge the prime terms, and their products, back into the Subgrid xarray dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Make-a-Geoviews-Dataset,-and-6-Images,-for-subgrid-(prime)-terms">Make a Geoviews Dataset, and 6 Images, for subgrid (prime) terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(&quot;eddy&quot;)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Resolution-as-a-slider-(or-menu)">Resolution as a slider (or menu)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Should-match-the-case-selection-criterion-(e.g.-positive-SKEdot-at-center)">Should match the case selection criterion (e.g. positive SKEdot at center)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bleeding-edge-in-10/17,-needed-pip-install---upgrade-git+https://github.com/ioam/holoviews.git">Bleeding edge in 10/17, needed <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">git+https://github.com/ioam/holoviews.git</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#oceanic-what-s-going-on-when-the-loop-current-in-the-gulf-of-mexico-splits-off-an-eddy">Oceanic: What’s going on when the Loop Current in the Gulf of Mexico splits off an eddy?</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">DRILSDOWN Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IDV_teleport.html">IDV_teleport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install_teleport.html">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install_teleport.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted_teleport.html">Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getstarted_teleport.html#shell">Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getstarted_teleport.html#jupyter-notebook-python">Jupyter Notebook/Python</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos_teleport.html">Demos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="RAMADDA_publish.html">RAMADDA Publish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="RAMADDA_publish.html#installation">Installation:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="started.html">Use cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devguide.html">Infrastructure Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devguide.html#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devguide.html#releasing">Releasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devguide.html#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">DRILSDOWN</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>DRILSDOWN Project (code repo here)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="drilsdown-project-code-repo-here">
+<h1>DRILSDOWN Project (code repo <a class="reference external" href="https://github.com/Unidata/drilsdown">here</a>)<a class="headerlink" href="#drilsdown-project-code-repo-here" title="Permalink to this headline">¶</a></h1>
+<p>DRILSDOWN is a suite of software tools for geo-science (especially meteorology and oceanography).</p>
+<p>Our goal is <em>to make 3D multi-variable visualization easier and more scientific</em>, through:</p>
+<ol class="arabic">
+<li><p>Plugins, templates, and tools for The Integrated Data Viewer (<a class="reference external" href="https://www.unidata.ucar.edu/software/idv/">IDV</a>, an advanced Java application)</p></li>
+<li><p><a class="reference external" href="https://jupyter.org/">Jupyter notebook</a> tools connecting The IDV to <a class="reference external" href="https://ipython.org/">iPython</a> (or to its own <a class="reference external" href="https://github.com/suvarchal/JyIDV">kernel</a>).</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>to capture IDV images and animations, as well as full IDV states for replicability</p></li>
+<li><p>to push and pull digital data between IDV and iPython</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://geodesystems.com/">RAMADDA</a> repository tools for displaying and publishing <a class="reference external" href="https://weather.rsmas.miami.edu/repository/entry/show?entryid=9ae3aea4-a86e-4592-b686-20398e698987">DRILSDOWN Case Studies</a>.</p></li>
+</ol>
+<p>Our name evokes “<em>drilling down</em>” to Cases underpinning a statistical analysis, but Case selection can be anything, like <a class="reference external" href="https://weather.rsmas.miami.edu/repository/entry/show?entryid=de2b8904-0c37-4edd-93c1-b396948c71b2">current weather</a> whenever it is interesting.</p>
+<p>User, please decide your level of interest:</p>
+<ol class="arabic simple">
+<li><p>I want <em>Mapes IDV Collection</em> plugin enhancements to my IDV.</p></li>
+<li><p>I also want my IDV to interact with Jupyter.</p></li>
+<li><p>I also want to publish my IDV+Jupyter “case studies” to an existing RAMADDA repository.</p></li>
+<li><p>I also want to install a RAMADDA repository of my own.</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installguide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples of DRILSDOWN projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">DRILSDOWN Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devguide.html">Infrastructure Guide</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quickstart Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, DRILSDOWN team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

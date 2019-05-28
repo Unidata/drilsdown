@@ -1,0 +1,1261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples: Loading data from python into IDV &mdash; DRILSDOWN 0.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.5.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DRILSDOWN
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#replicate-the-install-and-demo-notebook-from-the-video">Replicate the Install_and_Demo notebook from the video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installguide.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installguide.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installguide.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples of DRILSDOWN projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-observed-what-do-clouds-look-like-where-they-are-acting-to-increase-the-water-vapor">Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html">Steps in the analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Open-the-daily-(v4)-MIMIC-AT-dataset">Open the daily (v4) MIMIC-AT dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#make-custom-function-for-drawing-coastlines">make custom function for drawing coastlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-hover-tool-for-values">Create some tools to attach to the plots: hover tool for values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-tap-tool-calls-the-NASA-URL!">Create some tools to attach to the plots: tap tool calls the NASA URL!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Something-about-stacking-so-that-big-values-can-be-prioritized">Something about stacking so that big values can be prioritized</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-observed-how-do-watervapor-islands-last-long-over-the-dry-western-equatorial-indian-ocean">Atmospheric (observed): How do watervapor “islands” last long over the dry western-equatorial Indian Ocean?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html">Generate IDV_teleport script.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Teleport-script-needs-a-centered-date-and-time-delta-to-teleport,-so-calculate-center-of-the-state-and-timedelta">Teleport script needs a centered date and time delta to teleport, so calculate center of the state and timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Generate-teleport-script-by-applying-a-function-to-every-row-of-the-dataframe-and-save-it">Generate teleport script by applying a function to every row of the dataframe and save it</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-complex-simulated-what-is-going-on-in-areas-where-small-scales-are-adding-energy-to-the-large-scale-flow">Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html">Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Simple-2-year-mean-map">Simple 2-year mean map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Results!">Results!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html">Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-is-an-Earth-specific-Holoviews.-It-displays-1-2-dimensions-of-a-multi-dimensional-object,-and-the-other-dims-become-interactive-sliders.">Geoviews is an Earth-specific Holoviews. It displays 1-2 dimensions of a multi-dimensional object, and the other dims become interactive sliders.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#xarray-is-the-netCDF-friendly-front-end-for-reading-in-the-data.-Cartopy-has-the-background-maps.">xarray is the netCDF-friendly front end for reading in the data. Cartopy has the background maps.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bokeh-is-a-plotting-package-with-pan-zoom-interactivity">Bokeh is a plotting package with pan-zoom interactivity</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Subset-data-in-time-and-space-if-desired-before-lazy-read">Subset data in time and space if desired before lazy read</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Use-.sel(-)-to-select-by-coordinate-values,-or-.isel(-)-to-select-by-index.-Use-slice(value1,value2)-to-select-ranges.">Use .sel( ) to select by coordinate values, or .isel( ) to select by index. Use slice(value1,value2) to select ranges.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-total-fields-(U,V,W)-with-total-flux-(UW,-VW,-UV)-as-a-Geoview-(Holoview)-Image-object.">Merge total fields (U,V,W) with total flux (UW, VW, UV) as a Geoview (Holoview) Image object.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-multiple-displays-creation.-So-simple!">Geoviews multiple-displays creation. So simple!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#G5NR_utils.py-has-computations-with-7km-gridded-u,v,w-inputs">G5NR_utils.py has computations with 7km gridded u,v,w inputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#(90,45)-is-the-4-degree-filter-scale-(divides-the-world-into-90x45-arrays)">(90,45) is the 4 degree filter scale (divides the world into 90x45 arrays)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-the-prime-terms,-and-their-products,-back-into-the-Subgrid-xarray-dataset">Merge the prime terms, and their products, back into the Subgrid xarray dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Make-a-Geoviews-Dataset,-and-6-Images,-for-subgrid-(prime)-terms">Make a Geoviews Dataset, and 6 Images, for subgrid (prime) terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(&quot;eddy&quot;)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Resolution-as-a-slider-(or-menu)">Resolution as a slider (or menu)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Should-match-the-case-selection-criterion-(e.g.-positive-SKEdot-at-center)">Should match the case selection criterion (e.g. positive SKEdot at center)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bleeding-edge-in-10/17,-needed-pip-install---upgrade-git+https://github.com/ioam/holoviews.git">Bleeding edge in 10/17, needed <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">git+https://github.com/ioam/holoviews.git</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#oceanic-what-s-going-on-when-the-loop-current-in-the-gulf-of-mexico-splits-off-an-eddy">Oceanic: What’s going on when the Loop Current in the Gulf of Mexico splits off an eddy?</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commandline.html">DRILSDOWN Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../IDV_teleport.html">IDV_teleport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../install_teleport.html">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../install_teleport.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../getstarted_teleport.html">Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../getstarted_teleport.html#shell">Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../getstarted_teleport.html#jupyter-notebook-python">Jupyter Notebook/Python</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../demos_teleport.html">Demos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../RAMADDA_publish.html">RAMADDA Publish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../RAMADDA_publish.html#installation">Installation:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../started.html">Use cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devguide.html">Infrastructure Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#releasing">Releasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DRILSDOWN</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples: Loading data from python into IDV</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/examples/Basic_Examples/Send_python_data_to_IDV.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p><a class="reference external" href="https://github.com/Unidata/drilsdown/raw/master/UseCase_Examples/Basic_Examples/Send_python_data_to_IDV.ipynb">Right click to download this Notebook</a>
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/Basic_Examples/Send_python_data_to_IDV.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
+<div class="section" id="Examples:-Loading-data-from-python-into-IDV">
+<h1>Examples: Loading data from python into IDV<a class="headerlink" href="#Examples:-Loading-data-from-python-into-IDV" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="1.-A-random-array,-created-from-scratch">
+<h2>1. A random array, created from scratch<a class="headerlink" href="#1.-A-random-array,-created-from-scratch" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="2.-xarray-open-a-2D-field,-send-.to_IDV()">
+<h2>2. xarray open a 2D field, send .to_IDV()<a class="headerlink" href="#2.-xarray-open-a-2D-field,-send-.to_IDV()" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="3.-Compute-2D-vertical-integral-from-3D-(value-added)">
+<h2>3. Compute 2D vertical integral from 3D (value added)<a class="headerlink" href="#3.-Compute-2D-vertical-integral-from-3D-(value-added)" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> ipython_IDV
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0050cea6f19b44bcacf9810ddcbe32cc", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "19694cb68e3e44ce80741849952fce72", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+%load_bundle http://weather.rsmas.miami.edu/repository/entry/get/AnnualCycleGlobeMonthly.xidv?entryid=e3880649-f98a-4126-a437-509bce201d16
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="kn">as</span> <span class="nn">xr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Example-1:-Load-a-random-array-into-IDV">
+<h2>Example 1: Load a random array into IDV<a class="headerlink" href="#Example-1:-Load-a-random-array-into-IDV" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#create a random data and make a xarray dataarray</span>
+<span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">))</span>
+<span class="n">data_xr</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">)},</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data_xr</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;xarray.DataArray &#39;random&#39; (lat: 180, lon: 360)&gt;
+array([[0.670093, 0.784377, 0.409137, ..., 0.726175, 0.466415, 0.173591],
+       [0.29685 , 0.557347, 0.890125, ..., 0.022452, 0.130703, 0.087429],
+       [0.097889, 0.178755, 0.834005, ..., 0.934752, 0.901992, 0.949533],
+       ...,
+       [0.770955, 0.309456, 0.414089, ..., 0.270197, 0.195103, 0.559949],
+       [0.857394, 0.1685  , 0.959192, ..., 0.563705, 0.27302 , 0.550274],
+       [0.653033, 0.152847, 0.378471, ..., 0.593272, 0.78419 , 0.521551]])
+Coordinates:
+  * lat      (lat) int64 -90 -89 -88 -87 -86 -85 -84 -83 -82 -81 -80 -79 -78 ...
+  * lon      (lon) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ...
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data_xr</span><span class="o">.</span><span class="n">to_IDV</span><span class="p">()</span> <span class="c1"># this data now is located in your datasources of IDV</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+data loaded
+</pre></div></div>
+</div>
+<div class="section" id="Now-go-to-IDV-Dashboard,-Field-Selector-tab,-and-make-a-display">
+<h3>Now go to IDV Dashboard, Field Selector tab, and make a display<a class="headerlink" href="#Now-go-to-IDV-Dashboard,-Field-Selector-tab,-and-make-a-display" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_image</span> -caption &#39;IDV with display of injected random dataset&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Basic_Examples_Send_python_data_to_IDV_8_0.png" src="../../_images/examples_Basic_Examples_Send_python_data_to_IDV_8_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Example-2">
+<h1>Example 2<a class="headerlink" href="#Example-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Open-2D-dataset-in-xarrray,-load-the-data-into-IDV">
+<h2>Open 2D dataset in xarrray, load the data into IDV<a class="headerlink" href="#Open-2D-dataset-in-xarrray,-load-the-data-into-IDV" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Open NCEP monthly climatology of column water vapor</span>
+<span class="n">da_2dPW</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;https://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/surface/pr_wtr.mon.ltm.nc&#39;</span><span class="p">)</span>
+<span class="c1">#                   decode_times=False)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-17-930a7d1a2285&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Open NCEP monthly climatology of column water vapor</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>da_2dPW<span class="ansi-blue-fg">=</span>xr<span class="ansi-blue-fg">.</span>open_dataset<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;https://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/surface/pr_wtr.mon.ltm.nc&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg">#                   decode_times=False)</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/api.py</span> in <span class="ansi-cyan-fg">open_dataset</span><span class="ansi-blue-fg">(filename_or_obj, group, decode_cf, mask_and_scale, decode_times, autoclose, concat_characters, decode_coords, engine, chunks, lock, cache, drop_variables, backend_kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    318</span>                                                    group<span class="ansi-blue-fg">=</span>group<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    319</span>                                                    autoclose<span class="ansi-blue-fg">=</span>autoclose<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">--&gt; 320</span><span class="ansi-red-fg">                                                    **backend_kwargs)
+</span><span class="ansi-green-intense-fg ansi-bold">    321</span>         <span class="ansi-green-fg">elif</span> engine <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;scipy&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    322</span>             store = backends.ScipyDataStore(filename_or_obj,
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/netCDF4_.py</span> in <span class="ansi-cyan-fg">open</span><span class="ansi-blue-fg">(cls, filename, mode, format, group, writer, clobber, diskless, persist, autoclose, lock)</span>
+<span class="ansi-green-intense-fg ansi-bold">    330</span>                                    diskless<span class="ansi-blue-fg">=</span>diskless<span class="ansi-blue-fg">,</span> persist<span class="ansi-blue-fg">=</span>persist<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    331</span>                                    format=format)
+<span class="ansi-green-fg">--&gt; 332</span><span class="ansi-red-fg">         </span>ds <span class="ansi-blue-fg">=</span> opener<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    333</span>         return cls(ds, mode=mode, writer=writer, opener=opener,
+<span class="ansi-green-intense-fg ansi-bold">    334</span>                    autoclose=autoclose, lock=lock)
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/netCDF4_.py</span> in <span class="ansi-cyan-fg">_open_netcdf4_group</span><span class="ansi-blue-fg">(filename, mode, group, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    229</span>     <span class="ansi-green-fg">import</span> netCDF4 <span class="ansi-green-fg">as</span> nc4
+<span class="ansi-green-intense-fg ansi-bold">    230</span>
+<span class="ansi-green-fg">--&gt; 231</span><span class="ansi-red-fg">     </span>ds <span class="ansi-blue-fg">=</span> nc4<span class="ansi-blue-fg">.</span>Dataset<span class="ansi-blue-fg">(</span>filename<span class="ansi-blue-fg">,</span> mode<span class="ansi-blue-fg">=</span>mode<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    232</span>
+<span class="ansi-green-intense-fg ansi-bold">    233</span>     <span class="ansi-green-fg">with</span> close_on_error<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4.Dataset.__init__</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4._ensure_nc_success</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">OSError</span>: [Errno -68] NetCDF: I/O failure: b&#39;https://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/surface/pr_wtr.mon.ltm.nc&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">da_2dPW</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Send dataset into IDV</span>
+<span class="n">da_2dPW</span><span class="o">.</span><span class="n">to_IDV</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Example-3">
+<h1>Example 3<a class="headerlink" href="#Example-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Compute-mass-weighted-vertical-integral-of-specific-humidity">
+<h2>Compute mass weighted vertical integral of specific humidity<a class="headerlink" href="#Compute-mass-weighted-vertical-integral-of-specific-humidity" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="and-load-the-data-into-IDV">
+<h2>and load the data into IDV<a class="headerlink" href="#and-load-the-data-into-IDV" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># open MERRA2 Reanalysis dataset</span>
+<span class="c1">#da=xr.open_dataset(&#39;https://geodesystems.com/repository/opendap/038361f9-fb9a-484c-9f1d-3623a12a47ca/entry.das&#39;)</span>
+
+<span class="c1"># Open NCEP monthly climatology from Mapes IDV collection .ncml aggregation</span>
+<span class="n">da</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;http://weather.rsmas.miami.edu/repository/opendap/0a9bbf2e-458d-4b7c-ad3a-b450988a0587/entry.das&#39;</span><span class="p">,</span>
+                   <span class="n">decode_times</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">da</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;xarray.Dataset&gt;
+Dimensions:             (lat: 73, level: 17, lon: 144, nbnds: 2, time: 12)
+Coordinates:
+  * level               (level) float32 1000.0 925.0 850.0 700.0 600.0 500.0 ...
+  * lon                 (lon) float32 0.0 2.5 5.0 7.5 10.0 12.5 15.0 17.5 ...
+  * time                (time) float64 -6.571e+05 -6.57e+05 -6.57e+05 ...
+  * lat                 (lat) float32 90.0 87.5 85.0 82.5 80.0 77.5 75.0 ...
+Dimensions without coordinates: nbnds
+Data variables:
+    climatology_bounds  (time, nbnds) float64 ...
+    air                 (time, level, lat, lon) float32 ...
+    valid_yr_count      (time, level, lat, lon) float32 ...
+    hgt                 (time, level, lat, lon) float32 ...
+    uwnd                (time, level, lat, lon) float32 ...
+    vwnd                (time, level, lat, lon) float32 ...
+    omega               (time, level, lat, lon) float32 ...
+    shum                (time, level, lat, lon) float32 ...
+    rhum                (time, level, lat, lon) float32 ...
+    pottmp              (time, level, lat, lon) float32 ...
+Attributes:
+    description:                     Data from NCEP initialized reanalysis (4...
+    platform:                       Model
+    Conventions:                    COARDS
+    not_missing_threshold_percent:  minimum 3% values input to have non-missi...
+    history:                        Created 2011/07/12 by doMonthLTM\nConvert...
+    title:                          monthly ltm air from the NCEP Reanalysis
+    References:                     http://www.esrl.noaa.gov/psd/data/gridded...
+    dataset_title:                  NCEP-NCAR Reanalysis 1
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get 3D specific humidity, subset for just 2 time levels. Call it q</span>
+<span class="n">q</span><span class="o">=</span><span class="n">da</span><span class="o">.</span><span class="n">shum</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># just take a small slice of data</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Send whole 3D dataset into IDV</span>
+<span class="n">q</span><span class="o">.</span><span class="n">to_IDV</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-10-fe8554d81463&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Send whole 3D dataset into IDV</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>q<span class="ansi-blue-fg">.</span>to_IDV<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/ipython_IDV.py</span> in <span class="ansi-cyan-fg">to_IDV</span><span class="ansi-blue-fg">(data, filename)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>             <span class="ansi-green-fg">with</span> NamedTemporaryFile<span class="ansi-blue-fg">(</span>suffix<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;.nc&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 69</span><span class="ansi-red-fg">                 </span>data<span class="ansi-blue-fg">.</span>to_netcdf<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">.</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     70</span>                 load_data<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">.</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     71</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/dataarray.py</span> in <span class="ansi-cyan-fg">to_netcdf</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1588</span>             dataset <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>to_dataset<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1589</span>
+<span class="ansi-green-fg">-&gt; 1590</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> dataset<span class="ansi-blue-fg">.</span>to_netcdf<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1591</span>
+<span class="ansi-green-intense-fg ansi-bold">   1592</span>     <span class="ansi-green-fg">def</span> to_dict<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/dataset.py</span> in <span class="ansi-cyan-fg">to_netcdf</span><span class="ansi-blue-fg">(self, path, mode, format, group, engine, encoding, unlimited_dims, compute)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1148</span>                          engine<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span>encoding<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1149</span>                          unlimited_dims<span class="ansi-blue-fg">=</span>unlimited_dims<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">-&gt; 1150</span><span class="ansi-red-fg">                          compute=compute)
+</span><span class="ansi-green-intense-fg ansi-bold">   1151</span>
+<span class="ansi-green-intense-fg ansi-bold">   1152</span>     def to_zarr(self, store=None, mode=&#39;w-&#39;, synchronizer=None, group=None,
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/api.py</span> in <span class="ansi-cyan-fg">to_netcdf</span><span class="ansi-blue-fg">(dataset, path_or_file, mode, format, group, engine, writer, encoding, unlimited_dims, compute)</span>
+<span class="ansi-green-intense-fg ansi-bold">    721</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         dataset.dump_to_store(store, sync=sync, encoding=encoding,
+<span class="ansi-green-fg">--&gt; 723</span><span class="ansi-red-fg">                               unlimited_dims=unlimited_dims, compute=compute)
+</span><span class="ansi-green-intense-fg ansi-bold">    724</span>         <span class="ansi-green-fg">if</span> path_or_file <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    725</span>             <span class="ansi-green-fg">return</span> target<span class="ansi-blue-fg">.</span>getvalue<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/dataset.py</span> in <span class="ansi-cyan-fg">dump_to_store</span><span class="ansi-blue-fg">(self, store, encoder, sync, encoding, unlimited_dims, compute)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1073</span>
+<span class="ansi-green-intense-fg ansi-bold">   1074</span>         store.store(variables, attrs, check_encoding,
+<span class="ansi-green-fg">-&gt; 1075</span><span class="ansi-red-fg">                     unlimited_dims=unlimited_dims)
+</span><span class="ansi-green-intense-fg ansi-bold">   1076</span>         <span class="ansi-green-fg">if</span> sync<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1077</span>             store<span class="ansi-blue-fg">.</span>sync<span class="ansi-blue-fg">(</span>compute<span class="ansi-blue-fg">=</span>compute<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/common.py</span> in <span class="ansi-cyan-fg">store</span><span class="ansi-blue-fg">(self, variables, attributes, check_encoding_set, unlimited_dims)</span>
+<span class="ansi-green-intense-fg ansi-bold">    361</span>         &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    362</span>
+<span class="ansi-green-fg">--&gt; 363</span><span class="ansi-red-fg">         </span>variables<span class="ansi-blue-fg">,</span> attributes <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>encode<span class="ansi-blue-fg">(</span>variables<span class="ansi-blue-fg">,</span> attributes<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    364</span>
+<span class="ansi-green-intense-fg ansi-bold">    365</span>         self<span class="ansi-blue-fg">.</span>set_attributes<span class="ansi-blue-fg">(</span>attributes<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/common.py</span> in <span class="ansi-cyan-fg">encode</span><span class="ansi-blue-fg">(self, variables, attributes)</span>
+<span class="ansi-green-intense-fg ansi-bold">    446</span>         <span class="ansi-red-fg"># All NetCDF files get CF encoded by default, without this attempting</span>
+<span class="ansi-green-intense-fg ansi-bold">    447</span>         <span class="ansi-red-fg"># to write times, for example, would fail.</span>
+<span class="ansi-green-fg">--&gt; 448</span><span class="ansi-red-fg">         </span>variables<span class="ansi-blue-fg">,</span> attributes <span class="ansi-blue-fg">=</span> cf_encoder<span class="ansi-blue-fg">(</span>variables<span class="ansi-blue-fg">,</span> attributes<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    449</span>         variables = OrderedDict([(k, self.encode_variable(v))
+<span class="ansi-green-intense-fg ansi-bold">    450</span>                                  for k, v in variables.items()])
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/conventions.py</span> in <span class="ansi-cyan-fg">cf_encoder</span><span class="ansi-blue-fg">(variables, attributes)</span>
+<span class="ansi-green-intense-fg ansi-bold">    571</span>     &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    572</span>     new_vars = OrderedDict((k, encode_cf_variable(v, name=k))
+<span class="ansi-green-fg">--&gt; 573</span><span class="ansi-red-fg">                            for k, v in iteritems(variables))
+</span><span class="ansi-green-intense-fg ansi-bold">    574</span>     <span class="ansi-green-fg">return</span> new_vars<span class="ansi-blue-fg">,</span> attributes
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/conventions.py</span> in <span class="ansi-cyan-fg">&lt;genexpr&gt;</span><span class="ansi-blue-fg">(.0)</span>
+<span class="ansi-green-intense-fg ansi-bold">    571</span>     &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    572</span>     new_vars = OrderedDict((k, encode_cf_variable(v, name=k))
+<span class="ansi-green-fg">--&gt; 573</span><span class="ansi-red-fg">                            for k, v in iteritems(variables))
+</span><span class="ansi-green-intense-fg ansi-bold">    574</span>     <span class="ansi-green-fg">return</span> new_vars<span class="ansi-blue-fg">,</span> attributes
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/conventions.py</span> in <span class="ansi-cyan-fg">encode_cf_variable</span><span class="ansi-blue-fg">(var, needs_copy, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">    233</span>                   variables<span class="ansi-blue-fg">.</span>CFMaskCoder<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    234</span>                   variables.UnsignedIntegerCoder()]:
+<span class="ansi-green-fg">--&gt; 235</span><span class="ansi-red-fg">         </span>var <span class="ansi-blue-fg">=</span> coder<span class="ansi-blue-fg">.</span>encode<span class="ansi-blue-fg">(</span>var<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    236</span>
+<span class="ansi-green-intense-fg ansi-bold">    237</span>     <span class="ansi-red-fg"># TODO(shoyer): convert all of these to use coders, too:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ansi-cyan-fg">encode</span><span class="ansi-blue-fg">(self, variable, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">    382</span>
+<span class="ansi-green-intense-fg ansi-bold">    383</span>     <span class="ansi-green-fg">def</span> encode<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> variable<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 384</span><span class="ansi-red-fg">         </span>dims<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">,</span> attrs<span class="ansi-blue-fg">,</span> encoding <span class="ansi-blue-fg">=</span> unpack_for_encoding<span class="ansi-blue-fg">(</span>variable<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    385</span>         if (np.issubdtype(data.dtype, np.datetime64) or
+<span class="ansi-green-intense-fg ansi-bold">    386</span>            contains_cftime_datetimes(variable)):
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">unpack_for_encoding</span><span class="ansi-blue-fg">(var)</span>
+<span class="ansi-green-intense-fg ansi-bold">     94</span>
+<span class="ansi-green-intense-fg ansi-bold">     95</span> <span class="ansi-green-fg">def</span> unpack_for_encoding<span class="ansi-blue-fg">(</span>var<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 96</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> var<span class="ansi-blue-fg">.</span>dims<span class="ansi-blue-fg">,</span> var<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">,</span> var<span class="ansi-blue-fg">.</span>attrs<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> var<span class="ansi-blue-fg">.</span>encoding<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span>
+<span class="ansi-green-intense-fg ansi-bold">     98</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">data</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    293</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_data
+<span class="ansi-green-intense-fg ansi-bold">    294</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 295</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>values
+<span class="ansi-green-intense-fg ansi-bold">    296</span>
+<span class="ansi-green-intense-fg ansi-bold">    297</span>     <span class="ansi-blue-fg">@</span>data<span class="ansi-blue-fg">.</span>setter
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">values</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    385</span>     <span class="ansi-green-fg">def</span> values<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    386</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;The variable&#39;s data as a numpy.ndarray&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 387</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _as_array_or_item<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_data<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    388</span>
+<span class="ansi-green-intense-fg ansi-bold">    389</span>     <span class="ansi-blue-fg">@</span>values<span class="ansi-blue-fg">.</span>setter
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">_as_array_or_item</span><span class="ansi-blue-fg">(data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    209</span>     TODO<span class="ansi-blue-fg">:</span> remove this <span class="ansi-blue-fg">(</span>replace <span class="ansi-green-fg">with</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">)</span> once these issues are fixed
+<span class="ansi-green-intense-fg ansi-bold">    210</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 211</span><span class="ansi-red-fg">     </span>data <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    212</span>     <span class="ansi-green-fg">if</span> data<span class="ansi-blue-fg">.</span>ndim <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    213</span>         <span class="ansi-green-fg">if</span> data<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">.</span>kind <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;M&#39;</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    622</span>
+<span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 624</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_ensure_cached<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    625</span>         <span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    626</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">_ensure_cached</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    619</span>     <span class="ansi-green-fg">def</span> _ensure_cached<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    620</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">,</span> NumpyIndexingAdapter<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 621</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>array <span class="ansi-blue-fg">=</span> NumpyIndexingAdapter<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    622</span>
+<span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    600</span>
+<span class="ansi-green-intense-fg ansi-bold">    601</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 602</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    603</span>
+<span class="ansi-green-intense-fg ansi-bold">    604</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    506</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    507</span>         array <span class="ansi-blue-fg">=</span> as_indexable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 508</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>array<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    509</span>
+<span class="ansi-green-intense-fg ansi-bold">    510</span>     <span class="ansi-green-fg">def</span> transpose<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>func<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     <span class="ansi-green-fg">def</span> __repr__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>func<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     <span class="ansi-green-fg">def</span> __repr__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">_apply_mask</span><span class="ansi-blue-fg">(data, encoded_fill_values, decoded_fill_value, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    130</span>                 ):  # type: np.ndarray
+<span class="ansi-green-intense-fg ansi-bold">    131</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Mask all matching values in a NumPy arrays.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 132</span><span class="ansi-red-fg">     </span>data <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    133</span>     condition <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>     <span class="ansi-green-fg">for</span> fv <span class="ansi-green-fg">in</span> encoded_fill_values<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    506</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    507</span>         array <span class="ansi-blue-fg">=</span> as_indexable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 508</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>array<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    509</span>
+<span class="ansi-green-intense-fg ansi-bold">    510</span>     <span class="ansi-green-fg">def</span> transpose<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/netCDF4_.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>         <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>datastore<span class="ansi-blue-fg">.</span>ensure_open<span class="ansi-blue-fg">(</span>autoclose<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">                 </span>array <span class="ansi-blue-fg">=</span> getitem<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>get_array<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">.</span>tuple<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>             <span class="ansi-green-fg">except</span> IndexError<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>                 <span class="ansi-red-fg"># Catch IndexError in netCDF4 and return a more informative</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/common.py</span> in <span class="ansi-cyan-fg">robust_getitem</span><span class="ansi-blue-fg">(array, key, catch, max_retries, initial_delay)</span>
+<span class="ansi-green-intense-fg ansi-bold">    115</span>     <span class="ansi-green-fg">for</span> n <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span>max_retries <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    116</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 117</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    118</span>         <span class="ansi-green-fg">except</span> catch<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    119</span>             <span class="ansi-green-fg">if</span> n <span class="ansi-blue-fg">==</span> max_retries<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4.Variable.__getitem__</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4.Variable._get</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4._ensure_nc_success</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">RuntimeError</span>: NetCDF: file not found
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Vertical-integral----not-working">
+<h1>Vertical integral – not working<a class="headerlink" href="#Vertical-integral----not-working" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># For a vertical mass integral, get dp/g</span>
+<span class="n">dpbyg</span><span class="o">=</span><span class="n">da</span><span class="o">.</span><span class="n">level</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># make a copy of values</span>
+<span class="n">dpbyg</span><span class="o">.</span><span class="n">values</span><span class="o">=-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">level</span><span class="o">*</span><span class="mf">100.0</span><span class="p">)</span><span class="o">/</span><span class="mf">9.8</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">q</span><span class="o">*</span><span class="n">dpbyg</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-adbabca4d553&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>q<span class="ansi-blue-fg">*</span>dpbyg
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/dataarray.py</span> in <span class="ansi-cyan-fg">func</span><span class="ansi-blue-fg">(self, other)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1808</span>
+<span class="ansi-green-intense-fg ansi-bold">   1809</span>             variable = (f(self.variable, other_variable)
+<span class="ansi-green-fg">-&gt; 1810</span><span class="ansi-red-fg">                         </span><span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> reflexive
+<span class="ansi-green-intense-fg ansi-bold">   1811</span>                         else f(other_variable, self.variable))
+<span class="ansi-green-intense-fg ansi-bold">   1812</span>             coords <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>coords<span class="ansi-blue-fg">.</span>_merge_raw<span class="ansi-blue-fg">(</span>other_coords<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">func</span><span class="ansi-blue-fg">(self, other)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1575</span>             <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>other<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span>xr<span class="ansi-blue-fg">.</span>DataArray<span class="ansi-blue-fg">,</span> xr<span class="ansi-blue-fg">.</span>Dataset<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1576</span>                 <span class="ansi-green-fg">return</span> NotImplemented
+<span class="ansi-green-fg">-&gt; 1577</span><span class="ansi-red-fg">             </span>self_data<span class="ansi-blue-fg">,</span> other_data<span class="ansi-blue-fg">,</span> dims <span class="ansi-blue-fg">=</span> _broadcast_compat_data<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1578</span>             <span class="ansi-green-fg">with</span> np<span class="ansi-blue-fg">.</span>errstate<span class="ansi-blue-fg">(</span>all<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;ignore&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1579</span>                 new_data = (f(self_data, other_data)
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">_broadcast_compat_data</span><span class="ansi-blue-fg">(self, other)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1818</span>         <span class="ansi-red-fg"># `other` satisfies the necessary Variable API for broadcast_variables</span>
+<span class="ansi-green-intense-fg ansi-bold">   1819</span>         new_self<span class="ansi-blue-fg">,</span> new_other <span class="ansi-blue-fg">=</span> _broadcast_compat_variables<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1820</span><span class="ansi-red-fg">         </span>self_data <span class="ansi-blue-fg">=</span> new_self<span class="ansi-blue-fg">.</span>data
+<span class="ansi-green-intense-fg ansi-bold">   1821</span>         other_data <span class="ansi-blue-fg">=</span> new_other<span class="ansi-blue-fg">.</span>data
+<span class="ansi-green-intense-fg ansi-bold">   1822</span>         dims <span class="ansi-blue-fg">=</span> new_self<span class="ansi-blue-fg">.</span>dims
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">data</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    293</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_data
+<span class="ansi-green-intense-fg ansi-bold">    294</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 295</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>values
+<span class="ansi-green-intense-fg ansi-bold">    296</span>
+<span class="ansi-green-intense-fg ansi-bold">    297</span>     <span class="ansi-blue-fg">@</span>data<span class="ansi-blue-fg">.</span>setter
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">values</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    385</span>     <span class="ansi-green-fg">def</span> values<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    386</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;The variable&#39;s data as a numpy.ndarray&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 387</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _as_array_or_item<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_data<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    388</span>
+<span class="ansi-green-intense-fg ansi-bold">    389</span>     <span class="ansi-blue-fg">@</span>values<span class="ansi-blue-fg">.</span>setter
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/variable.py</span> in <span class="ansi-cyan-fg">_as_array_or_item</span><span class="ansi-blue-fg">(data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    209</span>     TODO<span class="ansi-blue-fg">:</span> remove this <span class="ansi-blue-fg">(</span>replace <span class="ansi-green-fg">with</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">)</span> once these issues are fixed
+<span class="ansi-green-intense-fg ansi-bold">    210</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 211</span><span class="ansi-red-fg">     </span>data <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    212</span>     <span class="ansi-green-fg">if</span> data<span class="ansi-blue-fg">.</span>ndim <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    213</span>         <span class="ansi-green-fg">if</span> data<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">.</span>kind <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;M&#39;</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    622</span>
+<span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 624</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_ensure_cached<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    625</span>         <span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    626</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">_ensure_cached</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    619</span>     <span class="ansi-green-fg">def</span> _ensure_cached<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    620</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">,</span> NumpyIndexingAdapter<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 621</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>array <span class="ansi-blue-fg">=</span> NumpyIndexingAdapter<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    622</span>
+<span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    600</span>
+<span class="ansi-green-intense-fg ansi-bold">    601</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 602</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    603</span>
+<span class="ansi-green-intense-fg ansi-bold">    604</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    506</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    507</span>         array <span class="ansi-blue-fg">=</span> as_indexable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 508</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>array<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    509</span>
+<span class="ansi-green-intense-fg ansi-bold">    510</span>     <span class="ansi-green-fg">def</span> transpose<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>func<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     <span class="ansi-green-fg">def</span> __repr__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>func<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     <span class="ansi-green-fg">def</span> __repr__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/coding/variables.py</span> in <span class="ansi-cyan-fg">_apply_mask</span><span class="ansi-blue-fg">(data, encoded_fill_values, decoded_fill_value, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    130</span>                 ):  # type: np.ndarray
+<span class="ansi-green-intense-fg ansi-bold">    131</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Mask all matching values in a NumPy arrays.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 132</span><span class="ansi-red-fg">     </span>data <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    133</span>     condition <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>     <span class="ansi-green-fg">for</span> fv <span class="ansi-green-fg">in</span> encoded_fill_values<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/numpy/core/numeric.py</span> in <span class="ansi-cyan-fg">asarray</span><span class="ansi-blue-fg">(a, dtype, order)</span>
+<span class="ansi-green-intense-fg ansi-bold">    490</span>
+<span class="ansi-green-intense-fg ansi-bold">    491</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 492</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    493</span>
+<span class="ansi-green-intense-fg ansi-bold">    494</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/core/indexing.py</span> in <span class="ansi-cyan-fg">__array__</span><span class="ansi-blue-fg">(self, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    506</span>     <span class="ansi-green-fg">def</span> __array__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    507</span>         array <span class="ansi-blue-fg">=</span> as_indexable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 508</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>array<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    509</span>
+<span class="ansi-green-intense-fg ansi-bold">    510</span>     <span class="ansi-green-fg">def</span> transpose<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/netCDF4_.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>         <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>datastore<span class="ansi-blue-fg">.</span>ensure_open<span class="ansi-blue-fg">(</span>autoclose<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">                 </span>array <span class="ansi-blue-fg">=</span> getitem<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>get_array<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">.</span>tuple<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>             <span class="ansi-green-fg">except</span> IndexError<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span>                 <span class="ansi-red-fg"># Catch IndexError in netCDF4 and return a more informative</span>
+
+<span class="ansi-green-fg">//anaconda/envs/DRILSDOWN/lib/python3.6/site-packages/xarray/backends/common.py</span> in <span class="ansi-cyan-fg">robust_getitem</span><span class="ansi-blue-fg">(array, key, catch, max_retries, initial_delay)</span>
+<span class="ansi-green-intense-fg ansi-bold">    115</span>     <span class="ansi-green-fg">for</span> n <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span>max_retries <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    116</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 117</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> array<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    118</span>         <span class="ansi-green-fg">except</span> catch<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    119</span>             <span class="ansi-green-fg">if</span> n <span class="ansi-blue-fg">==</span> max_retries<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4.Variable.__getitem__</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4.Variable._get</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">netCDF4/_netCDF4.pyx</span> in <span class="ansi-cyan-fg">netCDF4._netCDF4._ensure_nc_success</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">RuntimeError</span>: NetCDF: file not found
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">CWV</span><span class="o">=</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">dpbyg</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">)</span>  <span class="c1">#should give Column Water Vapor in mm</span>
+<span class="n">CWV</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;CWV&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">CWV</span><span class="o">.</span><span class="n">to_IDV</span><span class="p">()</span> <span class="c1">#this data is in data sources, manually create a display</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+data loaded
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Operate the IDV to create a display of the new data, then %make_image</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, DRILSDOWN team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

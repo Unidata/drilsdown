@@ -1,0 +1,953 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>See the 0:59 YouTube video intro that uses this notebook. &mdash; DRILSDOWN 0.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.5.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DRILSDOWN
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#replicate-the-install-and-demo-notebook-from-the-video">Replicate the Install_and_Demo notebook from the video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installguide.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installguide.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installguide.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples of DRILSDOWN projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-observed-what-do-clouds-look-like-where-they-are-acting-to-increase-the-water-vapor">Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html">Steps in the analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Open-the-daily-(v4)-MIMIC-AT-dataset">Open the daily (v4) MIMIC-AT dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#make-custom-function-for-drawing-coastlines">make custom function for drawing coastlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-hover-tool-for-values">Create some tools to attach to the plots: hover tool for values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-tap-tool-calls-the-NASA-URL!">Create some tools to attach to the plots: tap tool calls the NASA URL!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Something-about-stacking-so-that-big-values-can-be-prioritized">Something about stacking so that big values can be prioritized</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-observed-how-do-watervapor-islands-last-long-over-the-dry-western-equatorial-indian-ocean">Atmospheric (observed): How do watervapor “islands” last long over the dry western-equatorial Indian Ocean?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html">Generate IDV_teleport script.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Teleport-script-needs-a-centered-date-and-time-delta-to-teleport,-so-calculate-center-of-the-state-and-timedelta">Teleport script needs a centered date and time delta to teleport, so calculate center of the state and timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Generate-teleport-script-by-applying-a-function-to-every-row-of-the-dataframe-and-save-it">Generate teleport script by applying a function to every row of the dataframe and save it</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-complex-simulated-what-is-going-on-in-areas-where-small-scales-are-adding-energy-to-the-large-scale-flow">Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html">Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Simple-2-year-mean-map">Simple 2-year mean map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Results!">Results!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html">Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-is-an-Earth-specific-Holoviews.-It-displays-1-2-dimensions-of-a-multi-dimensional-object,-and-the-other-dims-become-interactive-sliders.">Geoviews is an Earth-specific Holoviews. It displays 1-2 dimensions of a multi-dimensional object, and the other dims become interactive sliders.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#xarray-is-the-netCDF-friendly-front-end-for-reading-in-the-data.-Cartopy-has-the-background-maps.">xarray is the netCDF-friendly front end for reading in the data. Cartopy has the background maps.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bokeh-is-a-plotting-package-with-pan-zoom-interactivity">Bokeh is a plotting package with pan-zoom interactivity</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Subset-data-in-time-and-space-if-desired-before-lazy-read">Subset data in time and space if desired before lazy read</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Use-.sel(-)-to-select-by-coordinate-values,-or-.isel(-)-to-select-by-index.-Use-slice(value1,value2)-to-select-ranges.">Use .sel( ) to select by coordinate values, or .isel( ) to select by index. Use slice(value1,value2) to select ranges.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-total-fields-(U,V,W)-with-total-flux-(UW,-VW,-UV)-as-a-Geoview-(Holoview)-Image-object.">Merge total fields (U,V,W) with total flux (UW, VW, UV) as a Geoview (Holoview) Image object.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-multiple-displays-creation.-So-simple!">Geoviews multiple-displays creation. So simple!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#G5NR_utils.py-has-computations-with-7km-gridded-u,v,w-inputs">G5NR_utils.py has computations with 7km gridded u,v,w inputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#(90,45)-is-the-4-degree-filter-scale-(divides-the-world-into-90x45-arrays)">(90,45) is the 4 degree filter scale (divides the world into 90x45 arrays)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-the-prime-terms,-and-their-products,-back-into-the-Subgrid-xarray-dataset">Merge the prime terms, and their products, back into the Subgrid xarray dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Make-a-Geoviews-Dataset,-and-6-Images,-for-subgrid-(prime)-terms">Make a Geoviews Dataset, and 6 Images, for subgrid (prime) terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(&quot;eddy&quot;)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Resolution-as-a-slider-(or-menu)">Resolution as a slider (or menu)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Should-match-the-case-selection-criterion-(e.g.-positive-SKEdot-at-center)">Should match the case selection criterion (e.g. positive SKEdot at center)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bleeding-edge-in-10/17,-needed-pip-install---upgrade-git+https://github.com/ioam/holoviews.git">Bleeding edge in 10/17, needed <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">git+https://github.com/ioam/holoviews.git</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#oceanic-what-s-going-on-when-the-loop-current-in-the-gulf-of-mexico-splits-off-an-eddy">Oceanic: What’s going on when the Loop Current in the Gulf of Mexico splits off an eddy?</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commandline.html">DRILSDOWN Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../IDV_teleport.html">IDV_teleport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../install_teleport.html">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../install_teleport.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../getstarted_teleport.html">Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../getstarted_teleport.html#shell">Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../getstarted_teleport.html#jupyter-notebook-python">Jupyter Notebook/Python</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../demos_teleport.html">Demos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../RAMADDA_publish.html">RAMADDA Publish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../RAMADDA_publish.html#installation">Installation:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../started.html">Use cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devguide.html">Infrastructure Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#releasing">Releasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DRILSDOWN</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>See the 0:59 YouTube video intro that uses this notebook.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/examples/Basic_Examples/Install_and_demo.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p><a class="reference external" href="https://github.com/Unidata/drilsdown/raw/master/UseCase_Examples/Basic_Examples/Install_and_demo.ipynb">Right click to download this Notebook</a>
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/Basic_Examples/Install_and_demo.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
+<div style="width:600 px"><div style="float:right; width:340 px; height:300px;"></div><div style="float:right; width:98 px; height:98px;"></div><h1><p>DRILSDOWN Case Study</p>
+</h1>
+<h2><p>Notebook your IDV visualization journey</p>
+</h2>
+<h3><p>and connect its data sources to Python tools</p>
+</h3><hr class="docutils" />
+<div class="section" id="See-the-0:59-YouTube-video-intro-that-uses-this-notebook.">
+<h1>See the <a class="reference external" href="https://youtu.be/JQ0kBy472FU">0:59 YouTube video intro</a> that uses this notebook.<a class="headerlink" href="#See-the-0:59-YouTube-video-intro-that-uses-this-notebook." title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="Documentation-is-here,-from-this-github-code-repo.">
+<h1>Documentation is <a class="reference external" href="http://unidata.github.io/drilsdown">here</a>, from <a class="reference external" href="http://github.com/unidata/drilsdown">this github code repo</a>.<a class="headerlink" href="#Documentation-is-here,-from-this-github-code-repo." title="Permalink to this headline">¶</a></h1>
+<div style="clear:both"></div></div><hr style="height:2px;"></div>
+<div class="section" id="Sections">
+<h1>Sections<a class="headerlink" href="#Sections" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Install &amp; launch ipython_IDV</p></li>
+<li><p>Capture images &amp; movies (and optionally, replication bundles)</p></li>
+<li><p>Python interaction with your IDV session</p></li>
+<li><p>Publish to a RAMADDA repository</p></li>
+</ol>
+<blockquote>
+<div><p># Install the DRILSDOWN package, and launch</p>
+</div></blockquote>
+<div class="section" id="Already-a-Jupyter-user?">
+<h2>Already a Jupyter user?<a class="headerlink" href="#Already-a-Jupyter-user?" title="Permalink to this headline">¶</a></h2>
+<p>Install the DRILSDOWN package. The cell below installs the DRILSDOWN package and its dependencies in your existing environment, using <a class="reference external" href="http://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/">this tactic</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install drilsdown --upgrade   ### install or upgrade pip package
+
+<span class="c1">#NO CONDA YET... !conda install --yes --prefix {sys.prefix} drilsdown  ### for conda package</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already up-to-date: drilsdown in /anaconda/envs/drilsdown/lib/python3.6/site-packages (2.4.8)
+Requirement not upgraded as not directly required: jython-kernel in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (2.0)
+Requirement not upgraded as not directly required: ipython-IDV&gt;=2.4.8&#39; in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (2.4.8)
+Requirement not upgraded as not directly required: cartopy in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (0.16.0)
+Requirement not upgraded as not directly required: ipykernel in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (4.8.2)
+Requirement not upgraded as not directly required: geoviews in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (1.5.2)
+Requirement not upgraded as not directly required: ipywidgets&gt;=7.1.0rc in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (7.2.1)
+Requirement not upgraded as not directly required: future in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (0.16.0)
+Requirement not upgraded as not directly required: xarray in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (0.10.8)
+Requirement not upgraded as not directly required: ramadda-publish in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (1.3)
+Requirement not upgraded as not directly required: jupyter-client in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (5.2.3)
+Requirement not upgraded as not directly required: holoviews in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (1.10.7)
+Requirement not upgraded as not directly required: MetPy in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (0.8.0)
+Requirement not upgraded as not directly required: idv-teleport in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (1.6)
+Requirement not upgraded as not directly required: six in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (1.11.0)
+Requirement not upgraded as not directly required: pyviz in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from drilsdown) (0.9.9)
+Requirement not upgraded as not directly required: IPython&gt;=3.0 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from jython-kernel-&gt;drilsdown) (6.4.0)
+Requirement not upgraded as not directly required: pyshp&gt;=1.1.4 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from cartopy-&gt;drilsdown) (1.2.12)
+Requirement not upgraded as not directly required: shapely&gt;=1.5.6 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from cartopy-&gt;drilsdown) (1.6.4.post1)
+Requirement not upgraded as not directly required: numpy&gt;=1.6 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from cartopy-&gt;drilsdown) (1.14.5)
+Requirement not upgraded as not directly required: setuptools&gt;=0.7.2 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from cartopy-&gt;drilsdown) (39.2.0)
+Requirement not upgraded as not directly required: traitlets&gt;=4.1.0 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from ipykernel-&gt;drilsdown) (4.3.2)
+Requirement not upgraded as not directly required: tornado&gt;=4.0 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from ipykernel-&gt;drilsdown) (4.5.3)
+Requirement not upgraded as not directly required: bokeh&gt;=0.12.15 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from geoviews-&gt;drilsdown) (0.13.0)
+Requirement not upgraded as not directly required: param&gt;=1.6.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from geoviews-&gt;drilsdown) (1.7.0)
+Requirement not upgraded as not directly required: widgetsnbextension~=3.2.0 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (3.2.1)
+Requirement not upgraded as not directly required: nbformat&gt;=4.2.0 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (4.4.0)
+Requirement not upgraded as not directly required: pandas&gt;=0.19.2 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from xarray-&gt;drilsdown) (0.23.1)
+Requirement not upgraded as not directly required: jupyter_core in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from jupyter-client-&gt;drilsdown) (4.4.0)
+Requirement not upgraded as not directly required: pyzmq&gt;=13 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from jupyter-client-&gt;drilsdown) (17.0.0)
+Requirement not upgraded as not directly required: python-dateutil&gt;=2.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from jupyter-client-&gt;drilsdown) (2.7.3)
+Requirement not upgraded as not directly required: pyviz_comms in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from holoviews-&gt;drilsdown) (0.5.0)
+Requirement not upgraded as not directly required: scipy&gt;=0.14 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from MetPy-&gt;drilsdown) (1.1.0)
+Requirement not upgraded as not directly required: pint&gt;=0.8 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from MetPy-&gt;drilsdown) (0.8.1)
+Requirement not upgraded as not directly required: matplotlib&gt;=1.4 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from MetPy-&gt;drilsdown) (2.2.2)
+Requirement not upgraded as not directly required: simplegeneric&gt;0.8 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.8.1)
+Requirement not upgraded as not directly required: pygments in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (2.2.0)
+Requirement not upgraded as not directly required: prompt-toolkit&lt;2.0.0,&gt;=1.0.15 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (1.0.15)
+Requirement not upgraded as not directly required: pexpect; sys_platform != &#34;win32&#34; in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (4.6.0)
+Requirement not upgraded as not directly required: appnope; sys_platform == &#34;darwin&#34; in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.1.0)
+Requirement not upgraded as not directly required: decorator in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (4.3.0)
+Requirement not upgraded as not directly required: pickleshare in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.7.4)
+Requirement not upgraded as not directly required: jedi&gt;=0.10 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.12.0)
+Requirement not upgraded as not directly required: backcall in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.1.0)
+Requirement not upgraded as not directly required: ipython-genutils in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from traitlets&gt;=4.1.0-&gt;ipykernel-&gt;drilsdown) (0.2.0)
+Requirement not upgraded as not directly required: PyYAML&gt;=3.10 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from bokeh&gt;=0.12.15-&gt;geoviews-&gt;drilsdown) (3.12)
+Requirement not upgraded as not directly required: Jinja2&gt;=2.7 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from bokeh&gt;=0.12.15-&gt;geoviews-&gt;drilsdown) (2.10)
+Requirement not upgraded as not directly required: packaging&gt;=16.8 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from bokeh&gt;=0.12.15-&gt;geoviews-&gt;drilsdown) (17.1)
+Requirement not upgraded as not directly required: notebook&gt;=4.4.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (5.5.0)
+Requirement not upgraded as not directly required: jsonschema!=2.5.0,&gt;=2.4 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (2.6.0)
+Requirement not upgraded as not directly required: pytz&gt;=2011k in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from pandas&gt;=0.19.2-&gt;xarray-&gt;drilsdown) (2018.4)
+Requirement not upgraded as not directly required: cycler&gt;=0.10 in /anaconda/envs/drilsdown/lib/python3.6/site-packages/cycler-0.10.0-py3.6.egg (from matplotlib&gt;=1.4-&gt;MetPy-&gt;drilsdown) (0.10.0)
+Requirement not upgraded as not directly required: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from matplotlib&gt;=1.4-&gt;MetPy-&gt;drilsdown) (2.2.0)
+Requirement not upgraded as not directly required: kiwisolver&gt;=1.0.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from matplotlib&gt;=1.4-&gt;MetPy-&gt;drilsdown) (1.0.1)
+Requirement not upgraded as not directly required: wcwidth in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from prompt-toolkit&lt;2.0.0,&gt;=1.0.15-&gt;IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.1.7)
+Requirement not upgraded as not directly required: ptyprocess&gt;=0.5 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from pexpect; sys_platform != &#34;win32&#34;-&gt;IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.6.0)
+Requirement not upgraded as not directly required: parso&gt;=0.2.0 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from jedi&gt;=0.10-&gt;IPython&gt;=3.0-&gt;jython-kernel-&gt;drilsdown) (0.2.1)
+Requirement not upgraded as not directly required: MarkupSafe&gt;=0.23 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from Jinja2&gt;=2.7-&gt;bokeh&gt;=0.12.15-&gt;geoviews-&gt;drilsdown) (1.0)
+Requirement not upgraded as not directly required: nbconvert in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (5.3.1)
+Requirement not upgraded as not directly required: Send2Trash in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (1.5.0)
+Requirement not upgraded as not directly required: terminado&gt;=0.8.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (0.8.1)
+Requirement not upgraded as not directly required: entrypoints&gt;=0.2.2 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (0.2.3)
+Requirement not upgraded as not directly required: pandocfilters&gt;=1.4.1 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (1.4.2)
+Requirement not upgraded as not directly required: mistune&gt;=0.7.4 in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (0.8.3)
+Requirement not upgraded as not directly required: testpath in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (0.3.1)
+Requirement not upgraded as not directly required: bleach in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (2.1.3)
+Requirement not upgraded as not directly required: html5lib!=1.0b1,!=1.0b2,!=1.0b3,!=1.0b4,!=1.0b5,!=1.0b6,!=1.0b7,!=1.0b8,&gt;=0.99999999pre in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (1.0.1)
+Requirement not upgraded as not directly required: webencodings in /anaconda/envs/drilsdown/lib/python3.6/site-packages (from html5lib!=1.0b1,!=1.0b2,!=1.0b3,!=1.0b4,!=1.0b5,!=1.0b6,!=1.0b7,!=1.0b8,&gt;=0.99999999pre-&gt;bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.2.0-&gt;ipywidgets&gt;=7.1.0rc-&gt;drilsdown) (0.5.1)
+<span class="ansi-yellow-fg">You are using pip version 10.0.1, however version 18.0 is available.
+You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="New-to-Jupyter?">
+<h2>New to Jupyter?<a class="headerlink" href="#New-to-Jupyter?" title="Permalink to this headline">¶</a></h2>
+<p>Create and use our DRILSDOWN environment in Anaconda.</p>
+<p>Uncomment and use the cell below to download our environment.yml file. Then, <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-environments#importing-an-environment">import the environment</a> (it takes a few minutes as packages are installed). Finally, launch jupyter notebook after selecting the DRILSDOWN <a class="reference external" href="https://docs.anaconda.com/_images/navigator-home-1-6.png">environment (channel)</a>. More in this <a class="reference external" href="https://unidata.github.io/online-python-training/notebook.html">science-oriented guide to Jupyter
+notebooks</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># The 3 lines here will download DRILSDOWN&#39;s environment.yml file</span>
+<span class="c1"># Then use Navigator to create environment from it as explained above</span>
+
+<span class="c1">#import requests</span>
+<span class="c1">#r = requests.get(&#39;https://raw.githubusercontent.com/Unidata/drilsdown/master/environment.yml&#39;, allow_redirects=True)</span>
+<span class="c1">#open(&#39;DRILSDOWN_environment.yml&#39;, &#39;wb&#39;).write(r.content)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Launch!">
+<h3>Launch!<a class="headerlink" href="#Launch!" title="Permalink to this headline">¶</a></h3>
+<p>After executing this cell, you should see this <a class="reference external" href="https://github.com/Unidata/drilsdown/blob/master/docs/_static/ipython_IDV_ControlPanel.png">Control Panel</a>.</p>
+<p><strong>Buttons</strong> append their outputs to the Control Panel’s results area. <strong>Clear Outputs</strong> will clear the whole cell.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load ipython_IDV extension. If successful, It will make a user interface (Control Panel) widget.</span>
+
+<span class="o">%</span><span class="k">reload_ext</span> ipython_IDV
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2b4e34d65ceb4f21988dfb1d44a3fb29", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Code-route:-You-can-also-get-a-GUI-display-of-a-set-of-IDV-bundles-using-this-example">
+<h1>Code route: You can also get a GUI display of a set of IDV bundles using <a class="reference external" href="https://github.com/Unidata/drilsdown/blob/master/UseCase_Examples/Basic_Examples/Expose_RAMADDA_content_code.ipynb">this example</a><a class="headerlink" href="#Code-route:-You-can-also-get-a-GUI-display-of-a-set-of-IDV-bundles-using-this-example" title="Permalink to this headline">¶</a></h1>
+<p>Top</p>
+<hr style="height:2px;"><div class="section" id="Operate-the-IDV-and-capture-images,-movies,-&amp;-bundles-(state-files)">
+<h2>Operate the IDV and capture images, movies, &amp; bundles (state files)<a class="headerlink" href="#Operate-the-IDV-and-capture-images,-movies,-&-bundles-(state-files)" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="1.-`Install-&lt;https://www.unidata.ucar.edu/downloads/idv/nightly/index.jsp&gt;`__-and-learn-to-operate-the-IDV:-Consider-my-IDV-intro-.ppt,-or-Unidata's-documentation-and-tutorial.">
+<h1>1. <strong>`Install &lt;https://www.unidata.ucar.edu/downloads/idv/nightly/index.jsp&gt;`__ and learn</strong> to operate the IDV: Consider my <a class="reference external" href="http://weather.rsmas.miami.edu/repository/entry/show?entryid=dd95b65c-09a5-43a5-9f44-da5243e302f4">IDV intro .ppt</a>, or <a class="reference external" href="https://www.unidata.ucar.edu/software/idv/#documentation">Unidata’s documentation</a> and <a class="reference external" href="https://www.unidata.ucar.edu/software/idv/docs/workshop/">tutorial</a>.<a class="headerlink" href="#1.-`Install-<https://www.unidata.ucar.edu/downloads/idv/nightly/index.jsp>`__-and-learn-to-operate-the-IDV:-Consider-my-IDV-intro-.ppt,-or-Unidata's-documentation-and-tutorial." title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="2.-Launch-the-IDV-on-this-machine-(from-your-Control-Panel,-or-manually).">
+<h1>2. <strong>Launch</strong> the IDV on this machine (from your Control Panel, or manually).<a class="headerlink" href="#2.-Launch-the-IDV-on-this-machine-(from-your-Control-Panel,-or-manually)." title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Linux</span> <span class="n">users</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">a</span> <span class="n">path</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Launch</span> <span class="n">IDV</span> <span class="n">button</span> <span class="n">to</span> <span class="n">work</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="3.-Display-something-meaningful-in-the-IDV.">
+<h1>3. <strong>Display</strong> something meaningful in the IDV.<a class="headerlink" href="#3.-Display-something-meaningful-in-the-IDV." title="Permalink to this headline">¶</a></h1>
+<p>Perhaps by <a class="reference external" href="https://www.unidata.ucar.edu/software/idv/docs/userguide/Bundles.html">loading a bundle</a> from our <a class="reference external" href="http://weather.rsmas.miami.edu/repository/entry/show?entryid=115a4ff0-10de-4fba-86d7-66cd42d6d8de">MapesIDVcollection</a> or some other <a class="reference external" href="https://www.unidata.ucar.edu/software/idv/docs/userguide/data/choosers/CatalogChooser.html">Catalog</a>, or uncomment the following cell for a standard example.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># If you want to load a standard illustration bundle, uncomment this command</span>
+<span class="c1">#%load_bundle https://geodesystems.com/repository/entry/get/example_grid.xidv?entryid=4728e5eb-fa89-4af8-8162-e2f66a9cd0c9</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="The-cells-below-capture-your-IDV-session's-images-and-movies">
+<h1>The cells below capture your IDV session’s images and movies<a class="headerlink" href="#The-cells-below-capture-your-IDV-session's-images-and-movies" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">reload_ext</span> ipython_IDV
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b01e7a828ebd4651b4a3eb2353eb2904", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &quot;This shows that jet streams flow above temperature gradients&quot;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Basic_Examples_Install_and_demo_13_0.png" src="../../_images/examples_Basic_Examples_Install_and_demo_13_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &quot;My great movie&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="For-exact-replicability,-capture-a-&lt;1-MB-sized-IDV-state-bundle-and-embed-it-in-this-notebook">
+<h1>For exact replicability, capture a &lt;1 MB sized IDV state bundle and embed it in this notebook<a class="headerlink" href="#For-exact-replicability,-capture-a-<1-MB-sized-IDV-state-bundle-and-embed-it-in-this-notebook" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">save_bundle</span> -embed
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4814b817fda04f59864d5a501e5faddc", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Top</p>
+  <hr style="height:2px;">
+
+
+
+
+
+
+## The path to Python<p>You can also pass data back and forth with the IDV. Currently, this involves reading and writing local netCDF files on disk.</p>
+</div>
+<div class="section" id="Reading-from-IDV:-example-is-here-with-key-lines-below,-commented-out">
+<h1>Reading from IDV: example is <a class="reference external" href="https://github.com/Unidata/drilsdown/blob/master/UseCase_Examples/Basic_Examples/Load_IDVdata_into_python.ipynb">here</a> with key lines below, commented out<a class="headerlink" href="#Reading-from-IDV:-example-is-here-with-key-lines-below,-commented-out" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ipython_IDV</span> <span class="kn">import</span> <span class="n">Idv</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Idv</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="n">display_id</span><span class="o">=</span><span class="s1">&#39;windspeed&#39;</span><span class="p">)</span>
+<span class="n">windspeed</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;WindSpeed&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">windspeed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+float32 WindSpeed(time, level, y, x)
+    units: meters/second
+    grid_mapping: lambert_conformal_conic
+unlimited dimensions:
+current shape = (2, 19, 65, 93)
+filling off
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Writing-data-into-the-IDV-session:-example-is-here">
+<h1>Writing data into the IDV session: example is <a class="reference external" href="https://github.com/Unidata/drilsdown/blob/master/UseCase_Examples/Basic_Examples/Sent_python_data_to_IDV.ipynb">here</a><a class="headerlink" href="#Writing-data-into-the-IDV-session:-example-is-here" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="using-our-new-.to_IDV()-method-in-xarray">
+<h1>using our new .to_IDV() method in xarray<a class="headerlink" href="#using-our-new-.to_IDV()-method-in-xarray" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<p>Top</p>
+  <hr style="height:2px;">
+
+
+
+
+
+
+# Publishing to a RAMADDA repository maybe `ours <http://weather.rsmas.miami.edu/repository/entry/show?entryid=9ae3aea4-a86e-4592-b686-20398e698987>`__</div>
+<div class="section" id="Everything-in-RAMADDA-is-an-entry,-with-an-entry-type.">
+<h1>Everything in RAMADDA is an <em>entry,</em> with an <em>entry type</em>.<a class="headerlink" href="#Everything-in-RAMADDA-is-an-entry,-with-an-entry-type." title="Permalink to this headline">¶</a></h1>
+<div class="section" id="1.-To-publish-an-IDV-bundle-entry-type,-with-a-quicklook-image:">
+<h2>1. To publish an <em>IDV bundle</em> entry type, with a quicklook image:<a class="headerlink" href="#1.-To-publish-an-IDV-bundle-entry-type,-with-a-quicklook-image:" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>In your IDV, install the <a class="reference external" href="https://www.unidata.ucar.edu/software/idv/docs/workshop/savingstate/Ramadda.html">RAMADDA publisher plugin</a>.</p></li>
+<li><p>Publisher–&gt;Configure like <a class="reference external" href="https://github.com/Unidata/drilsdown/blob/master/docs/_static/ConfigureIDVPublisher_screenshot.png">this</a></p></li>
+<li><p>Select the “publish” checkbox in the ipython_IDV Control Panel, <a class="reference external" href="https://github.com/Unidata/drilsdown/blob/master/docs/_static/Publish_from_IDV_example.png">and click Make Image button</a>. Then follow the dialog in the IDV session, finding a folder that you have permissions in (like the Contributed folder). An actual example created this way is <a class="reference external" href="http://weather.rsmas.miami.edu/repository/entry/show?entryid=593c2d1e-d35a-474e-8ff9-36bc68fe0a44">here</a>.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">reload_ext</span> ipython_IDV
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="2.-To-publish-an-DRILSDOWN-Case-Study-entry-type:">
+<h2>2. To publish an <em>DRILSDOWN Case Study</em> entry type:<a class="headerlink" href="#2.-To-publish-an-DRILSDOWN-Case-Study-entry-type:" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="A-DRILSDOWN-Case-Study-folder-contains-a-.ipynb-notebook,-a-.zidv-or-.xidv-IDV-bundle,-and-any-other-files.">
+<h1>A <em>DRILSDOWN Case Study</em> folder contains a .ipynb notebook, a .zidv or .xidv IDV bundle, and any other files.<a class="headerlink" href="#A-DRILSDOWN-Case-Study-folder-contains-a-.ipynb-notebook,-a-.zidv-or-.xidv-IDV-bundle,-and-any-other-files." title="Permalink to this headline">¶</a></h1>
+<p>In the future, other services could be added to this specific entry type (like composite averages of a set of identically-shaped .zidv files).</p>
+<hr class="docutils" />
+<div class="section" id="Let's-publish-this-notebook-using-Python-code-calls:">
+<h2>Let’s publish <em>this notebook</em> using Python code calls:<a class="headerlink" href="#Let's-publish-this-notebook-using-Python-code-calls:" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">publish_notebook</span> &quot;http://weather.rsmas.miami.edu/repository/entry/show?entryid=e322e383-f409-41ee-b50f-e6d3be3625c1&quot;
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Publish in the Contributed folder,</span>
+<span class="c1"># http://weather.rsmas.miami.edu/repository/entry/show?entryid=e322e383-f409-41ee-b50f-e6d3be3625c1</span>
+
+<span class="kn">from</span> <span class="nn">ipython_IDV</span> <span class="kn">import</span> <span class="n">Ramadda</span>
+<span class="n">RAM</span> <span class="o">=</span> <span class="n">Ramadda</span><span class="p">(</span><span class="s2">&quot;http://weather.rsmas.miami.edu/repository/entry/show?entryid=e322e383-f409-41ee-b50f-e6d3be3625c1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># USER and PASSWORD can be blank for that Contributed folder</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;RAMADDA_USER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;RAMADDA_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">RAM</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s1">&#39;Test_Publish&#39;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="s2">&quot;./Install_and_demo.ipynb&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Top</p>
+  <hr style="height:2px;">
+
+
+
+
+
+
+## Coding the production of Case Studies</div>
+</div>
+<div class="section" id="idv_teleport">
+<h1>idv_teleport<a class="headerlink" href="#idv_teleport" title="Permalink to this headline">¶</a></h1>
+<p><strong>idv_teleport</strong> is DRILSDOWN’s Python and command-line scripting tool to batch-generate <strong>one, or a set (folder)</strong> of data-zipped (.zidv) bundles with user-defined <em>time range</em> and <em>bounding box</em>, <a class="reference external" href="http://weather.rsmas.miami.edu/repository/entry/show?entryid=4370a4c4-0a80-4469-ba04-8861b462aad3">like this set</a>.</p>
+<p>The -h or -help argument explains its use, or <a class="reference external" href="https://github.com/suvarchal/IDV_teleport">see the repo</a>.</p>
+</div>
+<div class="section" id="ramadda_publish">
+<h1>ramadda_publish<a class="headerlink" href="#ramadda_publish" title="Permalink to this headline">¶</a></h1>
+<p><strong>ramadda_publish</strong> publishes files or folders to a RAMADDA. If your folder contains .ipynb notebooks, and is tagged as a DRILSDOWN Case Study, it will be displayed like this <a class="reference external" href="http://weather.rsmas.miami.edu/repository/entry/show?entryid=9ae3aea4-a86e-4592-b686-20398e698987">library of Case Studies</a>.</p>
+<p>Again the -h argument or <a class="reference external" href="https://github.com/suvarchal/ramadda_publish">the repo</a> explains its use.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<p>Top</p>
+<hr style="height:2px;"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Time stamp this notebook</span>
+<span class="o">!</span>date
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Wed Jun 20 15:20:13 MDT 2018
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, DRILSDOWN team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
