@@ -7,6 +7,9 @@ dependencies:
   - cartopy
   - jupyter
   - jupyterlab
+  - fastparquet
+  - psutil
+  - fsspec
   - pip:
     - ipykernel
     - ipywidgets>=7.1.0rc1
