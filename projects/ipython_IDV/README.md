@@ -9,7 +9,7 @@ Extension for IPython Notebooks to provide line and cell magics to call out to U
 
 1. After installing Jupyter/iPython notebook software [like this](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/), you will also need to install the [ipywidgets package](https://ipywidgets.readthedocs.io/en/latest/user_install.html)
 
-2. Once Jupyter/iPython is ready, copy [drilsdown.py](https://github.com/Unidata/ipython_IDV/blob/master/drilsdown.py) to your local extensions directory, _~/.ipython/extensions_
+2. Once Jupyter/iPython is ready, copy [ipython_IDV.py](https://raw.githubusercontent.com/Unidata/drilsdown/master/projects/ipython_IDV/ipython_IDV.py) to your local extensions directory, _~/.ipython/extensions_
 
 3. To run IDV commands from the Notebook, you will need to have installed [IDV version 5.4 or later](http://www.unidata.ucar.edu/software/idv/nightly/). Also, you need to set your IDV_HOME environment variable to be the IDV install directory, so that python can execute the command ${IDV_HOME}/runIDV
 
@@ -25,7 +25,7 @@ idv.monitorport = 8765
 When you launch _jupyter notebook_, and run an iPython notebook in your browser, do this in the notebook:
 
 <pre>
-%load_ext drilsdown
+%load_ext ipython_IDV
 </pre>
 
 That will give you a dashboard-style view of many of the ways the Notebook can launch and interact with The IDV, and find resources such as existing bundles, data catalogs, and more, including a link to the help section.
