@@ -726,7 +726,7 @@ class Idv:
         print("from ipython_IDV import Idv")
         print('Idv.set_path("/path to idv executable")')
         print('#e.g.:')
-        print('Idv.set_path("/Applications/IDV_5.3u1/runIDV")')
+        print('Idv.set_path("/Applications/IDV_5.6/runIDV")')
 
         print('If that fails, try:')
         print('import os')
