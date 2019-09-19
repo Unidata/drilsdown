@@ -1,7 +1,6 @@
 name: DRILSDOWN
 channels:
   - conda-forge
-  - pyviz
   - defaults
 dependencies:
   - cartopy
@@ -14,15 +13,10 @@ dependencies:
   - ipykernel
   - ipywidgets>=7.1.0rc1
   - matplotlib
-  - netCDF4
   - xarray
-  - seaborn
-  - holoviews
-  - bokeh
   - cython
   - cartopy
   - pyshp
   - pip:
     - drilsdown
-    - mseplots-pkg
     
