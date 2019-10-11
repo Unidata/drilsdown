@@ -20,9 +20,10 @@ setuptools.setup(
     long_description=open('README.md').read(),
     packages = setuptools.find_packages(),
     py_modules = ['ipython_IDV'],
-    install_requires=['ipython'],
+    install_requires=['ipython','ipywidgets','requests'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
+        'Framework :: IPython',    
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
