@@ -82,6 +82,6 @@ setup(
     },
     extras_require={
         'addons': ['numpy','netcdf4','xarray','metpy'],
-        'visual': ['pyviz'],
+        'visual': ['pyviz','geoviews'],
     }
 )
