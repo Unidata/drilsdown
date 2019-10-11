@@ -11,7 +11,7 @@ SOURCES = {
    'idv_teleport': 'projects/IDV_teleport',
    'ramadda_publish': 'projects/RAMADDA_publish',
 }
-VERSION = '2.4.9'
+VERSION = '2.4.91'
 
 def install_drilsdown_projects(sources, develop=False):
     """ Use pip to install all drilsdown projects.  """
@@ -52,6 +52,8 @@ setup(
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
     description="A collection of tools for jupyter notebooks",
+    long_description_content_type='text/markdown',
+    long_description=open('README.md').read(),
     url="https://github.com/Unidata/drilsdown",
     license="MIT",
     classifiers=[
