@@ -22,5 +22,5 @@ deploy:
   skip_cleanup: true
   local_dir: docs/_build/html
   github_token: $GITHUB_TOKEN
-target_branch: gh-pages
-committer-from-gh: true
+  target_branch: gh-pages
+  committer-from-gh: true
