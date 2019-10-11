@@ -7,9 +7,9 @@ import subprocess
 
 PACKAGE_NAME = 'drilsdown'
 SOURCES = {
-    'ipython_IDV': 'projects/ipython_IDV',
-#   'idv_teleport': 'projects/IDV_teleport',
-#   'ramadda_publish': 'projects/RAMADDA_publish',
+   'ipython_IDV': 'projects/ipython_IDV',
+   'idv_teleport': 'projects/IDV_teleport',
+   'ramadda_publish': 'projects/RAMADDA_publish',
 }
 VERSION = '2.4.9'
 
@@ -22,9 +22,9 @@ def install_drilsdown_projects(sources, develop=False):
         try:
             os.chdir(os.path.join(wd, v))
             if develop:
-                subprocess.check_call(['pip', 'install', '-e', '.'])
+                subprocess.check_call(['pip', 'install', '-e', '.']) # could be pip3 on certain platforms
             else:
-                subprocess.check_call(['pip', 'install', '.'])
+                subprocess.check_call(['pip', 'install', '.']) # could be pip3 on certain platforms
         except Exception as e:
             print("Oops, something went wrong installing", k)
             print(e)
@@ -67,12 +67,15 @@ setup(
         'ipython',
         'ipywidgets>=7.1.0rc',
         'jupyter-client',
-#        'ipython_IDV>=' + VERSION + "'", # source and a dependency??
-        'ramadda_publish>=1.3',
-        'idv_teleport>=1.6',
+#        'ipython_IDV>=' + VERSION + "'", # cannot be source and a dependency??
+        'ipython-IDV', # from pypi
+        'ramadda_publish', #from pypi
+        'idv_teleport', #from pypi
     ],
     cmdclass={
-        'install': InstallCmd,
+        #'install': InstallCmd, # do not overwrite for now to make 
+                                # pip install and python setup.py install do same.
+                                # note in class pip might be called pip3 on certain platforms
         'develop': DevelopCmd,
     },
     extras_require={
