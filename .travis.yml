@@ -17,6 +17,8 @@ script:
 -   ./ci/update_docs.sh
 deploy:
   provider: pages
+  on:
+    tags: true # only for tagged commits
   skip_cleanup: true
   local_dir: docs/_build/html
   github_token: $GITHUB_TOKEN
