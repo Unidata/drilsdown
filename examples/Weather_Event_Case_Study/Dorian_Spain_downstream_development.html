@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Global: GFS analyses at 1 degree (500mb Z and vorticity) &mdash; DRILSDOWN version 405aaf0</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.5.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Notebook from the Earthcube-supported DRILSDOWN project" href="Mozambique_Cyclone_Idai_2019_Feb-Mar.html" />
+    <link rel="prev" title="Part of this nbviewer repo" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Cumulus_friction_coefficient.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DRILSDOWN
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#replicate-the-install-and-demo-notebook-from-the-video">Replicate the Install_and_Demo notebook from the video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installguide.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installguide.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installguide.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples of DRILSDOWN projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#basic-examples">Basic Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Code_capture_IDV_multiple_movies.html">Code route to capturing movies of multiple regions in an IDV bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Code_capture_IDV_multiple_movies.html#Note:-may-take-a-few-minutes,-during-which-time-if-ties-up-your-IDV-session">Note: may take a few minutes, during which time if ties up your IDV session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Expose_RAMADDA_content.html">Code route to displaying a list of RAMADDA resouces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html">See the 0:59 YouTube video intro that uses this notebook.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#Documentation-is-here,-from-this-github-code-repo.">Documentation is here, from this github code repo.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#Sections">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#Code-route:-You-can-also-get-a-GUI-display-of-a-set-of-IDV-bundles-using-this-example">Code route: You can also get a GUI display of a set of IDV bundles using this example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#1.-Installand-learn-to-operate-the-IDV:-Consider-my-IDV-intro-.ppt,-or-Unidata’s-documentation-and-tutorial.">1. Install<strong>and learn</strong> to operate the IDV: Consider my IDV intro .ppt, or Unidata’s documentation and tutorial.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#2.-Launch-the-IDV-on-this-machine-(from-your-Control-Panel,-or-manually).">2. <strong>Launch</strong> the IDV on this machine (from your Control Panel, or manually).</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#3.-Display-something-meaningful-in-the-IDV.">3. <strong>Display</strong> something meaningful in the IDV.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#The-cells-below-capture-your-IDV-session’s-images-and-movies">The cells below capture your IDV session’s images and movies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#For-exact-replicability,-capture-a-&lt;1-MB-sized-IDV-state-bundle-and-embed-it-in-this-notebook">For exact replicability, capture a &lt;1 MB sized IDV state bundle and embed it in this notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#Reading-from-IDV:-example-is-here-with-key-lines-below,-commented-out">Reading from IDV: example is here with key lines below, commented out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#Writing-data-into-the-IDV-session:-example-is-here">Writing data into the IDV session: example is here</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#using-our-new-.to_IDV()-method-in-xarray">using our new .to_IDV() method in xarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#Everything-in-RAMADDA-is-an-entry,-with-an-entry-type.">Everything in RAMADDA is an <em>entry,</em> with an <em>entry type</em>.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#A-DRILSDOWN-Case-Study-folder-contains-a-.ipynb-notebook,-a-.zidv-or-.xidv-IDV-bundle,-and-any-other-files.">A <em>DRILSDOWN Case Study</em> folder contains a .ipynb notebook, a .zidv or .xidv IDV bundle, and any other files.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#idv_teleport">idv_teleport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Install_and_demo.html#ramadda_publish">ramadda_publish</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Load_IDVdata_into_python.html">Reading IDV data into this notebook as a netCDF variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Read_xarray_data_from_zidv.html">Extract the data from .zidv bundles into Python xarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Send_python_data_to_IDV.html">Examples: Loading data from python into IDV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Send_python_data_to_IDV.html#Example-2">Example 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Send_python_data_to_IDV.html#Example-3">Example 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/Send_python_data_to_IDV.html#Vertical-integral-–-not-working">Vertical integral – not working</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/basic_no_ui.html">You can call ipython_IDV without its widget Control Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/basic_no_ui.html#Then,-if-you-want-the-Control-Panel-interface-later,-just-call-it">Then, if you want the Control Panel interface later, just call it</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basic_Examples/xarray_from_zidv.html">Demonstrate xarray.from_zidv() method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-observed-what-do-clouds-look-like-where-they-are-acting-to-increase-the-water-vapor">Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html">Steps in the analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#make-custom-function-for-drawing-coastlines">make custom function for drawing coastlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-hover-tool-for-values">Create some tools to attach to the plots: hover tool for values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-tap-tool-calls-the-NASA-URL!">Create some tools to attach to the plots: tap tool calls the NASA URL!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Something-about-stacking-so-that-big-values-can-be-prioritized">Something about stacking so that big values can be prioritized</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-observed-how-do-watervapor-islands-last-long-over-the-dry-western-equatorial-indian-ocean">Atmospheric (observed): How do watervapor “islands” last long over the dry western-equatorial Indian Ocean?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html">Generate IDV_teleport script.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#atmospheric-complex-simulated-what-is-going-on-in-areas-where-small-scales-are-adding-energy-to-the-large-scale-flow">Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Subset-data-in-time-and-space-if-desired-before-lazy-read">Subset data in time and space if desired before lazy read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-total-fields-(U,V,W)-with-total-flux-(UW,-VW,-UV)-as-a-Geoview-(Holoview)-Image-object.">Merge total fields (U,V,W) with total flux (UW, VW, UV) as a Geoview (Holoview) Image object.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-multiple-displays-creation.-So-simple!">Geoviews multiple-displays creation. So simple!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#G5NR_utils.py-has-computations-with-7km-gridded-u,v,w-inputs">G5NR_utils.py has computations with 7km gridded u,v,w inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Make-a-Geoviews-Dataset,-and-6-Images,-for-subgrid-(prime)-terms">Make a Geoviews Dataset, and 6 Images, for subgrid (prime) terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(“eddy”)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.html">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(“eddy”)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Cumulus_friction_coefficient.html">Part of this nbviewer repo</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../examples.html#atmospheric-weather-events-case-studies">Atmospheric: Weather events case studies.</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Global: GFS analyses at 1 degree (500mb Z and vorticity)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Regional:-GEOS-5-analyses-at-1/4-degree-and-surface-stations">Regional: GEOS-5 analyses at 1/4 degree and surface stations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Sections-within-this-notebook">Sections within this notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Loop-without-annotation">Loop without annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mozambique_Cyclone_Idai_2019_Feb-Mar.html">Notebook from the Earthcube-supported DRILSDOWN project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pressure_perturbations_Cu_GigaLES.html">Notebook from the Earthcube-supported DRILSDOWN project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Z500_600dam_ridge_2018July.html">Sections within this notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Z500_600dam_ridge_2018July.html#The-500-mb-heights">The 500 mb heights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Z500_600dam_ridge_2018July.html#Tell-the-story">Tell the story</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Z500_600dam_ridge_2018July.html#Meaning:">Meaning:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples.html#oceanic-what-s-going-on-when-the-loop-current-in-the-gulf-of-mexico-splits-off-an-eddy">Oceanic: What’s going on when the Loop Current in the Gulf of Mexico splits off an eddy?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Ocean_Loop_Current/GOM_reanalyses.html">Ocean reanalyses in 2010 (Deepwater Horizon year)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Ocean_Loop_Current/README.html">Eddy shedding events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commandline.html">DRILSDOWN Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../IDV_teleport.html">IDV_teleport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../install_teleport.html">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getstarted_teleport.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demos_teleport.html">Demos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../RAMADDA_publish.html">RAMADDA Publish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../RAMADDA_publish.html#installation">Installation:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devguide.html">Infrastructure Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#releasing">Releasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devguide.html#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DRILSDOWN</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../examples.html">Examples of DRILSDOWN projects</a> &raquo;</li>
+        
+      <li>Global: GFS analyses at 1 degree (500mb Z and vorticity)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p><a class="reference external" href="https://github.com/Unidata/drilsdown/raw/master/UseCase_Examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.ipynb">Right click to download this Notebook</a>
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
+<div style="width:1000 px"><div style="float:right; width:300 px"></div><h1><p>Was Hurricane Dorian related to Spanish floods of Sept 2019?</p>
+</h1><div class="section" id="Global:-GFS-analyses-at-1-degree-(500mb-Z-and-vorticity)">
+<h1>Global: GFS analyses at 1 degree (500mb Z and vorticity)<a class="headerlink" href="#Global:-GFS-analyses-at-1-degree-(500mb-Z-and-vorticity)" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="Regional:-GEOS-5-analyses-at-1/4-degree-and-surface-stations">
+<h1>Regional: GEOS-5 analyses at 1/4 degree and surface stations<a class="headerlink" href="#Regional:-GEOS-5-analyses-at-1/4-degree-and-surface-stations" title="Permalink to this headline">¶</a></h1>
+<hr style="height:2px;"><div class="section" id="Notebook-from-the-Earthcube-supported-DRILSDOWN-project">
+<h2>Notebook from the Earthcube-supported DRILSDOWN project<a class="headerlink" href="#Notebook-from-the-Earthcube-supported-DRILSDOWN-project" title="Permalink to this headline">¶</a></h2>
+<p>This is a DRILSDOWN project notebook, capturing images from an IDV analysis. To reproduce or operate this Jupyter notebook, you need to have installed The IDV, Anaconda, and set up a few necessary things for the DRILSDOWN package, as explained at <a class="reference external" href="https://unidata.github.io/drilsdown/quickstart">https://unidata.github.io/drilsdown/quickstart</a></p>
+<hr style="height:2px;"></div>
+</div>
+<div class="section" id="Sections-within-this-notebook">
+<h1>Sections within this notebook<a class="headerlink" href="#Sections-within-this-notebook" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>The story, with Web and journalism links</p></li>
+<li><p>The meteorology: large-scale 2D flow evolution</p></li>
+<li><p>The meteorology: close up in Spain (GEOS-5 analysis and surface data)</p></li>
+</ol>
+<div style="clear:both"></div></div><hr style="height:2px;"><div class="alert alert-success"><p><strong>The story, with Web and journalism links</strong>:</p>
+<ul><li><p>Terrible floods in eastern <a class="reference external" href="https://www.bbc.com/news/av/world-europe-49680384/deadly-floods-hit-spain">Spain</a> after hurricane <a class="reference external" href="https://www.bbc.com/news/world-us-canada-49624138">Dorian hit Canada</a>. Any connection?</p>
+</li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div><hr style="height:2px;"><div class="alert alert-success"><p><strong>The meteorology, with IDV images</strong>:</p>
+<ul><li><p><strong>Dorian merges with extratropical vort500</strong> Sept. 8 00-12Z</p>
+</li><li><p><strong>Downstream ridge + trof amplify</strong></p>
+</li><li><p><strong>Trough cuts off Sept 10 0-12Z</strong> into Mediterranean latitude</p>
+</li><li><p><strong>Cutoff becomes stationary</strong> as it + ridge rotate into blocking configuration</p>
+</li><li><p><strong>Floods</strong> on Spain’s east coast with onshore winds, cool-core/lifting effects</p>
+</li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">reload_ext</span> ipython_IDV
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9a450db7e59f4dcaaa834862eb7ced2c", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Starting IDV: /Applications/IDV_5.6u1/runIDV
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Loop-without-annotation">
+<h1>Loop without annotation<a class="headerlink" href="#Loop-without-annotation" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;Loop without annotations&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_6_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_6_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &quot;DORIAN&#39;s midlatitude merging. Prior trof over Europe deep but sweeps out.&quot;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_7_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_7_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;post-Diorian trof builds ridge builds trof: downstream development?&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_8_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_8_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_image</span> -capture legend -caption &#39;This trof cuts off and retrogrades under ridge to its west&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_9_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_9_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_image</span> -capture legend -caption &#39;Blocking-like dynamics of mutual advection by opposite vortices&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_10_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_10_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;Five 12-hour frames with onshore flow in Spain&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_11_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_11_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;Absolute vorticity roughly conserved down from Ireland? Sort of&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_12_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_12_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;Relative vorticity certainly increases down from Ireland&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_13_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_13_0.png" />
+</div>
+</div>
+<hr style="height:2px;"><p>Top</p>
+<hr style="height:2px;"><p>## The meteorology: closer view of Spain and North Africa</p>
+<div class="admonition note">
+<p>Note: This IDV bundle uses GEOS-5 data at 1/4 degree, because it doesn’t have GFS’s longitude seam at 0E. dods://opendap.nccs.nasa.gov/dods/GEOS-5/fp/0.25_deg/assim/inst3_2d_asm_Nx</p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_image</span> -capture legend -caption &#39;Some vapor drawn across Sahara by long-persisting v wind. Topography in contours&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_17_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_17_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;Surface stations, FWIW&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_18_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_18_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">make_movie</span> -capture legend -caption &#39;800mb back trajectories, and Z850, with column vapor field&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_19_0.png" src="../../_images/examples_Weather_Event_Case_Study_Dorian_Spain_downstream_development_19_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>date
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sun Sep 15 15:45:29 EDT 2019
+</pre></div></div>
+</div>
+<p>Top</p>
+<hr style="height:2px;"></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Mozambique_Cyclone_Idai_2019_Feb-Mar.html" class="btn btn-neutral float-right" title="Notebook from the Earthcube-supported DRILSDOWN project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Cumulus_friction_coefficient.html" class="btn btn-neutral float-left" title="Part of this nbviewer repo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, DRILSDOWN team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Use cases &mdash; DRILSDOWN 0.2.1 documentation</title>
+  <title>Use cases &mdash; DRILSDOWN version 405aaf0</title>
   
 
   
@@ -25,8 +25,9 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -100,11 +101,39 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples of DRILSDOWN projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-observed-what-do-clouds-look-like-where-they-are-acting-to-increase-the-water-vapor">Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html">Steps in the analysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Open-the-daily-(v4)-MIMIC-AT-dataset">Open the daily (v4) MIMIC-AT dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-examples">Basic Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Code_capture_IDV_multiple_movies.html">Code route to capturing movies of multiple regions in an IDV bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Code_capture_IDV_multiple_movies.html#Note:-may-take-a-few-minutes,-during-which-time-if-ties-up-your-IDV-session">Note: may take a few minutes, during which time if ties up your IDV session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Expose_RAMADDA_content.html">Code route to displaying a list of RAMADDA resouces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html">See the 0:59 YouTube video intro that uses this notebook.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#Documentation-is-here,-from-this-github-code-repo.">Documentation is here, from this github code repo.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#Sections">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#Code-route:-You-can-also-get-a-GUI-display-of-a-set-of-IDV-bundles-using-this-example">Code route: You can also get a GUI display of a set of IDV bundles using this example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#1.-Installand-learn-to-operate-the-IDV:-Consider-my-IDV-intro-.ppt,-or-Unidata’s-documentation-and-tutorial.">1. Install<strong>and learn</strong> to operate the IDV: Consider my IDV intro .ppt, or Unidata’s documentation and tutorial.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#2.-Launch-the-IDV-on-this-machine-(from-your-Control-Panel,-or-manually).">2. <strong>Launch</strong> the IDV on this machine (from your Control Panel, or manually).</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#3.-Display-something-meaningful-in-the-IDV.">3. <strong>Display</strong> something meaningful in the IDV.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#The-cells-below-capture-your-IDV-session’s-images-and-movies">The cells below capture your IDV session’s images and movies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#For-exact-replicability,-capture-a-&lt;1-MB-sized-IDV-state-bundle-and-embed-it-in-this-notebook">For exact replicability, capture a &lt;1 MB sized IDV state bundle and embed it in this notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#Reading-from-IDV:-example-is-here-with-key-lines-below,-commented-out">Reading from IDV: example is here with key lines below, commented out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#Writing-data-into-the-IDV-session:-example-is-here">Writing data into the IDV session: example is here</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#using-our-new-.to_IDV()-method-in-xarray">using our new .to_IDV() method in xarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#Everything-in-RAMADDA-is-an-entry,-with-an-entry-type.">Everything in RAMADDA is an <em>entry,</em> with an <em>entry type</em>.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#A-DRILSDOWN-Case-Study-folder-contains-a-.ipynb-notebook,-a-.zidv-or-.xidv-IDV-bundle,-and-any-other-files.">A <em>DRILSDOWN Case Study</em> folder contains a .ipynb notebook, a .zidv or .xidv IDV bundle, and any other files.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#idv_teleport">idv_teleport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Install_and_demo.html#ramadda_publish">ramadda_publish</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Load_IDVdata_into_python.html">Reading IDV data into this notebook as a netCDF variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Read_xarray_data_from_zidv.html">Extract the data from .zidv bundles into Python xarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Send_python_data_to_IDV.html">Examples: Loading data from python into IDV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Send_python_data_to_IDV.html#Example-2">Example 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Send_python_data_to_IDV.html#Example-3">Example 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/Send_python_data_to_IDV.html#Vertical-integral-–-not-working">Vertical integral – not working</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/basic_no_ui.html">You can call ipython_IDV without its widget Control Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/basic_no_ui.html#Then,-if-you-want-the-Control-Panel-interface-later,-just-call-it">Then, if you want the Control Panel interface later, just call it</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Basic_Examples/xarray_from_zidv.html">Demonstrate xarray.from_zidv() method</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-observed-what-do-clouds-look-like-where-they-are-acting-to-increase-the-water-vapor">Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html">Steps in the analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#make-custom-function-for-drawing-coastlines">make custom function for drawing coastlines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-hover-tool-for-values">Create some tools to attach to the plots: hover tool for values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/WaterVaporTendencies/MIMIC_AT_2deg_URLs_clickmap.html#Create-some-tools-to-attach-to-the-plots:-tap-tool-calls-the-NASA-URL!">Create some tools to attach to the plots: tap tool calls the NASA URL!</a></li>
@@ -112,70 +141,54 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-observed-how-do-watervapor-islands-last-long-over-the-dry-western-equatorial-indian-ocean">Atmospheric (observed): How do watervapor “islands” last long over the dry western-equatorial Indian Ocean?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html">Generate IDV_teleport script.</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Teleport-script-needs-a-centered-date-and-time-delta-to-teleport,-so-calculate-center-of-the-state-and-timedelta">Teleport script needs a centered date and time delta to teleport, so calculate center of the state and timedelta</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html#Generate-teleport-script-by-applying-a-function-to-every-row-of-the-dataframe-and-save-it">Generate teleport script by applying a function to every row of the dataframe and save it</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/INDIANOCEAN_WATERVAPOR_ISLANDS/generate_teleport_script.html">Generate IDV_teleport script.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-complex-simulated-what-is-going-on-in-areas-where-small-scales-are-adding-energy-to-the-large-scale-flow">Atmospheric (complex, simulated): What is going on in areas where small scales are adding energy to the large-scale flow?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html">Sections</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Simple-2-year-mean-map">Simple 2-year mean map</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html#Results!">Results!</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html">Sections</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-is-an-Earth-specific-Holoviews.-It-displays-1-2-dimensions-of-a-multi-dimensional-object,-and-the-other-dims-become-interactive-sliders.">Geoviews is an Earth-specific Holoviews. It displays 1-2 dimensions of a multi-dimensional object, and the other dims become interactive sliders.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#xarray-is-the-netCDF-friendly-front-end-for-reading-in-the-data.-Cartopy-has-the-background-maps.">xarray is the netCDF-friendly front end for reading in the data. Cartopy has the background maps.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bokeh-is-a-plotting-package-with-pan-zoom-interactivity">Bokeh is a plotting package with pan-zoom interactivity</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.html">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html">Sections</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Subset-data-in-time-and-space-if-desired-before-lazy-read">Subset data in time and space if desired before lazy read</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Use-.sel(-)-to-select-by-coordinate-values,-or-.isel(-)-to-select-by-index.-Use-slice(value1,value2)-to-select-ranges.">Use .sel( ) to select by coordinate values, or .isel( ) to select by index. Use slice(value1,value2) to select ranges.</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Subset-data-in-time-and-space-if-desired-before-lazy-read">Subset data in time and space if desired before lazy read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-total-fields-(U,V,W)-with-total-flux-(UW,-VW,-UV)-as-a-Geoview-(Holoview)-Image-object.">Merge total fields (U,V,W) with total flux (UW, VW, UV) as a Geoview (Holoview) Image object.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-multiple-displays-creation.-So-simple!">Geoviews multiple-displays creation. So simple!</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#G5NR_utils.py-has-computations-with-7km-gridded-u,v,w-inputs">G5NR_utils.py has computations with 7km gridded u,v,w inputs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#(90,45)-is-the-4-degree-filter-scale-(divides-the-world-into-90x45-arrays)">(90,45) is the 4 degree filter scale (divides the world into 90x45 arrays)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Merge-the-prime-terms,-and-their-products,-back-into-the-Subgrid-xarray-dataset">Merge the prime terms, and their products, back into the Subgrid xarray dataset</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#G5NR_utils.py-has-computations-with-7km-gridded-u,v,w-inputs">G5NR_utils.py has computations with 7km gridded u,v,w inputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Make-a-Geoviews-Dataset,-and-6-Images,-for-subgrid-(prime)-terms">Make a Geoviews Dataset, and 6 Images, for subgrid (prime) terms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(&quot;eddy&quot;)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Resolution-as-a-slider-(or-menu)">Resolution as a slider (or menu)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Should-match-the-case-selection-criterion-(e.g.-positive-SKEdot-at-center)">Should match the case selection criterion (e.g. positive SKEdot at center)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Bleeding-edge-in-10/17,-needed-pip-install---upgrade-git+https://github.com/ioam/holoviews.git">Bleeding edge in 10/17, needed <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">git+https://github.com/ioam/holoviews.git</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(“eddy”)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.html">Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.html#Open-your-3D-data-set-for-a-case,-as-an-xarray-dataset-object">Open your 3D data set for a case, as an xarray <em>dataset</em> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.html#Geoviews-display-for-the-subgrid-scale-filtered-(“eddy”)-products:">Geoviews display for the subgrid scale filtered (“eddy”) products:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Cumulus_friction_coefficient.html">Part of this nbviewer repo</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#atmospheric-weather-events-case-studies">Atmospheric: Weather events case studies.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.html">Global: GFS analyses at 1 degree (500mb Z and vorticity)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.html#Regional:-GEOS-5-analyses-at-1/4-degree-and-surface-stations">Regional: GEOS-5 analyses at 1/4 degree and surface stations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.html#Sections-within-this-notebook">Sections within this notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Dorian_Spain_downstream_development.html#Loop-without-annotation">Loop without annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Mozambique_Cyclone_Idai_2019_Feb-Mar.html">Notebook from the Earthcube-supported DRILSDOWN project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Pressure_perturbations_Cu_GigaLES.html">Notebook from the Earthcube-supported DRILSDOWN project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Z500_600dam_ridge_2018July.html">Sections within this notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Z500_600dam_ridge_2018July.html#The-500-mb-heights">The 500 mb heights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Z500_600dam_ridge_2018July.html#Tell-the-story">Tell the story</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Weather_Event_Case_Study/Z500_600dam_ridge_2018July.html#Meaning:">Meaning:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#oceanic-what-s-going-on-when-the-loop-current-in-the-gulf-of-mexico-splits-off-an-eddy">Oceanic: What’s going on when the Loop Current in the Gulf of Mexico splits off an eddy?</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="examples.html#oceanic-what-s-going-on-when-the-loop-current-in-the-gulf-of-mexico-splits-off-an-eddy">Oceanic: What’s going on when the Loop Current in the Gulf of Mexico splits off an eddy?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/Ocean_Loop_Current/GOM_reanalyses.html">Ocean reanalyses in 2010 (Deepwater Horizon year)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Ocean_Loop_Current/README.html">Eddy shedding events</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="commandline.html">DRILSDOWN Command Line Tools</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="IDV_teleport.html">IDV_teleport</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install_teleport.html">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="install_teleport.html#requirements">Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="getstarted_teleport.html">Getting Started</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="getstarted_teleport.html#shell">Shell</a></li>
-<li class="toctree-l4"><a class="reference internal" href="getstarted_teleport.html#jupyter-notebook-python">Jupyter Notebook/Python</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="install_teleport.html">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstarted_teleport.html">Getting Started</a></li>
 <li class="toctree-l3"><a class="reference internal" href="demos_teleport.html">Demos</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="RAMADDA_publish.html">RAMADDA Publish</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="RAMADDA_publish.html#installation">Installation:</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Use cases</a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="reference internal" href="RAMADDA_publish.html#installation">Installation:</a></li>
 </ul>
 </li>
 </ul>
@@ -259,13 +272,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -362,7 +375,7 @@ To publish a file named <code class="docutils literal notranslate"><span class="
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, DRILSDOWN team
+        &copy; Copyright 2019, DRILSDOWN team
 
     </p>
   </div>
@@ -381,7 +394,7 @@ To publish a file named <code class="docutils literal notranslate"><span class="
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.Navigation.enable(false);
       });
   </script>
 
