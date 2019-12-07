@@ -132,6 +132,10 @@ html_theme = 'sphinx_rtd_theme'
 # html_static_path = ['_static']
 htmlhelp_basename = 'DRILSDOWNdoc'
 
+# -- Options for HTML output ----------------------------------------------
+
+html_title = project + ' version ' + release
+
 
 
 # -- Options for LaTeX output ---------------------------------------------
