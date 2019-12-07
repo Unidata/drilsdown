@@ -1,5 +1,5 @@
 DRILSDOWN Project (code repo `here <https://github.com/Unidata/drilsdown>`_)
-==================
+============================================================================
 
 DRILSDOWN is a suite of software tools for geo-science (especially meteorology and oceanography). 
 
