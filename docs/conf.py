@@ -205,4 +205,6 @@ epub_copyright = copyright
 
 # Options are theme-specific and customize the look and feel of the theme.
 html_theme_options = {
-'collapse_navigation': False}
+'collapse_navigation': False,
+'navigation_depth': 3,
+'sticky_navigation': False}
