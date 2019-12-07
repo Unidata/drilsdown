@@ -2,10 +2,15 @@
 Examples of DRILSDOWN projects
 ==============================
 
+Basic Examples
+--------------
+
 .. toctree::
    :maxdepth: 1
-   :hidden:
    :glob:
+ 
+   examples/Basic_Examples/*
+
 
 Atmospheric (observed): What do clouds look like where they are acting to increase the water vapor?
 ---------------------------------------------------------------------------------------------------
@@ -57,7 +62,16 @@ These headers within two of the .ipynb notebooks in examples/MomentumFlux_in_Glo
 
    examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/SKEdot_climatology_and_timeseries.ipynb
    examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Planview_eddyflux_SKEdot_interactiveplots.ipynb
+   examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Profile_eddyflux_SKEdot_interactiveplots.ipynb   
+   examples/MomentumFlux_in_GlobalCloudmodel/notebooks_as_of_2017-July10/Cumulus_friction_coefficient.ipynb               
 
+Atmospheric: Weather events case studies.
+-----------------------------------------
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   
+   examples/Weather_Event_Case_Study/*
 
 Oceanic: What's going on when the Loop Current in the Gulf of Mexico splits off an eddy?
 ----------------------------------------------------------------------------------------
@@ -65,3 +79,6 @@ Oceanic: What's going on when the Loop Current in the Gulf of Mexico splits off 
 .. toctree::
    :maxdepth: 2
    :glob:
+    
+   examples/Ocean_Loop_Current/*
+
