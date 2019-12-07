@@ -106,13 +106,24 @@ release = '0.2.1'
 master_doc = 'index'
 # General information about the project.
 project = 'DRILSDOWN'
-copyright = '2017, DRILSDOWN team'
+copyright = '2019, DRILSDOWN team'
 author = 'DRILSDOWN team'
 
 language = None
 exclude_patterns = ['*.txt','*.md','_build', '**.ipynb_checkpoints','Thumbs.db','.DS_Store']
 pygments_style = 'sphinx'
 todo_include_todos = False
+
+# -- Get version information and date from Git ----------------------------
+
+try:
+    from subprocess import check_output
+    release = check_output(['git', 'describe', '--tags', '--always'])
+    release = release.decode().strip()
+    today = check_output(['git', 'show', '-s', '--format=%ad', '--date=short'])
+    today = today.decode().strip()
+except Exception:
+    today = '<unknown date>'
 
 
 # -- html --------------------------
