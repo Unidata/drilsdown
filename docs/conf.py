@@ -26,9 +26,6 @@ bash('make_links.sh')
 # -- source files and parsers -----------------------------------
 
 source_suffix = ['.rst', '.ipynb','.md'] 
-source_parsers = {
-    '.md': recommonmark.parser.CommonMarkParser,
-}
 
 
 # -- Sphinx extensions and configuration ------------------------
@@ -40,6 +37,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
+    'recommonmark'
 ]
 
 nbsphinx_allow_errors = True   # exception ipstruct.py ipython_genutils
@@ -89,7 +87,7 @@ nbsphinx_prolog = r"""
 #nbsphinx_kernel_name = 'python3'
 
 # List of arguments to be passed to the kernel that executes the notebooks:
-#nbsphinx_execute_arguments = ['--InlineBackend.figure_formats={"png", "pdf"}']
+#nbsphinx_execute_arguments = ['--InlineBackend.figure_formats={"svg", "pdf"}']
 
 
 # -- General information -------
