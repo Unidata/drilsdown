@@ -52,12 +52,10 @@ nbsphinx_prolog = r"""
         :format: html
 
     .. nbinfo::
+        Click here to launch an
+        interactive online version of this notebook:
+        :raw-html:`<a href="https://weather.rsmas.miami.edu/notebook/gh/unidata/drilsdown/master?filepath=UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}"><img alt="nbapp badge" src="https://img.shields.io/badge/Try%20it!-online-orange" style="vertical-align:text-bottom"></a>`
 
-        `Right click to download this Notebook`__
-        Interactive online version:
-        :raw-html:`<a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
-
-    __ https://github.com/Unidata/drilsdown/raw/master/UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}
        
 
 .. raw:: latex
