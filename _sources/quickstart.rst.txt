@@ -5,9 +5,9 @@ Quickstart Guide
 These steps are comprehensive for the newcomer.
 Users familiar with Jupyter, Conda or other parts can see their shortcuts.
 
-------------------------------------------------------
+---------------------
 Replicate the Install_and_Demo notebook from the video
-------------------------------------------------------
+---------------------
 0. Watch the 1-minute introductory `Video <https://youtu.be/JQ0kBy472FU>`_
 
 1. Install The IDV `here <https://www.unidata.ucar.edu/downloads/idv/nightly/index.jsp>`_.
