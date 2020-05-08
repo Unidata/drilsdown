@@ -26,9 +26,6 @@ bash('make_links.sh')
 # -- source files and parsers -----------------------------------
 
 source_suffix = ['.rst', '.ipynb','.md'] 
-source_parsers = {
-    '.md': recommonmark.parser.CommonMarkParser,
-}
 
 
 # -- Sphinx extensions and configuration ------------------------
@@ -39,8 +36,8 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'nbsphinx',
-    'jupyter_sphinx.embed_widgets',
     'IPython.sphinxext.ipython_console_highlighting',
+    'recommonmark'
 ]
 
 nbsphinx_allow_errors = True   # exception ipstruct.py ipython_genutils
@@ -55,12 +52,10 @@ nbsphinx_prolog = r"""
         :format: html
 
     .. nbinfo::
+        Click here to launch an
+        interactive online version of this notebook:
+        :raw-html:`<a href="https://weather.rsmas.miami.edu/notebook/gh/unidata/drilsdown/master?filepath=UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}"><img alt="nbapp badge" src="https://img.shields.io/badge/Try%20it!-online-orange" style="vertical-align:text-bottom"></a>`
 
-        `Right click to download this Notebook`__
-        Interactive online version:
-        :raw-html:`<a href="https://mybinder.org/v2/gh/suvarchal/drilsdown/master?filepath=UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
-
-    __ https://github.com/Unidata/drilsdown/raw/master/UseCase_Examples/{{ '/'.join(docname.split('/')[2:]) }}
        
 
 .. raw:: latex
@@ -90,7 +85,7 @@ nbsphinx_prolog = r"""
 #nbsphinx_kernel_name = 'python3'
 
 # List of arguments to be passed to the kernel that executes the notebooks:
-#nbsphinx_execute_arguments = ['--InlineBackend.figure_formats={"png", "pdf"}']
+#nbsphinx_execute_arguments = ['--InlineBackend.figure_formats={"svg", "pdf"}']
 
 
 # -- General information -------
@@ -106,7 +101,7 @@ release = '0.2.1'
 master_doc = 'index'
 # General information about the project.
 project = 'DRILSDOWN'
-copyright = '2017, DRILSDOWN team'
+copyright = '2019, DRILSDOWN team'
 author = 'DRILSDOWN team'
 
 language = None
@@ -114,12 +109,27 @@ exclude_patterns = ['*.txt','*.md','_build', '**.ipynb_checkpoints','Thumbs.db',
 pygments_style = 'sphinx'
 todo_include_todos = False
 
+# -- Get version information and date from Git ----------------------------
+
+try:
+    from subprocess import check_output
+    release = check_output(['git', 'describe', '--tags', '--always'])
+    release = release.decode().strip()
+    today = check_output(['git', 'show', '-s', '--format=%ad', '--date=short'])
+    today = today.decode().strip()
+except Exception:
+    today = '<unknown date>'
+
 
 # -- html --------------------------
 html_theme = 'sphinx_rtd_theme'
 
 # html_static_path = ['_static']
 htmlhelp_basename = 'DRILSDOWNdoc'
+
+# -- Options for HTML output ----------------------------------------------
+
+html_title = project + ' version ' + release
 
 
 
@@ -190,4 +200,6 @@ epub_copyright = copyright
 
 # Options are theme-specific and customize the look and feel of the theme.
 html_theme_options = {
-'collapse_navigation': False}
+'collapse_navigation': False,
+'navigation_depth': 3,
+'sticky_navigation': False}

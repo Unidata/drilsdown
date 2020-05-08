@@ -9,7 +9,7 @@
 
 
 
-import sys
+import platform
 import os
 import os.path
 import re
@@ -41,7 +41,7 @@ from xml.etree.ElementTree import ParseError
 from glob import glob
 from os import listdir
 from os.path import isfile, join
-import IPython 
+import IPython
 from IPython.lib import kernel
 import shlex
 from io import BytesIO
@@ -56,21 +56,21 @@ except ImportError:
     from urllib import urlopen, urlencode
 import requests
 
-try: 
+try:
     import xarray
     def to_IDV(data, filename = None):
         """Load a xarray variable or dataset to load into IDV"""
         if filename:
             data.to_netcdf(filename)
             load_data(filename)
-        else: 
+        else:
             with NamedTemporaryFile(suffix='.nc') as f:
                 data.to_netcdf(f.name)
                 load_data(f.name)
-                
+
     xarray.DataArray.to_IDV=to_IDV
     xarray.Dataset.to_IDV=to_IDV
-    
+
     def from_zidv(fileorurl=None,outdir=None):
         """Loading data from IDV zip file '.zidv' as xarray Dataset
         fileorurl can be a local .zidv file or a remote url.
@@ -96,7 +96,7 @@ try:
 
 
 except ImportError:
-    print('xarray package is missing, functionality related to loading data' 
+    print('xarray package is missing, functionality related to loading data'
                          'from xarray into IDV will not be available')
 
 
@@ -181,7 +181,7 @@ def create_case_study(line, cell=None):
 
 def load_data(line, cell=None, name=None):
     Idv.load_data(line, name)
-    
+
 
 def load_bundle(line, cell=None):
     if line is None or line == "":
@@ -196,7 +196,7 @@ def load_bundle(line, cell=None):
 
 
 def make_image(line, cell=None):
-    
+
 #    toks = line.split(" ")
     toks = shlex.split(line);
     skip = 0
@@ -229,7 +229,7 @@ def make_image(line, cell=None):
             print("Unknown argument:" + tok)
             print("%make_image <-display displayid> <-caption caption> <-publish>")
             return
-        
+
     DrilsdownUI.do_display(Idv.make_image(publish, caption, display_id=display_id, display=False, capture=cptr))
 
 
@@ -400,7 +400,7 @@ class DrilsdownUI:
 
         list_btn = DrilsdownUI.make_button("List", DrilsdownUI.list_repository_clicked)
         list_btn.entry = None
-    
+
         cbx = widgets.Checkbox(
             value=False,
             description='Publish',
@@ -635,7 +635,7 @@ class Idv:
             if base_url is not None:
                 return urlopen(base_url + Idv.cmd_ping).read()
             return None;
-        except  Exception as some_exception: 
+        except  Exception as some_exception:
 ##            print("err:" + repr(some_exception));
             return None
 
@@ -690,7 +690,8 @@ class Idv:
                 return
             path = os.path.join(idvDir, "runIDV")
             # check for windows
-            if not os.path.isfile(path):
+            # if not os.path.isfile(path): # old way
+            if 'indow' in platform.system():
                 path = os.path.join(idvDir,"runIDV.bat")
             if not os.path.isfile(path):
                 print("Could not find an executable IDV script in:")
@@ -702,7 +703,7 @@ class Idv:
                 print("IDV exectuable does not exist:")
                 print(path)
                 return
-                 
+
         print("Starting IDV: " + path)
         cwd = os.path.dirname(path)
         subprocess.Popen([path], cwd=cwd)
@@ -725,7 +726,7 @@ class Idv:
         print("from ipython_IDV import Idv")
         print('Idv.set_path("/path to idv executable")')
         print('#e.g.:')
-        print('Idv.set_path("/Applications/IDV_5.3u1/runIDV")')
+        print('Idv.set_path("/Applications/IDV_5.6/runIDV")')
 
         print('If that fails, try:')
         print('import os')
@@ -862,7 +863,7 @@ class Idv:
             filename = "idv.xidv"
         if publish:
             extra += ' publish="true" '
-            
+
         if not os.path.isabs(filename):
             filename =  os.path.join(os.getcwd() ,filename);
         isl = '<isl><save file="' + filename + '"' + extra + '/></isl>'
@@ -976,7 +977,7 @@ class Idv:
 
         if quality is not None:
             extra += ' quality="' + quality +'" '
-            
+
         with NamedTemporaryFile(suffix='.gif', delete=False) as f:
             isl += '<' + what + '  file="' + f.name + '"' \
                   + extra + '>' + extra2 + '</' + what + '></isl>'
@@ -990,7 +991,7 @@ class Idv:
                     print("Publication successful " + "URL: " + result.get_results())
                 else:
                     print("Publication failed");
-                    
+
             if self_publish:
                 ramadda.publish(name, file=f.name, parent=parent)
             data = open(f.name, "rb").read()
@@ -1012,7 +1013,7 @@ class Idv:
         if display_id is not None:
             extra += ' display="' + display_id + '" '
         if filename is  None:
-            f = NamedTemporaryFile(suffix='.' + suffix, delete=False) 
+            f = NamedTemporaryFile(suffix='.' + suffix, delete=False)
             filename = f.name;
         isl = '<isl><export what="netcdf" file="' + filename + '"' \
             + extra + '/></isl>'
@@ -1183,7 +1184,7 @@ class LocalFiles(Repository):
                     if type == "type_idv_bundle":
                         if not file_mixed_case.endswith(".xidv") and not file_mixed_case.endswith(".zidv"):
                             ok = False
-                        
+
                     if type == "type_drilsdown_casestudy":
                         if not os.path.isdir(dir + "/" + file):
                             ok = False
@@ -1257,7 +1258,7 @@ class TDS(Repository):
             url = urljoin(url, href)
             entries.append(TDSCatalogEntry(self, url, title))
             return
-            
+
         return
 
     def find_opendap_services(self, parentService, element, map):
@@ -1593,7 +1594,3 @@ if 'drilsdown.showui'  in os.environ:
 
 if show_ui:
     make_ui("")
-
-        
-
-

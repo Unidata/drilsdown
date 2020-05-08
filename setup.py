@@ -7,11 +7,11 @@ import subprocess
 
 PACKAGE_NAME = 'drilsdown'
 SOURCES = {
-    'ipython_IDV': 'projects/ipython_IDV',
-    'idv_teleport': 'projects/IDV_teleport/bin',
-    'ramadda_publish': 'projects/RAMADDA_publish/bin',
+   'ipython_IDV': 'projects/ipython_IDV',
+   'idv_teleport': 'projects/IDV_teleport',
+   'ramadda_publish': 'projects/RAMADDA_publish',
 }
-VERSION = '2.4.8'
+VERSION = '2.4.91'
 
 def install_drilsdown_projects(sources, develop=False):
     """ Use pip to install all drilsdown projects.  """
@@ -22,9 +22,9 @@ def install_drilsdown_projects(sources, develop=False):
         try:
             os.chdir(os.path.join(wd, v))
             if develop:
-                subprocess.check_call(['pip', 'install', '-e', '.'])
+                subprocess.check_call(['pip', 'install', '-e', '.']) # could be pip3 on certain platforms
             else:
-                subprocess.check_call(['pip', 'install', '.'])
+                subprocess.check_call(['pip', 'install', '.']) # could be pip3 on certain platforms
         except Exception as e:
             print("Oops, something went wrong installing", k)
             print(e)
@@ -52,6 +52,8 @@ setup(
     author="Drilsdown team",
     author_email="drilsdown@unidata.ucar.edu",
     description="A collection of tools for jupyter notebooks",
+    long_description_content_type='text/markdown',
+    long_description=open('README.md').read(),
     url="https://github.com/Unidata/drilsdown",
     license="MIT",
     classifiers=[
@@ -63,22 +65,23 @@ setup(
     install_requires=[
         'future',
         'six',
-        'ipython_IDV>=' + VERSION + "'",
-        'ramadda_publish>=1.3',
-        'idv_teleport>=1.6',
-        'ipykernel',
-        'jupyter-client',
+        'requests',
+        'ipython',
         'ipywidgets>=7.1.0rc',
-        'pyviz',
-        'xarray',
-        'holoviews',
-        'cartopy',
-        'geoviews',
-        'MetPy'    
+        'jupyter-client',
+#        'ipython_IDV>=' + VERSION + "'", # cannot be source and a dependency??
+        'ipython-IDV', # from pypi
+        'ramadda_publish', #from pypi
+        'idv_teleport', #from pypi
     ],
     cmdclass={
-        'install': InstallCmd,
+        #'install': InstallCmd, # do not overwrite for now to make 
+                                # pip install and python setup.py install do same.
+                                # note in class pip might be called pip3 on certain platforms
         'develop': DevelopCmd,
     },
-
+    extras_require={
+        'addons': ['numpy','netcdf4','xarray','metpy'],
+        'visual': ['pyviz','geoviews'],
+    }
 )
